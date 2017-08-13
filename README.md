@@ -7,3 +7,5 @@ Ontology Driven Dementia Care Information System (ISIT990 Final Year Project 201
   * Go to the ODDCIS folder inside this repository
   * do a `dotnet restore` and `dotnet run`
   * OR if you open the sln file in Visual Studio 15.3 Preview, simply run the project
+  
+Continously Deployed to http://isit990.azurewebsites.net/
