@@ -15,7 +15,7 @@ export class Layout extends React.Component<LayoutProps, {}> {
                 <NavMenu />
             </header>
             <main>
-                <div className="content">
+                <div className="container content">
                     {this.props.children}
                 </div>
             </main>

@@ -8,11 +8,6 @@ footer {
     line-height: $footer-height;
     background-color: map-get($theme-colors, primary);
     vertical-align: middle;
-    p {
-        text-align: center;
-        margin: 0px;
-        color: white;
-    }
 }
 
 main {

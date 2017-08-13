@@ -1,0 +1,10 @@
+.search-form {
+        margin: 0 auto;
+        input {
+            margin-top: 5px;
+            margin-left: 5px;
+            &.search-input {
+                width: 20rem
+            }
+        }
+    }

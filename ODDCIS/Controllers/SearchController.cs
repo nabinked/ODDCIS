@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace ODDCIS.Controllers
 {
-    [Route("[controller]")]
+    [Route("/api/[controller]")]
     public class SearchController : BaseController
     {
         [HttpGet("")]
