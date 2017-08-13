@@ -7,8 +7,10 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace ODDCIS.Controllers
 {
-    public class HomeController : Controller
+    [Route("[controller]")]
+    public class HomeController : BaseController
     {
+        [HttpGet("/")]
         public IActionResult Index()
         {
             return View();

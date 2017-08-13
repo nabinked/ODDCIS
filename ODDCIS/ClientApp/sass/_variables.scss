@@ -1,0 +1,13 @@
+//bootstrap variables
+@import '../../node_modules/bootstrap/scss/functions';
+@import '../../node_modules/bootstrap/scss/variables';
+//App variables
+$header-height:3rem;
+$footer-height:2rem;
+$navbar-height:3rem;
+//Bootstrap override variables
+$font-family-sans-serif: "Raleway",
+"Segoe UI",
+sans-serif !default;
+$primary: #0c2340;
+$theme-colors: ( primary: $primary, secondary: $gray-600, success: $green, info: $cyan, warning: $yellow, danger: $red, light: $gray-100, dark: $gray-800);

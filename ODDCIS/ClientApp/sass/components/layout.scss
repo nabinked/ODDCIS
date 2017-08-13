@@ -1,0 +1,24 @@
+header {
+    height: $header-height;
+    background-color: map-get($theme-colors, primary);
+}
+
+footer {
+    height: $footer-height;
+    line-height: $footer-height;
+    background-color: map-get($theme-colors, primary);
+    vertical-align: middle;
+    p {
+        text-align: center;
+        margin: 0px;
+        color: white;
+    }
+}
+
+main {
+    height: calc(100vh - #{$footer-height + $header-height});
+    background-color: white;
+    .content {
+        height: 100%;
+    }
+}
