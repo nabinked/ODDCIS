@@ -22,6 +22,7 @@ namespace ODDCIS
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddDirectoryBrowser();
             services.AddMvc();
         }
 
@@ -43,6 +44,7 @@ namespace ODDCIS
             }
 
             app.UseStaticFiles();
+            app.UseDirectoryBrowser();
 
             app.UseMvc(routes =>
             {
