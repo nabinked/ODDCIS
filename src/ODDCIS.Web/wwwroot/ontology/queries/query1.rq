@@ -1,0 +1,19 @@
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX di: <http://isit990.azurewebsites.net/ontology/dementia-info/>
+
+SELECT  DISTINCT  ?title ?url  ?excerpt
+	WHERE { 
+		?subject ?hasKeyword  ?k.
+		?subject di:hasUrl ?u.
+		?subject di:hasTitle ?t .
+		?subject di:hasExcerpt ?e .
+		
+		BIND (STR(?t) AS ?title) .
+		BIND (STR(?u) AS ?url) .
+		BIND (STR(?e) AS ?excerpt) .
+
+		FILTER( REGEX( str(?k), "definition"))
+	}
