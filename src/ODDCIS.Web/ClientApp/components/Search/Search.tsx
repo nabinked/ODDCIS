@@ -8,7 +8,7 @@ interface SearchState {
     searchTerm: string
 }
 interface SearchProps extends RouteComponentProps<any> {
-    history: any
+
 }
 export class Search extends React.Component<SearchProps, SearchState> {
 
@@ -18,7 +18,7 @@ export class Search extends React.Component<SearchProps, SearchState> {
 
     public render() {
         return <div className="search">
-            <SearchForm history={this.props.history} />
+            <SearchForm history={this.props.history}/>
             <SearchResult />
         </div>;
     }

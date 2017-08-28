@@ -2,13 +2,13 @@ import * as React from 'react';
 import './search-form.scss';
 import { RouteComponentProps } from 'react-router-dom'
 
-interface FormState {
-    searchTerm: string
+interface SearchFormState {
+    query: string
 }
-interface SearchFormProps extends RouteComponentProps<any> {
-    history: any
+interface SearchFormProps extends RouteComponentProps<{}> {
+
 }
-export class SearchForm extends React.Component<SearchFormProps, FormState>   {
+export class SearchForm extends React.Component<SearchFormProps | any, SearchFormState>   {
     constructor() {
         super();
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -33,7 +33,7 @@ export class SearchForm extends React.Component<SearchFormProps, FormState>   {
     handleInputChange(event: React.ChangeEvent<HTMLInputElement>) {
         console.log('input change');
         this.setState({
-            searchTerm: (event.target as HTMLInputElement).value
+            query: (event.target as HTMLInputElement).value
         })
     }
     handleSubmit(event: React.FormEvent<HTMLFormElement>) {
