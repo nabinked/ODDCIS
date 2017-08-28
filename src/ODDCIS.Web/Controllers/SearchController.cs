@@ -14,7 +14,7 @@ namespace ODDCIS.Web
             this._repository = repository;
         }
         // GET api/values
-        [HttpGet]
+        [HttpGet("")]
         public SearchResult Get(SearchViewModel searchViewModel)
         {
             return this._repository.GetResult(searchViewModel.Query);

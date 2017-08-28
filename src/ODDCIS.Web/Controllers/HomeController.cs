@@ -1,7 +1,7 @@
 using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 
-namespace ODDCIS_Web.Controllers
+namespace ODDCIS.Web.Controllers
 {
     public class HomeController : Controller
     {

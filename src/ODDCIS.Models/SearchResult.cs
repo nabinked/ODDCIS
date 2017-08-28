@@ -5,6 +5,6 @@ namespace ODDCIS.Models
 {
     public class SearchResult
     {
-        public IEnumerable<dynamic> Results { get; set; }
+        public dynamic Results { get; set; }
     }
 }

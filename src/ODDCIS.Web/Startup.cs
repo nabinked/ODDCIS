@@ -1,4 +1,5 @@
 using System;
+using ODDCIS.Models;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -8,8 +9,10 @@ using Microsoft.AspNetCore.SpaServices.Webpack;
 using Microsoft.AspNetCore.StaticFiles;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using ODDCIS.Data;
+using Microsoft.Extensions.Options;
 
-namespace ODDCIS_Web
+namespace ODDCIS.Web
 {
     public class Startup
     {
@@ -23,6 +26,9 @@ namespace ODDCIS_Web
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.Configure<Appsettings>(Configuration);
+            services.AddScoped(cfg => cfg.GetService<IOptionsSnapshot<Appsettings>>().Value);
+            services.AddDataLayer();
             services.AddMvc();
         }
 

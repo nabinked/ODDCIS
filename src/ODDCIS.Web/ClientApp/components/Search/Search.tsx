@@ -18,8 +18,8 @@ export class Search extends React.Component<SearchProps, SearchState> {
 
     public render() {
         return <div className="search">
-            <SearchForm history={this.props.history}/>
-            <SearchResult />
+            <SearchForm history={this.props.history} />
+            <SearchResult history={this.props.history} />
         </div>;
     }
 }

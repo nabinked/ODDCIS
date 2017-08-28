@@ -8,6 +8,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="ClientApp\components\Search\SearchResultItem.tsx" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.0" />
   </ItemGroup>
 
@@ -18,6 +22,11 @@
   <ItemGroup>
     <ProjectReference Include="..\ODDCIS.Data\ODDCIS.Data.csproj" />
     <ProjectReference Include="..\ODDCIS.Models\ODDCIS.Models.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <TypeScriptCompile Include="ClientApp\components\Search\SearchResultItem.tsx" />
+    <TypeScriptCompile Include="ClientApp\components\Search\SearchResultItemList.tsx" />
   </ItemGroup>
 
   <Target Name="DebugRunWebpack" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('wwwroot\dist') ">
