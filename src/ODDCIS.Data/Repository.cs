@@ -1,14 +1,12 @@
-﻿using System;
-using Microsoft.AspNetCore.Hosting;
-
+﻿using Microsoft.AspNetCore.Hosting;
 using ODDCIS.Models;
-using Microsoft.Extensions.Configuration;
 using System.IO;
-using Microsoft.Extensions.Options;
 using VDS.RDF;
 using VDS.RDF.Query.Datasets;
 using VDS.RDF.Query;
 using VDS.RDF.Parsing;
+using ODDCIS.Data.DataModelMappers;
+using System.Collections.Generic;
 
 namespace ODDCIS.Data
 {
@@ -24,22 +22,29 @@ namespace ODDCIS.Data
             _appsettings = appsettings;
             _owlFile = Path.Combine(_env.WebRootPath, _appsettings.OwlFilePath);
         }
-        public SearchResult GetResult(string searchQuery)
+        public SearchResultList GetResult(string searchQuery)
         {
             var queryFilePath = Path.Combine(_env.WebRootPath, _appsettings.QuerySettings.Folder, _appsettings.QuerySettings.Query1);
             if (File.Exists(queryFilePath))
             {
                 string sparqlQuery = File.ReadAllText(queryFilePath);
                 var g = new Graph();
-                g.LoadFromFile(_owlFile,new TurtleParser());
+                g.LoadFromFile(_owlFile, new TurtleParser());
                 ISparqlDataset ds = new InMemoryDataset(g);
                 LeviathanQueryProcessor processor = new LeviathanQueryProcessor(ds);
                 var queryParser = new SparqlQueryParser();
-                var results = processor.ProcessQuery(queryParser.ParseFromString(sparqlQuery));
-                return new SearchResult
+                var parmeterizedString = new SparqlParameterizedString(sparqlQuery);
+                parmeterizedString.SetLiteral("value", searchQuery);
+                var resultSet = processor.ProcessQuery(queryParser.ParseFromString(parmeterizedString.ToString())) as SparqlResultSet;
+                var resultList = new SearchResultList()
                 {
-                    Results = results
+                    Results = new List<SearchResult>()
                 };
+                foreach (var result in resultSet.Results)
+                {
+                    resultList.Results.Add(result.ToSearchResult());
+                }
+                return resultList;
             }
             return null;
         }

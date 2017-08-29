@@ -1,10 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-
-namespace ODDCIS.Models
+﻿namespace ODDCIS.Models
 {
     public class SearchResult
     {
-        public dynamic Results { get; set; }
+        public string Title { get; set; }
+        public string Url { get; set; }
+        public string Excerpt { get; set; }
     }
 }

@@ -15,5 +15,5 @@ SELECT  DISTINCT  ?title ?url  ?excerpt
 		BIND (STR(?u) AS ?url) .
 		BIND (STR(?e) AS ?excerpt) .
 
-		FILTER( REGEX( str(?k), "definition"))
+		FILTER( REGEX( str(?k), @value))
 	}

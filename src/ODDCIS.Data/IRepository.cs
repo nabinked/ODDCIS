@@ -7,6 +7,6 @@ namespace ODDCIS.Data
 {
     public interface IRepository
     {
-        SearchResult GetResult(string query);
+        SearchResultList GetResult(string query);
     }
 }

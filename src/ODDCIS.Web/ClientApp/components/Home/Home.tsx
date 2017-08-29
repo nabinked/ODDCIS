@@ -13,7 +13,7 @@ export class Home extends React.Component<HomeProps, {}> {
 
     public render() {
         return <div className="home">
-            <SearchForm history={this.props.history} />
+            <SearchForm history={this.props.history} location={this.props.location} />
         </div>;
     }
 }

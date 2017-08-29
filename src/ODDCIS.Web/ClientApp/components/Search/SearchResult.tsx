@@ -2,30 +2,35 @@ import * as React from 'react';
 import './search-result.scss';
 import { Loader } from '../Shared/Loader/Loader'
 import { SearchResultItemList } from './SearchResultItemList'
+import { SearchResultItem } from './SearchResultItem'
+import { SearchResultItemModel, SearchResultItemListModel } from './SearchResultitemModel';
 import { RouteComponentProps } from 'react-router-dom'
 import 'isomorphic-fetch';
 
-interface Result {
-    title: string;
-    url: string;
-    excerpt: string;
-}
-
 interface SearchResultState {
     loading: boolean,
-    results: SearchResultItem[]
+    results: SearchResultItemListModel
 }
 
-export class SearchResult extends React.Component<RouteComponentProps<any> | any, SearchResultState> {
+interface SearchResultProps {
+    query: string;
+}
+
+export class SearchResult extends React.Component<SearchResultProps, SearchResultState> {
 
     constructor() {
         super();
-        this.state = { results: [], loading: true };
-        fetch('/api/search' + this.props.location.search)
-            .then(response => response.json() as Promise<SearchResult[]>)
+        this.state = { results: null, loading: true };
+    }
+    fetchResults() {
+        fetch('/api/search?query=' + this.props.query)
+            .then(response => response.json() as Promise<SearchResultItemListModel>)
             .then(data => {
                 this.setState({ results: data, loading: false });
             });
+    };
+    public componentDidMount() {
+        this.fetchResults()
     }
 
     public render() {
@@ -33,7 +38,9 @@ export class SearchResult extends React.Component<RouteComponentProps<any> | any
             {
                 this.state.loading ?
                     <Loader /> :
-                    <SearchResultItemList results={this.state.results} />
+                    <div>
+                        <SearchResultItemList results={this.state.results.results} />
+                    </div>
             }
         </div>;
     }

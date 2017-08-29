@@ -1,8 +1,11 @@
-import * as React from 'react';
-import { SearchForm } from '../Shared/SearchForm/SearchForm';
+import * as React from 'react'
+import { SearchForm } from '../Shared/SearchForm/SearchForm'
 import { RouteComponentProps } from 'react-router-dom'
-import { SearchResult } from './SearchResult';
-import './search.scss';
+import { SearchResult } from './SearchResult'
+import './search.scss'
+import { parse } from 'query-string'
+import * as H from 'history';
+
 
 interface SearchState {
     searchTerm: string
@@ -15,11 +18,13 @@ export class Search extends React.Component<SearchProps, SearchState> {
     constructor(props: SearchProps) {
         super(props);
     }
-
+    public getQuery(location: H.Location) {
+        return parse(location.search).query;
+    }
     public render() {
         return <div className="search">
-            <SearchForm history={this.props.history} />
-            <SearchResult history={this.props.history} />
+            <SearchForm history={this.props.history} location={this.props.location} />
+            <SearchResult query={this.getQuery(this.props.location)} />
         </div>;
     }
 }
