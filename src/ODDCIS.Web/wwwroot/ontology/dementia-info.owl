@@ -69,6 +69,15 @@ owl:topDataProperty rdfs:domain :WebPage ;
   :hasUrl "https://www.fightdementia.org.au/about-dementia/how-can-i-find-out-more" .
 
 
+###  http://isit990.azurewebsites.net/ontology/dementia-info/FightDementia_AboutDementiaAndMemoryLossResources_InformationInOtherLanguages
+:FightDementia_AboutDementiaAndMemoryLossResources_InformationInOtherLanguages rdf:type owl:NamedIndividual ,
+                                                                                        :WebPage ;
+                                                                               :hasExcerpt "Alzheimer's Australia is committed to meeting the linguistic needs of all members of the community" ;
+                                                                               :hasKeyword "Information in other languages" ;
+                                                                               :hasTitle "Alzheimer's Australia | Information in other languages" ;
+                                                                               :hasUrl "https://www.fightdementia.org.au/languages" .
+
+
 ###  http://isit990.azurewebsites.net/ontology/dementia-info/FightDementia_AboutDementiaAndMemoryLoss_Resources_HelpSheets
 :FightDementia_AboutDementiaAndMemoryLoss_Resources_HelpSheets rdf:type owl:NamedIndividual ,
                                                                         :WebPage ;
@@ -76,6 +85,11 @@ owl:topDataProperty rdfs:domain :WebPage ;
                                                                :hasKeyword "Help Sheets" ;
                                                                :hasTitle "Alzheimer's Australia | Help Sheets" ;
                                                                :hasUrl "https://www.fightdementia.org.au/about-dementia/resources/help-sheets" .
+
+
+###  http://isit990.azurewebsites.net/ontology/dementia-info/FightDementia_AboutDementiaAndMemoryLoss_Resources_Statistics
+:FightDementia_AboutDementiaAndMemoryLoss_Resources_Statistics rdf:type owl:NamedIndividual ,
+                                                                        :WebPage .
 
 
 ###  http://isit990.azurewebsites.net/ontology/dementia-info/FightDementia_AboutDementia_DementiaResearch
