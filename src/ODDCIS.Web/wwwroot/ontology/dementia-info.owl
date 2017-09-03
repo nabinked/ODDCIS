@@ -60,6 +60,17 @@ owl:topDataProperty rdfs:domain :WebPage ;
 #    Individuals
 #################################################################
 
+###  http://isit990.azurewebsites.net/ontology/dementia-info/FightingDementia_AboutDementia_MemoryLoss
+:FightingDementia_AboutDementia_MemoryLoss rdf:type owl:NamedIndividual ,
+                                                    :WebPage ;
+                                           :hasExcerpt "When we talk about memory loss, we often tend to associate it as a normal part of ageing. This section talks about memory loss associated with dementia and how it is not a part of normal ageing.When we talk about memory loss, we often tend to associate it as a normal part of ageing. This section talks about memory loss associated with dementia and how it is not a part of normal ageing." ;
+                                           :hasKeyword "Mild cognitive impairment" ,
+                                                       "memory changes" ,
+                                                       "memory loss" ;
+                                           :hasTitle "Alzheimer's Australia | Memory loss" ;
+                                           :hasUrl "https://www.fightdementia.org.au/about-dementia/memory-loss" .
+
+
 ###  http://isit990.azurewebsites.net/ontology/dementia-info/FightingDementia_AboutDementia_TypesOfDementia
 :FightingDementia_AboutDementia_TypesOfDementia rdf:type owl:NamedIndividual ;
                                                 :hasExcerpt "Dementia is the umbrella term for a number of neurological conditions, of which the major symptom includes a global decline in brain function." ;
