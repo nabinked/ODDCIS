@@ -22,17 +22,19 @@ export class SearchResult extends React.Component<SearchResultProps, SearchResul
         super();
         this.state = { results: null, loading: true };
     }
-    fetchResults() {
-        fetch('/api/search?query=' + this.props.query)
+    fetchResults(query) {
+        fetch('/api/search?query=' + query)
             .then(response => response.json() as Promise<SearchResultItemListModel>)
             .then(data => {
                 this.setState({ results: data, loading: false });
             });
     };
     public componentDidMount() {
-        this.fetchResults()
+        this.fetchResults(this.props.query)
     }
-
+    public componentWillReceiveProps(nextProps){
+        this.fetchResults(nextProps.query);
+     }
     public render() {
         return <div className="search-result">
             {
