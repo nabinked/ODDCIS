@@ -101,6 +101,15 @@ owl:topDataProperty rdfs:domain :WebPage ;
                                                            :hasUrl "https://www.fightdementia.org.au/about-dementia/resources/videos" .
 
 
+###  http://isit990.azurewebsites.net/ontology/dementia-info/FightDementia_AboutDementiaAndMemoryLoss_Resources_YourLegalRights
+:FightDementia_AboutDementiaAndMemoryLoss_Resources_YourLegalRights rdf:type owl:NamedIndividual ,
+                                                                             :WebPage ;
+                                                                    :hasExcerpt "Dementia and Your Legal Rights is a practical guide that sets out some of the legal issues a person with dementia, their families and carers may face, their legal rights and the actions they can take to protect their rights." ;
+                                                                    :hasKeyword "Dementia and Your Legal Rights" ;
+                                                                    :hasTitle "Alzheimer's Australia | Dementia and Your Legal Rights" ;
+                                                                    :hasUrl "https://www.fightdementia.org.au/legal-rights" .
+
+
 ###  http://isit990.azurewebsites.net/ontology/dementia-info/FightDementia_AboutDementiaAndmemoryLoss_Resources_Stories
 :FightDementia_AboutDementiaAndmemoryLoss_Resources_Stories rdf:type owl:NamedIndividual ,
                                                                      :WebPage ;
