@@ -14,7 +14,7 @@ function renderApp() {
         <AppContainer>
             <BrowserRouter children={routes} />
         </AppContainer>,
-        document.getElementById('react-app')
+        document.getElementById('app-oddcis')
     );
 }
 

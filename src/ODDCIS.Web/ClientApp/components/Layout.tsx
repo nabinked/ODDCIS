@@ -10,7 +10,7 @@ export interface LayoutProps {
 
 export class Layout extends React.Component<LayoutProps, {}> {
     public render() {
-        return <div>
+        return <div className="app-wrapper">
             <header>
                 <NavMenu />
             </header>
