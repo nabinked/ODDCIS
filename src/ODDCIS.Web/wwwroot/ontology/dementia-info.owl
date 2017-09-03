@@ -110,6 +110,16 @@ For more information on Dementia Training Australia please visit: www.dementiatr
 :FightDementia_EducationAndConsulting rdf:type owl:NamedIndividual .
 
 
+###  http://isit990.azurewebsites.net/ontology/dementia-info/FightDementia_SupportAndServices_ServicesAndPrograms_LibraryAndInformationServices
+:FightDementia_SupportAndServices_ServicesAndPrograms_LibraryAndInformationServices rdf:type owl:NamedIndividual ,
+                                                                                             :WebPage ;
+                                                                                    :hasExcerpt "Support for family carers, people with dementia, health professionals and community care workers." ;
+                                                                                    :hasKeyword "Borrowing" ,
+                                                                                                "Catalogue" ;
+                                                                                    :hasTitle "Alzheimer's Australia | Library and information service" ;
+                                                                                    :hasUrl "https://www.fightdementia.org.au/services/library" .
+
+
 ###  http://isit990.azurewebsites.net/ontology/dementia-info/FightingDementia_AboutDementia_AmIAtRisk
 :FightingDementia_AboutDementia_AmIAtRisk rdf:type owl:NamedIndividual ;
                                           :hasExcerpt "Information about the early signs and symptoms of dementia, the role of heredity in dementia, managing the risk factors and advice on reducing the risk of developing dementia." ;
