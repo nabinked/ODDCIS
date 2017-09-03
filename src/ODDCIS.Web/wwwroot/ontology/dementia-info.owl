@@ -60,6 +60,23 @@ owl:topDataProperty rdfs:domain :WebPage ;
 #    Individuals
 #################################################################
 
+###  http://isit990.azurewebsites.net/ontology/dementia-info/FightDementia_AboutDementia_DementiaResearch
+:FightDementia_AboutDementia_DementiaResearch rdf:type owl:NamedIndividual ;
+                                              :hasExcerpt "Researchers are currently investigating a number of aspects of dementia" ;
+                                              :hasKeyword "Dementia care research" ,
+                                                          "Dementia research" ;
+                                              :hasTitle "Alzheimer's Australia | Dementia research" ;
+                                              :hasUrl "https://www.fightdementia.org.au/about-dementia/dementia-research" .
+
+
+###  http://isit990.azurewebsites.net/ontology/dementia-info/FightDementia_AboutDementia_MemoryChanges
+:FightDementia_AboutDementia_MemoryChanges rdf:type owl:NamedIndividual ;
+                                           :hasExcerpt "There is a difference between memory loss as a part of normal ageing and as a symptom of dementia." ;
+                                           :hasKeyword "Memory changes" ;
+                                           :hasTitle "Alzheimer's Australia | Memory changes" ;
+                                           :hasUrl "https://www.fightdementia.org.au/about-dementia/memory-loss/memory-changes" .
+
+
 ###  http://isit990.azurewebsites.net/ontology/dementia-info/FightingDementia_AboutDementia_AmIAtRisk
 :FightingDementia_AboutDementia_AmIAtRisk rdf:type owl:NamedIndividual ;
                                           :hasExcerpt "Information about the early signs and symptoms of dementia, the role of heredity in dementia, managing the risk factors and advice on reducing the risk of developing dementia." ;
