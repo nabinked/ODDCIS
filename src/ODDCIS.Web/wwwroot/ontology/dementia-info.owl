@@ -69,6 +69,15 @@ owl:topDataProperty rdfs:domain :WebPage ;
   :hasUrl "https://www.fightdementia.org.au/about-dementia/how-can-i-find-out-more" .
 
 
+###  http://isit990.azurewebsites.net/ontology/dementia-info/FightDementia_AboutDementiaAndMemoryLoss_Resources_HelpSheets
+:FightDementia_AboutDementiaAndMemoryLoss_Resources_HelpSheets rdf:type owl:NamedIndividual ,
+                                                                        :WebPage ;
+                                                               :hasExcerpt "Help Sheets provide advice, common sense approaches and practical strategies on the issues most commonly raised about dementia" ;
+                                                               :hasKeyword "Help Sheets" ;
+                                                               :hasTitle "Alzheimer's Australia | Help Sheets" ;
+                                                               :hasUrl "https://www.fightdementia.org.au/about-dementia/resources/help-sheets" .
+
+
 ###  http://isit990.azurewebsites.net/ontology/dementia-info/FightDementia_AboutDementia_DementiaResearch
 :FightDementia_AboutDementia_DementiaResearch rdf:type owl:NamedIndividual ;
                                               :hasExcerpt "Researchers are currently investigating a number of aspects of dementia" ;
