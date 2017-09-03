@@ -78,6 +78,17 @@ owl:topDataProperty rdfs:domain :WebPage ;
                                                 :hasUrl "https://www.fightdementia.org.au/about-dementia-and-memory-loss/am-i-at-risk/diagnosing-dementia" .
 
 
+###  http://isit990.azurewebsites.net/ontology/dementia-info/FightDementia_AboutDementia_EducationAndConsulting
+:FightDementia_AboutDementia_EducationAndConsulting rdf:type owl:NamedIndividual ,
+                                                             :WebPage ;
+                                                    :hasExcerpt """The Commonwealth funded Dementia Training Program will be delivered by the Dementia Training Australia (DTA) consortium, of which Alzheimer’s Australia is pleased to be a partner. The consortium enables a truly national approach to dementia training with members based in WA, Victoria, Queensland, Tasmania and NSW, able to provide training services utilising the nationwide network of Alzheimer’s Australia. As part of this program Alzheimer’s Australia will be delivering a nationally available vocational training program ‘Dementia Essentials’. For more information on this course please visit: www.fightdementia.org.au/education/dementia-training-australia. 
+For more information on Dementia Training Australia please visit: www.dementiatrainingaustralia.com.au
+(link is external)""" ;
+                                                    :hasKeyword "Education and Consulting of dementia" ;
+                                                    :hasTitle "Alzheimer's Australia | Education and Consulting" ;
+                                                    :hasUrl "https://www.fightdementia.org.au/education-and-consulting" .
+
+
 ###  http://isit990.azurewebsites.net/ontology/dementia-info/FightDementia_AboutDementia_FrequentlyAskedQuestionsDementia
 :FightDementia_AboutDementia_FrequentlyAskedQuestionsDementia rdf:type owl:NamedIndividual ;
                                                               :hasExcerpt "Some frequently asked questions about dementia." ;
@@ -93,6 +104,10 @@ owl:topDataProperty rdfs:domain :WebPage ;
                                            :hasKeyword "Memory changes" ;
                                            :hasTitle "Alzheimer's Australia | Memory changes" ;
                                            :hasUrl "https://www.fightdementia.org.au/about-dementia/memory-loss/memory-changes" .
+
+
+###  http://isit990.azurewebsites.net/ontology/dementia-info/FightDementia_EducationAndConsulting
+:FightDementia_EducationAndConsulting rdf:type owl:NamedIndividual .
 
 
 ###  http://isit990.azurewebsites.net/ontology/dementia-info/FightingDementia_AboutDementia_AmIAtRisk
