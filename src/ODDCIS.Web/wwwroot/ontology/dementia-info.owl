@@ -87,6 +87,17 @@ owl:topDataProperty rdfs:domain :WebPage ;
                                                                :hasUrl "https://www.fightdementia.org.au/about-dementia/resources/help-sheets" .
 
 
+###  http://isit990.azurewebsites.net/ontology/dementia-info/FightDementia_AboutDementiaAndMemoryLoss_Resources_PlanningAhead
+:FightDementia_AboutDementiaAndMemoryLoss_Resources_PlanningAhead rdf:type owl:NamedIndividual ,
+                                                                           :WebPage ;
+                                                                  :hasExcerpt """Planning ahead is thinking about your future, and putting things in place so that your choices will be known and acted on if you cannot express these choices yourself later in life. 
+This may happen if you have a sudden accident, become very ill or develop a condition such as dementia that affects your memory and your planning ability. Planning ahead can include issues related to your finances, lifestyle or health care. 
+This website will help you to plan ahead for your future. It is a practical and comprehensive resource for people across Australia just like you. It gives you the information you need to make decisions and helps you to put your decisions into action.""" ;
+                                                                  :hasKeyword "Planning ahead" ;
+                                                                  :hasTitle "Alzheimer's Australia | Planning ahead" ;
+                                                                  :hasUrl "https://www.fightdementia.org.au/planning-ahead" .
+
+
 ###  http://isit990.azurewebsites.net/ontology/dementia-info/FightDementia_AboutDementiaAndMemoryLoss_Resources_Statistics
 :FightDementia_AboutDementiaAndMemoryLoss_Resources_Statistics rdf:type owl:NamedIndividual ,
                                                                         :WebPage .
