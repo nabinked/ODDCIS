@@ -59,7 +59,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "36f3ebc72f2e374e5ae6"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "67b49f947860f3bda130"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
@@ -2689,7 +2689,6 @@ var SearchForm = /** @class */ (function (_super) {
                 React.createElement("input", { type: "submit", className: "btn btn-outline-primary", value: "Search" })));
     };
     SearchForm.prototype.handleInputChange = function (event) {
-        console.log('input change');
         this.setState({
             query: event.target.value
         });
@@ -8392,9 +8391,9 @@ var SearchResult = /** @class */ (function (_super) {
         _this.state = { results: null, loading: true };
         return _this;
     }
-    SearchResult.prototype.fetchResults = function () {
+    SearchResult.prototype.fetchResults = function (query) {
         var _this = this;
-        fetch('/api/search?query=' + this.props.query)
+        fetch('/api/search?query=' + query)
             .then(function (response) { return response.json(); })
             .then(function (data) {
             _this.setState({ results: data, loading: false });
@@ -8402,7 +8401,10 @@ var SearchResult = /** @class */ (function (_super) {
     };
     ;
     SearchResult.prototype.componentDidMount = function () {
-        this.fetchResults();
+        this.fetchResults(this.props.query);
+    };
+    SearchResult.prototype.componentWillReceiveProps = function (nextProps) {
+        this.fetchResults(nextProps.query);
     };
     SearchResult.prototype.render = function () {
         return React.createElement("div", { className: "search-result" }, this.state.loading ?
@@ -8447,7 +8449,8 @@ var SearchResultItem = /** @class */ (function (_super) {
     SearchResultItem.prototype.render = function () {
         return React.createElement("div", { className: "search-result-item" },
             React.createElement("a", { href: this.props.result.url, target: "_blank" },
-                React.createElement("h3", { className: "search-result-item-title" }, this.props.result.title),
+                React.createElement("h3", { className: "search-result-item-title" }, this.props.result.title)),
+            React.createElement("a", { href: this.props.result.url, target: "_blank" },
                 React.createElement("small", null, this.props.result.url)),
             React.createElement("p", null, this.props.result.excerpt),
             React.createElement("br", null));

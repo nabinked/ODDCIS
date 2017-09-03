@@ -36,7 +36,6 @@ export class SearchForm extends React.Component<SearchFormProps | any, SearchFor
         </form>
     }
     handleInputChange(event: React.ChangeEvent<HTMLInputElement>) {
-        console.log('input change');
         this.setState({
             query: (event.target as HTMLInputElement).value
         })
