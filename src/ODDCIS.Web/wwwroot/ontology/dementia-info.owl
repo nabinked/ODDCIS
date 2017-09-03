@@ -69,6 +69,24 @@ owl:topDataProperty rdfs:domain :WebPage ;
                                               :hasUrl "https://www.fightdementia.org.au/about-dementia/dementia-research" .
 
 
+###  http://isit990.azurewebsites.net/ontology/dementia-info/FightDementia_AboutDementia_DiagnosingDementia
+:FightDementia_AboutDementia_DiagnosingDementia rdf:type owl:NamedIndividual ;
+                                                :hasExcerpt "Information about the early signs of dementia, the importance of early and correct diagnosis and the ways in which it is diagnosed." ;
+                                                :hasKeyword "Diagnosing dementia" ,
+                                                            "early signs of dementia" ;
+                                                :hasTitle "Alzheimer's Australia | Diagnosing dementia" ;
+                                                :hasUrl "https://www.fightdementia.org.au/about-dementia-and-memory-loss/am-i-at-risk/diagnosing-dementia" .
+
+
+###  http://isit990.azurewebsites.net/ontology/dementia-info/FightDementia_AboutDementia_FrequentlyAskedQuestionsDementia
+:FightDementia_AboutDementia_FrequentlyAskedQuestionsDementia rdf:type owl:NamedIndividual ;
+                                                              :hasExcerpt "Some frequently asked questions about dementia." ;
+                                                              :hasKeyword "frequently asked questions about dementia." ,
+                                                                          "what should I do?" ;
+                                                              :hasTitle "Alzheimer's Australia | Frequently asked questions" ;
+                                                              :hasUrl "https://www.fightdementia.org.au/about-dementia-and-memory-loss/FAQs" .
+
+
 ###  http://isit990.azurewebsites.net/ontology/dementia-info/FightDementia_AboutDementia_MemoryChanges
 :FightDementia_AboutDementia_MemoryChanges rdf:type owl:NamedIndividual ;
                                            :hasExcerpt "There is a difference between memory loss as a part of normal ageing and as a symptom of dementia." ;
