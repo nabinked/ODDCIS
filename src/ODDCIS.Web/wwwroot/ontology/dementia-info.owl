@@ -115,6 +115,15 @@ For more information on Dementia Training Australia please visit: www.dementiatr
                                            :hasUrl "https://www.fightdementia.org.au/about-dementia/memory-loss/memory-changes" .
 
 
+###  http://isit990.azurewebsites.net/ontology/dementia-info/FightDementia_AboutDementia_MemoryLoss_DementiaResearch_CausesOfDementia
+:FightDementia_AboutDementia_MemoryLoss_DementiaResearch_CausesOfDementia rdf:type owl:NamedIndividual ,
+                                                                                   :WebPage ;
+                                                                          :hasExcerpt "There are many different types of dementia and the cause varies with type. The information below provides details of some of the major research areas. " ;
+                                                                          :hasKeyword "Causes of dementia" ;
+                                                                          :hasTitle "Alzheimer's Australia | Causes of dementia" ;
+                                                                          :hasUrl "https://www.fightdementia.org.au/about-dementia/dementia-research/causes-of-dementia" .
+
+
 ###  http://isit990.azurewebsites.net/ontology/dementia-info/FightDementia_EducationAndConsulting
 :FightDementia_EducationAndConsulting rdf:type owl:NamedIndividual .
 
