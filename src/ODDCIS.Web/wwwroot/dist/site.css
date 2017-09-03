@@ -12,23 +12,30 @@
   color: white; }
   .footer .project-desc {
     font-size: 0.8rem;
-    margin-right: 5px;
+    margin: 2px 10px;
     text-align: right; }
-header {
-  height: 3rem;
-  background-color: #0c2340; }
+html {
+  height: 100%; }
 
-footer {
-  height: 2rem;
-  line-height: 2rem;
-  background-color: #0c2340;
-  vertical-align: middle; }
+body {
+  min-height: 100%; }
 
-main {
-  height: calc(100vh - 5rem);
-  background-color: white; }
-  main .content {
-    height: 100%; }
+.app-wrapper {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column; }
+  .app-wrapper header {
+    background-color: #0c2340;
+    flex: none; }
+  .app-wrapper footer {
+    background-color: #0c2340; }
+  .app-wrapper main {
+    background-color: white;
+    flex: 1;
+    display: flex; }
+    .app-wrapper main .content {
+      flex: 1;
+      min-height: 100%; }
 .search-form {
   margin: 0 auto; }
   .search-form input {

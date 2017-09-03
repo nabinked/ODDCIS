@@ -1,19 +1,29 @@
-header {
-    height: $header-height;
-    background-color: map-get($theme-colors, primary);
+html {
+    height: 100%;
 }
 
-footer {
-    height: $footer-height;
-    line-height: $footer-height;
-    background-color: map-get($theme-colors, primary);
-    vertical-align: middle;
+body {
+    min-height: 100%;
 }
 
-main {
-    height: calc(100vh - #{$footer-height + $header-height});
-    background-color: white;
-    .content {
-        height: 100%;
+.app-wrapper {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+    header {
+        background-color: map-get($theme-colors, primary);
+        flex: none;
+    }
+    footer {
+        background-color: map-get($theme-colors, primary);
+    }
+    main {
+        background-color: white;
+        flex: 1;
+        display: flex;
+        .content {
+            flex: 1;
+            min-height: 100%;
+        }
     }
 }
