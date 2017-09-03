@@ -101,6 +101,15 @@ owl:topDataProperty rdfs:domain :WebPage ;
                                                            :hasUrl "https://www.fightdementia.org.au/about-dementia/resources/videos" .
 
 
+###  http://isit990.azurewebsites.net/ontology/dementia-info/FightDementia_AboutDementiaAndmemoryLoss_Resources_Stories
+:FightDementia_AboutDementiaAndmemoryLoss_Resources_Stories rdf:type owl:NamedIndividual ,
+                                                                     :WebPage ;
+                                                            :hasExcerpt "The stories on these pages are from people affected by dementia." ;
+                                                            :hasKeyword "Stories" ;
+                                                            :hasTitle "Alzheimer's Australia | Stories" ;
+                                                            :hasUrl "https://www.fightdementia.org.au/about-dementia/resources/stories" .
+
+
 ###  http://isit990.azurewebsites.net/ontology/dementia-info/FightDementia_AboutDementia_DementiaResearch
 :FightDementia_AboutDementia_DementiaResearch rdf:type owl:NamedIndividual ;
                                               :hasExcerpt "Researchers are currently investigating a number of aspects of dementia" ;
