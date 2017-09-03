@@ -60,6 +60,16 @@ owl:topDataProperty rdfs:domain :WebPage ;
 #    Individuals
 #################################################################
 
+###  http://isit990.azurewebsites.net/ontology/dementia-info/FightingDementia_AboutDementia_Behaviour
+:FightingDementia_AboutDementia_Behaviour rdf:type owl:NamedIndividual ,
+                                                   :WebPage ;
+                                          :hasExcerpt "This section talks about how dementia affects a person’s behaviour and how as a carer or a family member we can cope with managing this behavioural change." ;
+                                          :hasKeyword "Behaviour" ,
+                                                      "Behaviour changes" ;
+                                          :hasTitle "Alzheimer's Australia | Behaviour" ;
+                                          :hasUrl "https://www.fightdementia.org.au/national/about-dementia/behaviour" .
+
+
 ###  http://isit990.azurewebsites.net/ontology/dementia-info/FightingDementia_AboutDementia_MemoryLoss
 :FightingDementia_AboutDementia_MemoryLoss rdf:type owl:NamedIndividual ,
                                                     :WebPage ;
