@@ -164,6 +164,14 @@ For more information on Dementia Training Australia please visit: www.dementiatr
                                                :hasUrl "https://www.fightdementia.org.au/about-dementia/what-is-dementia" .
 
 
+###  http://isit990.azurewebsites.net/ontology/dementia-info/FightingDementia_ResearchAndPublications_DementiaNews
+:FightingDementia_ResearchAndPublications_DementiaNews rdf:type owl:NamedIndividual ;
+                                                       :hasExcerpt "Stay in touch with the latest dementia news and research from around the world." ;
+                                                       :hasKeyword "Dementia News" ;
+                                                       :hasTitle "Alzheimer's Australia | Dementia News" ;
+                                                       :hasUrl "https://www.fightdementia.org.au/dementia-news" .
+
+
 ###  http://isit990.azurewebsites.net/ontology/dementia-info/FightDementia_AboutDementia_HowCanIFindOutMore?
 : rdf:type owl:NamedIndividual ;
   :hasExcerpt "What are some of the things to look out for, what are some of the tests used for diagnosing dementia and how do you go about telling someone they have dementia." ;
