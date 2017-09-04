@@ -131,7 +131,8 @@ This website will help you to plan ahead for your future. It is a practical and 
 
 
 ###  http://isit990.azurewebsites.net/ontology/dementia-info/FightDementia_AboutDementia_DementiaResearch
-:FightDementia_AboutDementia_DementiaResearch rdf:type owl:NamedIndividual ;
+:FightDementia_AboutDementia_DementiaResearch rdf:type owl:NamedIndividual ,
+                                                       :WebPage ;
                                               :hasExcerpt "Researchers are currently investigating a number of aspects of dementia" ;
                                               :hasKeyword "Dementia care research" ,
                                                           "Dementia research" ;
@@ -140,7 +141,8 @@ This website will help you to plan ahead for your future. It is a practical and 
 
 
 ###  http://isit990.azurewebsites.net/ontology/dementia-info/FightDementia_AboutDementia_DiagnosingDementia
-:FightDementia_AboutDementia_DiagnosingDementia rdf:type owl:NamedIndividual ;
+:FightDementia_AboutDementia_DiagnosingDementia rdf:type owl:NamedIndividual ,
+                                                         :WebPage ;
                                                 :hasExcerpt "Information about the early signs of dementia, the importance of early and correct diagnosis and the ways in which it is diagnosed." ;
                                                 :hasKeyword "Diagnosing dementia" ,
                                                             "early signs of dementia" ;
@@ -160,7 +162,8 @@ For more information on Dementia Training Australia please visit: www.dementiatr
 
 
 ###  http://isit990.azurewebsites.net/ontology/dementia-info/FightDementia_AboutDementia_FrequentlyAskedQuestionsDementia
-:FightDementia_AboutDementia_FrequentlyAskedQuestionsDementia rdf:type owl:NamedIndividual ;
+:FightDementia_AboutDementia_FrequentlyAskedQuestionsDementia rdf:type owl:NamedIndividual ,
+                                                                       :WebPage ;
                                                               :hasExcerpt "Some frequently asked questions about dementia." ;
                                                               :hasKeyword "frequently asked questions about dementia." ,
                                                                           "what should I do?" ;
@@ -169,7 +172,8 @@ For more information on Dementia Training Australia please visit: www.dementiatr
 
 
 ###  http://isit990.azurewebsites.net/ontology/dementia-info/FightDementia_AboutDementia_MemoryChanges
-:FightDementia_AboutDementia_MemoryChanges rdf:type owl:NamedIndividual ;
+:FightDementia_AboutDementia_MemoryChanges rdf:type owl:NamedIndividual ,
+                                                    :WebPage ;
                                            :hasExcerpt "There is a difference between memory loss as a part of normal ageing and as a symptom of dementia." ;
                                            :hasKeyword "Memory changes" ;
                                            :hasTitle "Alzheimer's Australia | Memory changes" ;
@@ -186,7 +190,8 @@ For more information on Dementia Training Australia please visit: www.dementiatr
 
 
 ###  http://isit990.azurewebsites.net/ontology/dementia-info/FightDementia_EducationAndConsulting
-:FightDementia_EducationAndConsulting rdf:type owl:NamedIndividual .
+:FightDementia_EducationAndConsulting rdf:type owl:NamedIndividual ,
+                                               :WebPage .
 
 
 ###  http://isit990.azurewebsites.net/ontology/dementia-info/FightDementia_SupportAndPrograms_Counselling
@@ -209,7 +214,8 @@ For more information on Dementia Training Australia please visit: www.dementiatr
 
 
 ###  http://isit990.azurewebsites.net/ontology/dementia-info/FightingDementia_AboutDementia_AmIAtRisk
-:FightingDementia_AboutDementia_AmIAtRisk rdf:type owl:NamedIndividual ;
+:FightingDementia_AboutDementia_AmIAtRisk rdf:type owl:NamedIndividual ,
+                                                   :WebPage ;
                                           :hasExcerpt "Information about the early signs and symptoms of dementia, the role of heredity in dementia, managing the risk factors and advice on reducing the risk of developing dementia." ;
                                           :hasKeyword "BrainyApp" ,
                                                       "Diagnosing dementia" ,
@@ -263,7 +269,8 @@ For more information on Dementia Training Australia please visit: www.dementiatr
 
 
 ###  http://isit990.azurewebsites.net/ontology/dementia-info/FightingDementia_ResearchAndPublications_DementiaNews
-:FightingDementia_ResearchAndPublications_DementiaNews rdf:type owl:NamedIndividual ;
+:FightingDementia_ResearchAndPublications_DementiaNews rdf:type owl:NamedIndividual ,
+                                                                :WebPage ;
                                                        :hasExcerpt "Stay in touch with the latest dementia news and research from around the world." ;
                                                        :hasKeyword "Dementia News" ;
                                                        :hasTitle "Alzheimer's Australia | Dementia News" ;
