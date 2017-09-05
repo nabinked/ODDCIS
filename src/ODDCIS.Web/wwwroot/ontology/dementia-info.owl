@@ -60,6 +60,18 @@ owl:topDataProperty rdfs:domain :WebPage ;
 #    Individuals
 #################################################################
 
+###  http://isit990.azurewebsites.net/ontology/dementia-info#FightingDementia_Resources_HelpSheets
+:FightingDementia_Resources_HelpSheets rdf:type owl:NamedIndividual ,
+                                                :WebPage ;
+                                       :hasExcerpt "Help Sheets provide advice, common sense approaches and practical strategies on the issues most commonly raised about dementia" ;
+                                       :hasKeyword "Help" ,
+                                                   "Help Manual" ,
+                                                   "Help Sheets" ,
+                                                   "Manual" ;
+                                       :hasTitle "Alzheimer's Australia | Help Sheets" ;
+                                       :hasUrl "https://www.fightdementia.org.au/about-dementia/resources/help-sheets" .
+
+
 ###  http://isit990.azurewebsites.net/ontology/dementia-info/
 : rdf:type owl:NamedIndividual ;
   :hasExcerpt "What are some of the things to look out for, what are some of the tests used for diagnosing dementia and how do you go about telling someone they have dementia." ;
@@ -277,7 +289,7 @@ For more information on Dementia Training Australia please visit: www.dementiatr
                                                        :hasUrl "https://www.fightdementia.org.au/dementia-news" .
 
 
-###  http://isit990.azurewebsites.net/ontology/dementia-info/FightDementia_AboutDementiaAndMemoryLoss_Resources_Men's_Shed_Manual
+###  http://isit990.azurewebsites.net/ontology/dementia-info/s_Shed_Manual
 :s_Shed_Manual rdf:type owl:NamedIndividual ,
                         :WebPage ;
                :hasExcerpt "On any day you will find in any of these numerous buildings around the world, amongst the dust and the noise, men gathering, working and talking in a place they call their own, a place that is more than four walls and a roof a place that has a heart of its own, a place they call the “Men’s Shed”." ;
