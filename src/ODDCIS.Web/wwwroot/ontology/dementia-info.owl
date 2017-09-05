@@ -60,18 +60,6 @@ owl:topDataProperty rdfs:domain :WebPage ;
 #    Individuals
 #################################################################
 
-###  http://isit990.azurewebsites.net/ontology/dementia-info#FightingDementia_Resources_HelpSheets
-:FightingDementia_Resources_HelpSheets rdf:type owl:NamedIndividual ,
-                                                :WebPage ;
-                                       :hasExcerpt "Help Sheets provide advice, common sense approaches and practical strategies on the issues most commonly raised about dementia" ;
-                                       :hasKeyword "Help" ,
-                                                   "Help Manual" ,
-                                                   "Help Sheets" ,
-                                                   "Manual" ;
-                                       :hasTitle "Alzheimer's Australia | Help Sheets" ;
-                                       :hasUrl "https://www.fightdementia.org.au/about-dementia/resources/help-sheets" .
-
-
 ###  http://isit990.azurewebsites.net/ontology/dementia-info/
 : rdf:type owl:NamedIndividual ;
   :hasExcerpt "What are some of the things to look out for, what are some of the tests used for diagnosing dementia and how do you go about telling someone they have dementia." ;
@@ -94,7 +82,10 @@ owl:topDataProperty rdfs:domain :WebPage ;
 :FightDementia_AboutDementiaAndMemoryLoss_Resources_HelpSheets rdf:type owl:NamedIndividual ,
                                                                         :WebPage ;
                                                                :hasExcerpt "Help Sheets provide advice, common sense approaches and practical strategies on the issues most commonly raised about dementia" ;
-                                                               :hasKeyword "Help Sheets" ;
+                                                               :hasKeyword "Help Sheets" ,
+                                                                           "Manual" ,
+                                                                           "help manual" ,
+                                                                           "sheets" ;
                                                                :hasTitle "Alzheimer's Australia | Help Sheets" ;
                                                                :hasUrl "https://www.fightdementia.org.au/about-dementia/resources/help-sheets" .
 
