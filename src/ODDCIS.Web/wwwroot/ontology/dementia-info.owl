@@ -185,8 +185,82 @@ owl:topDataProperty rdfs:domain :WebPage ;
   :hasUrl "https://www.fightdementia.org.au/about-dementia/how-can-i-find-out-more" .
 
 
+###  http://isit990.azurewebsites.net/ontology/dementia-info/FightDementia_AboutDementiaAndMemoryLossResources_InformationInOtherLanguages
+:FightDementia_AboutDementiaAndMemoryLossResources_InformationInOtherLanguages rdf:type owl:NamedIndividual ,
+                                                                                        :WebPage ;
+                                                                               :hasExcerpt "Alzheimer's Australia is committed to meeting the linguistic needs of all members of the community" ;
+                                                                               :hasKeyword "Information in other languages" ;
+                                                                               :hasTitle "Alzheimer's Australia | Information in other languages" ;
+                                                                               :hasUrl "https://www.fightdementia.org.au/languages" .
+
+
+###  http://isit990.azurewebsites.net/ontology/dementia-info/FightDementia_AboutDementiaAndMemoryLoss_Resources_HelpSheets
+:FightDementia_AboutDementiaAndMemoryLoss_Resources_HelpSheets rdf:type owl:NamedIndividual ,
+                                                                        :WebPage ;
+                                                               :hasExcerpt "Help Sheets provide advice, common sense approaches and practical strategies on the issues most commonly raised about dementia" ;
+                                                               :hasKeyword "Help Sheets" ,
+                                                                           "Manual" ,
+                                                                           "help manual" ,
+                                                                           "sheets" ;
+                                                               :hasTitle "Alzheimer's Australia | Help Sheets" ;
+                                                               :hasUrl "https://www.fightdementia.org.au/about-dementia/resources/help-sheets" .
+
+
+###  http://isit990.azurewebsites.net/ontology/dementia-info/FightDementia_AboutDementiaAndMemoryLoss_Resources_PlanningAhead
+:FightDementia_AboutDementiaAndMemoryLoss_Resources_PlanningAhead rdf:type owl:NamedIndividual ,
+                                                                           :WebPage ;
+                                                                  :hasExcerpt """Planning ahead is thinking about your future, and putting things in place so that your choices will be known and acted on if you cannot express these choices yourself later in life. 
+This may happen if you have a sudden accident, become very ill or develop a condition such as dementia that affects your memory and your planning ability. Planning ahead can include issues related to your finances, lifestyle or health care. 
+This website will help you to plan ahead for your future. It is a practical and comprehensive resource for people across Australia just like you. It gives you the information you need to make decisions and helps you to put your decisions into action.""" ;
+                                                                  :hasKeyword "Planning ahead" ;
+                                                                  :hasTitle "Alzheimer's Australia | Planning ahead" ;
+                                                                  :hasUrl "https://www.fightdementia.org.au/planning-ahead" .
+
+
+###  http://isit990.azurewebsites.net/ontology/dementia-info/FightDementia_AboutDementiaAndMemoryLoss_Resources_Statistics
+:FightDementia_AboutDementiaAndMemoryLoss_Resources_Statistics rdf:type owl:NamedIndividual ,
+                                                                        :WebPage .
+
+
+###  http://isit990.azurewebsites.net/ontology/dementia-info/FightDementia_AboutDementiaAndMemoryLoss_Resources_Videos
+:FightDementia_AboutDementiaAndMemoryLoss_Resources_Videos rdf:type owl:NamedIndividual ,
+                                                                    :WebPage ;
+                                                           :hasExcerpt "Alzheimer's Australia video library" ;
+                                                           :hasKeyword "Videos" ;
+                                                           :hasTitle "Alzheimer's Australia | Videos" ;
+                                                           :hasUrl "https://www.fightdementia.org.au/about-dementia/resources/videos" .
+
+
+###  http://isit990.azurewebsites.net/ontology/dementia-info/FightDementia_AboutDementiaAndMemoryLoss_Resources_YourLegalRights
+:FightDementia_AboutDementiaAndMemoryLoss_Resources_YourLegalRights rdf:type owl:NamedIndividual ,
+                                                                             :WebPage ;
+                                                                    :hasExcerpt "Dementia and Your Legal Rights is a practical guide that sets out some of the legal issues a person with dementia, their families and carers may face, their legal rights and the actions they can take to protect their rights." ;
+                                                                    :hasKeyword "Dementia and Your Legal Rights" ;
+                                                                    :hasTitle "Alzheimer's Australia | Dementia and Your Legal Rights" ;
+                                                                    :hasUrl "https://www.fightdementia.org.au/legal-rights" .
+
+
+###  http://isit990.azurewebsites.net/ontology/dementia-info/FightDementia_AboutDementiaAndmemoryLoss_Resources_Stories
+:FightDementia_AboutDementiaAndmemoryLoss_Resources_Stories rdf:type owl:NamedIndividual ,
+                                                                     :WebPage ;
+                                                            :hasExcerpt "The stories on these pages are from people affected by dementia." ;
+                                                            :hasKeyword "Stories" ;
+                                                            :hasTitle "Alzheimer's Australia | Stories" ;
+                                                            :hasUrl "https://www.fightdementia.org.au/about-dementia/resources/stories" .
+
+
+###  http://isit990.azurewebsites.net/ontology/dementia-info/
+: rdf:type owl:NamedIndividual ;
+  :hasExcerpt "What are some of the things to look out for, what are some of the tests used for diagnosing dementia and how do you go about telling someone they have dementia." ;
+  :hasKeyword "Warning signs of dementia" ,
+              "Worried about your memory?" ;
+  :hasTitle "Alzheimer's Australia | How can I find out more?" ;
+  :hasUrl "https://www.fightdementia.org.au/about-dementia/how-can-i-find-out-more" .
+
+
 ###  http://isit990.azurewebsites.net/ontology/dementia-info/FightDementia_AboutDementia_DementiaResearch
-:FightDementia_AboutDementia_DementiaResearch rdf:type owl:NamedIndividual ;
+:FightDementia_AboutDementia_DementiaResearch rdf:type owl:NamedIndividual ,
+                                                       :WebPage ;
                                               :hasExcerpt "Researchers are currently investigating a number of aspects of dementia" ;
                                               :hasKeyword "Dementia care research" ,
                                                           "Dementia research" ;
@@ -195,7 +269,8 @@ owl:topDataProperty rdfs:domain :WebPage ;
 
 
 ###  http://isit990.azurewebsites.net/ontology/dementia-info/FightDementia_AboutDementia_DiagnosingDementia
-:FightDementia_AboutDementia_DiagnosingDementia rdf:type owl:NamedIndividual ;
+:FightDementia_AboutDementia_DiagnosingDementia rdf:type owl:NamedIndividual ,
+                                                         :WebPage ;
                                                 :hasExcerpt "Information about the early signs of dementia, the importance of early and correct diagnosis and the ways in which it is diagnosed." ;
                                                 :hasKeyword "Diagnosing dementia" ,
                                                             "early signs of dementia" ;
@@ -215,7 +290,8 @@ For more information on Dementia Training Australia please visit: www.dementiatr
 
 
 ###  http://isit990.azurewebsites.net/ontology/dementia-info/FightDementia_AboutDementia_FrequentlyAskedQuestionsDementia
-:FightDementia_AboutDementia_FrequentlyAskedQuestionsDementia rdf:type owl:NamedIndividual ;
+:FightDementia_AboutDementia_FrequentlyAskedQuestionsDementia rdf:type owl:NamedIndividual ,
+                                                                       :WebPage ;
                                                               :hasExcerpt "Some frequently asked questions about dementia." ;
                                                               :hasKeyword "frequently asked questions about dementia." ,
                                                                           "what should I do?" ;
@@ -224,19 +300,50 @@ For more information on Dementia Training Australia please visit: www.dementiatr
 
 
 ###  http://isit990.azurewebsites.net/ontology/dementia-info/FightDementia_AboutDementia_MemoryChanges
-:FightDementia_AboutDementia_MemoryChanges rdf:type owl:NamedIndividual ;
+:FightDementia_AboutDementia_MemoryChanges rdf:type owl:NamedIndividual ,
+                                                    :WebPage ;
                                            :hasExcerpt "There is a difference between memory loss as a part of normal ageing and as a symptom of dementia." ;
                                            :hasKeyword "Memory changes" ;
                                            :hasTitle "Alzheimer's Australia | Memory changes" ;
                                            :hasUrl "https://www.fightdementia.org.au/about-dementia/memory-loss/memory-changes" .
 
 
+###  http://isit990.azurewebsites.net/ontology/dementia-info/FightDementia_AboutDementia_MemoryLoss_DementiaResearch_CausesOfDementia
+:FightDementia_AboutDementia_MemoryLoss_DementiaResearch_CausesOfDementia rdf:type owl:NamedIndividual ,
+                                                                                   :WebPage ;
+                                                                          :hasExcerpt "There are many different types of dementia and the cause varies with type. The information below provides details of some of the major research areas. " ;
+                                                                          :hasKeyword "Causes of dementia" ;
+                                                                          :hasTitle "Alzheimer's Australia | Causes of dementia" ;
+                                                                          :hasUrl "https://www.fightdementia.org.au/about-dementia/dementia-research/causes-of-dementia" .
+
+
 ###  http://isit990.azurewebsites.net/ontology/dementia-info/FightDementia_EducationAndConsulting
-:FightDementia_EducationAndConsulting rdf:type owl:NamedIndividual .
+:FightDementia_EducationAndConsulting rdf:type owl:NamedIndividual ,
+                                               :WebPage .
+
+
+###  http://isit990.azurewebsites.net/ontology/dementia-info/FightDementia_SupportAndPrograms_Counselling
+:FightDementia_SupportAndPrograms_Counselling rdf:type owl:NamedIndividual ,
+                                                       :WebPage ;
+                                              :hasExcerpt "Counsellors are skilled professionals who are trained to provide support, advice and practical assistance." ;
+                                              :hasKeyword "Counselling" ;
+                                              :hasTitle "Alzheimer's Australia | Counselling" ;
+                                              :hasUrl "https://www.fightdementia.org.au/services/counselling" .
+
+
+###  http://isit990.azurewebsites.net/ontology/dementia-info/FightDementia_SupportAndServices_ServicesAndPrograms_LibraryAndInformationServices
+:FightDementia_SupportAndServices_ServicesAndPrograms_LibraryAndInformationServices rdf:type owl:NamedIndividual ,
+                                                                                             :WebPage ;
+                                                                                    :hasExcerpt "Support for family carers, people with dementia, health professionals and community care workers." ;
+                                                                                    :hasKeyword "Borrowing" ,
+                                                                                                "Catalogue" ;
+                                                                                    :hasTitle "Alzheimer's Australia | Library and information service" ;
+                                                                                    :hasUrl "https://www.fightdementia.org.au/services/library" .
 
 
 ###  http://isit990.azurewebsites.net/ontology/dementia-info/FightingDementia_AboutDementia_AmIAtRisk
-:FightingDementia_AboutDementia_AmIAtRisk rdf:type owl:NamedIndividual ;
+:FightingDementia_AboutDementia_AmIAtRisk rdf:type owl:NamedIndividual ,
+                                                   :WebPage ;
                                           :hasExcerpt "Information about the early signs and symptoms of dementia, the role of heredity in dementia, managing the risk factors and advice on reducing the risk of developing dementia." ;
                                           :hasKeyword "BrainyApp" ,
                                                       "Diagnosing dementia" ,
@@ -290,7 +397,8 @@ For more information on Dementia Training Australia please visit: www.dementiatr
 
 
 ###  http://isit990.azurewebsites.net/ontology/dementia-info/FightingDementia_ResearchAndPublications_DementiaNews
-:FightingDementia_ResearchAndPublications_DementiaNews rdf:type owl:NamedIndividual ;
+:FightingDementia_ResearchAndPublications_DementiaNews rdf:type owl:NamedIndividual ,
+                                                                :WebPage ;
                                                        :hasExcerpt "Stay in touch with the latest dementia news and research from around the world." ;
                                                        :hasKeyword "Dementia News" ;
                                                        :hasTitle "Alzheimer's Australia | Dementia News" ;
@@ -323,6 +431,13 @@ For more information on Dementia Training Australia please visit: www.dementiatr
                 :State
               )
 ] .
+###  http://isit990.azurewebsites.net/ontology/dementia-info/s_Shed_Manual
+:s_Shed_Manual rdf:type owl:NamedIndividual ,
+                        :WebPage ;
+               :hasExcerpt "On any day you will find in any of these numerous buildings around the world, amongst the dust and the noise, men gathering, working and talking in a place they call their own, a place that is more than four walls and a roof a place that has a heart of its own, a place they call the “Men’s Shed”." ;
+               :hasKeyword "Your shed and dementia, a manual" ;
+               :hasTitle "Alzheimer's Australia | Men's Shed manual" ;
+               :hasUrl "https://www.fightdementia.org.au/about-dementia/resources/mens-shed-manual" .
 
 
 ###  Generated by the OWL API (version 4.2.8.20170104-2310) https://github.com/owlcs/owlapi
