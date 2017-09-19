@@ -1,33 +1,26 @@
 import * as React from 'react';
 import './search-form.scss';
-import { parse } from 'query-string'
 import { RouteComponentProps } from 'react-router-dom'
+import { SearchInput } from './SearchInput';
 
 interface SearchFormState {
     query: string
 }
-interface SearchFormProps extends RouteComponentProps<{}> {
-
+interface SearchFormProps {
+    query: string;
 }
-export class SearchForm extends React.Component<SearchFormProps | any, SearchFormState>   {
+export class SearchForm extends React.Component<SearchFormProps, SearchFormState>   {
+    tags: { id: number; text: string; }[];
     constructor(props: SearchFormProps) {
         super(props);
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleInputChange = this.handleInputChange.bind(this);
-        this.state = {
-            query: this.props.location ? parse(this.props.location.search).query : ""
-        }
+        this.tags = [{ id: 1, text: "nabin" }];
     }
     public render() {
         return <form action="/search" method="get" onSubmit={this.handleSubmit} className="form-inline search-form">
             <div className="form-group text-center">
-                <input
-                    type="text"
-                    className="form-control search-input"
-                    placeholder="enter search term"
-                    value={this.state.query}
-                    onChange={this.handleInputChange}
-                />
+                <SearchInput tags={this.tags} />
                 <input type="submit"
                     className="btn btn-outline-primary"
                     value="Search"
@@ -41,7 +34,6 @@ export class SearchForm extends React.Component<SearchFormProps | any, SearchFor
         })
     }
     handleSubmit(event: React.FormEvent<HTMLFormElement>) {
-        event.preventDefault();
-        this.props.history.push('/search?query=' + this.state.query)
+        
     }
 }

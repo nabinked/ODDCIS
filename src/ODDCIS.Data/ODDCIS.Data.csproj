@@ -8,10 +8,12 @@
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="dotnetrdf" Version="2.0.0-pre0007" />
-    <PackageReference Include="Microsoft.AspNetCore.Hosting" Version="2.0.0" />
     <PackageReference Include="System.Globalization.Extensions" Version="4.3.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Hosting" Version="2.0.0" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\ODDCIS.Exceptions\ODDCIS.Exceptions.csproj" />
     <ProjectReference Include="..\ODDCIS.Models\ODDCIS.Models.csproj" />
+    <ProjectReference Include="..\ODDCIS.Query\ODDCIS.Query.csproj" />
   </ItemGroup>
 </Project>

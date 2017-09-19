@@ -1,23 +1,32 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using ODDCIS.Data;
 using ODDCIS.Models;
+using System.Collections.Generic;
+using VDS.RDF;
 
 namespace ODDCIS.Web
 {
     [Route("api/[controller]")]
     public class SearchController : Controller
     {
-        private readonly IRepository _repository;
+        private readonly IRepository repository;
 
         public SearchController(IRepository repository)
         {
-            this._repository = repository;
+            this.repository = repository;
         }
         // GET api/values
         [HttpGet("")]
         public SearchResultList Get(SearchQueryViewModel searchViewModel)
         {
-            return this._repository.GetResult(searchViewModel.Query);
+            return null;
+        }
+
+        // GET api/values
+        [HttpGet("suggestions")]
+        public IList<RdfTerm> Suggestions(IList<RdfTerm> precedentRdfTerms)
+        {
+            return this.repository.GetSuggestionList(precedentRdfTerms);
         }
     }
 }

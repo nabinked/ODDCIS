@@ -1,12 +1,12 @@
 ﻿using ODDCIS.Models;
-using System;
 using System.Collections.Generic;
-using System.Text;
+using VDS.RDF.Query;
 
 namespace ODDCIS.Data
 {
     public interface IRepository
     {
-        SearchResultList GetResult(string query);
+        SparqlResultSet GetResult(string query);
+        IList<RdfTerm> GetSuggestionList(IList<RdfTerm> precedentsRdfTerms);
     }
 }

@@ -6,6 +6,7 @@
     "jsx": "react",
     "sourceMap": true,
     "skipDefaultLibCheck": true,
+    "typeRoots" : ["./@types","./node_modules/@types"],
     "paths": {
       // Fix "Duplicate identifier" errors caused by multiple dependencies fetching their own copies of type definitions.
       // We tell TypeScript which type definitions module to treat as the canonical one (instead of combining all of them).

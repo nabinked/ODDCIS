@@ -9,6 +9,5 @@ namespace ODDCIS.Models
     public class Query
     {
         public string Folder { get; set; }
-        public string Query1 { get; set; }
     }
 }

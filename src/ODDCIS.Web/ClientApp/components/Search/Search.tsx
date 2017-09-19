@@ -23,7 +23,7 @@ export class Search extends React.Component<SearchProps, SearchState> {
     }
     public render() {
         return <div className="search">
-            <SearchForm history={this.props.history} location={this.props.location} />
+            <SearchForm query={this.getQuery(this.props.location)} />
             <SearchResult query={this.getQuery(this.props.location)} />
         </div>;
     }

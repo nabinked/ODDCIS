@@ -9,6 +9,22 @@
 <http://isit990.azurewebsites.net/ontology/dementia-info> rdf:type owl:Ontology .
 
 #################################################################
+#    Object Properties
+#################################################################
+
+###  http://isit990.azurewebsites.net/ontology/dementia-info/isDescribedAt
+:isDescribedAt rdf:type owl:ObjectProperty ;
+               rdfs:domain owl:Thing ;
+               rdfs:range :WebPage .
+
+
+###  http://isit990.azurewebsites.net/ontology/dementia-info/isSufferingFrom
+:isSufferingFrom rdf:type owl:ObjectProperty ;
+                 rdfs:subPropertyOf owl:topObjectProperty ;
+                 rdfs:range :Disease .
+
+
+#################################################################
 #    Data properties
 #################################################################
 
@@ -26,6 +42,13 @@
             rdfs:range xsd:string .
 
 
+###  http://isit990.azurewebsites.net/ontology/dementia-info/hasSymptom
+:hasSymptom rdf:type owl:DatatypeProperty ;
+            rdfs:subPropertyOf owl:topDataProperty ;
+            rdfs:domain :Disease ;
+            rdfs:range xsd:string .
+
+
 ###  http://isit990.azurewebsites.net/ontology/dementia-info/hasTitle
 :hasTitle rdf:type owl:DatatypeProperty ;
           rdfs:subPropertyOf owl:topDataProperty .
@@ -34,6 +57,7 @@
 ###  http://isit990.azurewebsites.net/ontology/dementia-info/hasUrl
 :hasUrl rdf:type owl:DatatypeProperty ;
         rdfs:subPropertyOf owl:topDataProperty ;
+        rdf:type owl:FunctionalProperty ;
         rdfs:domain :WebPage ;
         rdfs:range xsd:string .
 
@@ -47,18 +71,119 @@ owl:topDataProperty rdfs:domain :WebPage ;
 #    Classes
 #################################################################
 
-###  http://isit990.azurewebsites.net/ontology/dementia-info/InformationSource
-:InformationSource rdf:type owl:Class .
+###  http://isit990.azurewebsites.net/ontology/dementia-info/AlzeimersDisease
+:AlzeimersDisease rdf:type owl:Class ;
+                  rdfs:subClassOf :Dementia .
+
+
+###  http://isit990.azurewebsites.net/ontology/dementia-info/City
+:City rdf:type owl:Class ;
+      rdfs:subClassOf :Place .
+
+
+###  http://isit990.azurewebsites.net/ontology/dementia-info/Country
+:Country rdf:type owl:Class ;
+         rdfs:subClassOf :Place .
+
+
+###  http://isit990.azurewebsites.net/ontology/dementia-info/CreutzfeldtJakobDisease
+:CreutzfeldtJakobDisease rdf:type owl:Class ;
+                         rdfs:subClassOf :Dementia .
+
+
+###  http://isit990.azurewebsites.net/ontology/dementia-info/DLB
+:DLB rdf:type owl:Class ;
+     rdfs:subClassOf :Dementia .
+
+
+###  http://isit990.azurewebsites.net/ontology/dementia-info/Dementia
+:Dementia rdf:type owl:Class ;
+          rdfs:subClassOf :Disease .
+
+
+###  http://isit990.azurewebsites.net/ontology/dementia-info/Diagnosis
+:Diagnosis rdf:type owl:Class .
+
+
+###  http://isit990.azurewebsites.net/ontology/dementia-info/Disease
+:Disease rdf:type owl:Class ;
+         rdfs:comment "a particular abnormal condition that affects part or all of an organism and that consists of a disorder of a structure or function." .
+
+
+###  http://isit990.azurewebsites.net/ontology/dementia-info/FrontotemporalDementia
+:FrontotemporalDementia rdf:type owl:Class ;
+                        rdfs:subClassOf :Dementia .
+
+
+###  http://isit990.azurewebsites.net/ontology/dementia-info/HuntingtonDisease
+:HuntingtonDisease rdf:type owl:Class ;
+                   rdfs:subClassOf :Dementia .
+
+
+###  http://isit990.azurewebsites.net/ontology/dementia-info/MixedDementia
+:MixedDementia rdf:type owl:Class ;
+               rdfs:subClassOf :Dementia .
+
+
+###  http://isit990.azurewebsites.net/ontology/dementia-info/NormalPressureHydrocephalus
+:NormalPressureHydrocephalus rdf:type owl:Class ;
+                             rdfs:subClassOf :Dementia .
+
+
+###  http://isit990.azurewebsites.net/ontology/dementia-info/ParkinsonsDisease
+:ParkinsonsDisease rdf:type owl:Class ;
+                   rdfs:subClassOf :Dementia .
+
+
+###  http://isit990.azurewebsites.net/ontology/dementia-info/Place
+:Place rdf:type owl:Class .
+
+
+###  http://isit990.azurewebsites.net/ontology/dementia-info/Progression
+:Progression rdf:type owl:Class .
+
+
+###  http://isit990.azurewebsites.net/ontology/dementia-info/State
+:State rdf:type owl:Class ;
+       rdfs:subClassOf :Place .
+
+
+###  http://isit990.azurewebsites.net/ontology/dementia-info/Symptoms
+:Symptoms rdf:type owl:Class .
+
+
+###  http://isit990.azurewebsites.net/ontology/dementia-info/Treatment
+:Treatment rdf:type owl:Class .
+
+
+###  http://isit990.azurewebsites.net/ontology/dementia-info/VascularDementia
+:VascularDementia rdf:type owl:Class ;
+                  rdfs:subClassOf :Dementia .
 
 
 ###  http://isit990.azurewebsites.net/ontology/dementia-info/WebPage
 :WebPage rdf:type owl:Class ;
-         rdfs:subClassOf :InformationSource .
+         rdfs:comment "Represent a website" ;
+         rdfs:label "Webpage" .
+
+
+###  http://isit990.azurewebsites.net/ontology/dementia-info/WernickeKorsakoffSyndrome
+:WernickeKorsakoffSyndrome rdf:type owl:Class ;
+                           rdfs:subClassOf :Dementia .
 
 
 #################################################################
 #    Individuals
 #################################################################
+
+###  http://isit990.azurewebsites.net/ontology/dementia-info/
+: rdf:type owl:NamedIndividual ;
+  :hasExcerpt "What are some of the things to look out for, what are some of the tests used for diagnosing dementia and how do you go about telling someone they have dementia." ;
+  :hasKeyword "Warning signs of dementia" ,
+              "Worried about your memory?" ;
+  :hasTitle "Alzheimer's Australia | How can I find out more?" ;
+  :hasUrl "https://www.fightdementia.org.au/about-dementia/how-can-i-find-out-more" .
+
 
 ###  http://isit990.azurewebsites.net/ontology/dementia-info/FightDementia_AboutDementia_DementiaResearch
 :FightDementia_AboutDementia_DementiaResearch rdf:type owl:NamedIndividual ;
@@ -172,13 +297,32 @@ For more information on Dementia Training Australia please visit: www.dementiatr
                                                        :hasUrl "https://www.fightdementia.org.au/dementia-news" .
 
 
-###  http://isit990.azurewebsites.net/ontology/dementia-info/FightDementia_AboutDementia_HowCanIFindOutMore?
-: rdf:type owl:NamedIndividual ;
-  :hasExcerpt "What are some of the things to look out for, what are some of the tests used for diagnosing dementia and how do you go about telling someone they have dementia." ;
-  :hasKeyword "Warning signs of dementia" ,
-              "Worried about your memory?" ;
-  :hasTitle "Alzheimer's Australia | How can I find out more?" ;
-  :hasUrl "https://www.fightdementia.org.au/about-dementia/how-can-i-find-out-more" .
+#################################################################
+#    General axioms
+#################################################################
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( :AlzeimersDisease
+                :CreutzfeldtJakobDisease
+                :DLB
+                :Dementia
+                :FrontotemporalDementia
+                :HuntingtonDisease
+                :MixedDementia
+                :NormalPressureHydrocephalus
+                :ParkinsonsDisease
+                :VascularDementia
+                :WernickeKorsakoffSyndrome
+              )
+] .
+
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( :City
+                :Country
+                :State
+              )
+] .
 
 
 ###  Generated by the OWL API (version 4.2.8.20170104-2310) https://github.com/owlcs/owlapi

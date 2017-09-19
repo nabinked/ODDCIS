@@ -1,52 +1,65 @@
-﻿using Microsoft.AspNetCore.Hosting;
-using ODDCIS.Models;
-using System.IO;
-using VDS.RDF;
+﻿using ODDCIS.Models;
 using VDS.RDF.Query.Datasets;
 using VDS.RDF.Query;
 using VDS.RDF.Parsing;
 using ODDCIS.Data.DataModelMappers;
 using System.Collections.Generic;
+using ODDCIS.Query;
+using System.Linq;
 
 namespace ODDCIS.Data
 {
     public class Repository : IRepository
     {
-        private string _owlFile;
-        private Appsettings _appsettings;
-        private readonly IHostingEnvironment _env;
+        private readonly Queries queries;
+        private readonly SuggestionsQueryGenerator suggestionQueryGenerator;
+        private readonly ISparqlDataset dataset;
 
-        public Repository(IHostingEnvironment env, Appsettings appsettings)
+        public Repository(
+            Queries queries,
+            SuggestionsQueryGenerator suggestionQueryGenerator,
+            DatasetAccessor datasetAccessor)
         {
-            _env = env;
-            _appsettings = appsettings;
-            _owlFile = Path.Combine(_env.WebRootPath, _appsettings.OwlFilePath);
+            this.queries = queries;
+            this.suggestionQueryGenerator = suggestionQueryGenerator;
+            this.dataset = datasetAccessor.DataSet;
         }
-        public SearchResultList GetResult(string searchQuery)
+        public SparqlResultSet GetResult(string searchQuery)
         {
-            var queryFilePath = Path.Combine(_env.WebRootPath, _appsettings.QuerySettings.Folder, _appsettings.QuerySettings.Query1);
-            if (File.Exists(queryFilePath))
+            try
             {
-                string sparqlQuery = File.ReadAllText(queryFilePath);
-                var g = new Graph();
-                g.LoadFromFile(_owlFile, new TurtleParser());
-                ISparqlDataset ds = new InMemoryDataset(g);
-                LeviathanQueryProcessor processor = new LeviathanQueryProcessor(ds);
-                var queryParser = new SparqlQueryParser();
-                var parmeterizedString = new SparqlParameterizedString(sparqlQuery);
-                parmeterizedString.SetLiteral("value", searchQuery);
-                var resultSet = processor.ProcessQuery(queryParser.ParseFromString(parmeterizedString.ToString())) as SparqlResultSet;
-                var resultList = new SearchResultList()
+                var query = queries.SearchKeyWord;
+                if (!string.IsNullOrEmpty(query))
                 {
-                    Results = new List<SearchResult>()
-                };
-                foreach (var result in resultSet.Results)
-                {
-                    resultList.Results.Add(result.ToSearchResult());
+
+                    LeviathanQueryProcessor processor = new LeviathanQueryProcessor(this.dataset);
+                    var queryParser = new SparqlQueryParser();
+                    var parmeterizedString = new SparqlParameterizedString(query);
+                    parmeterizedString.SetLiteral("value", searchQuery);
+                    return processor.ProcessQuery(queryParser.ParseFromString(parmeterizedString.ToString())) as SparqlResultSet;
                 }
-                return resultList;
+            }
+            catch
+            {
+                throw;
             }
             return null;
+        }
+
+        public IList<RdfTerm> GetSuggestionList(IList<RdfTerm> precedentRdfTerms)
+        {
+            var query = suggestionQueryGenerator.SuggestionList(precedentRdfTerms);
+            try
+            {
+                LeviathanQueryProcessor processor = new LeviathanQueryProcessor(this.dataset);
+                var queryParser = new SparqlQueryParser();
+                var resultSet = processor.ProcessQuery(queryParser.ParseFromString(query)) as SparqlResultSet;
+                return resultSet.Results.Select(x => x.ToSuggestionList()).ToList();
+            }
+                catch (System.Exception)
+            {
+                throw;
+            }
         }
     }
 }
