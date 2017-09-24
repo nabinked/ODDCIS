@@ -9,7 +9,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\ODDCIS.Exceptions\ODDCIS.Exceptions.csproj" />
+    <ProjectReference Include="..\ODDCIS.Common\ODDCIS.Common.csproj" />
     <ProjectReference Include="..\ODDCIS.Models\ODDCIS.Models.csproj" />
   </ItemGroup>
   

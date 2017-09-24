@@ -2,6 +2,7 @@
 using ODDCIS.Data;
 using ODDCIS.Models;
 using System.Collections.Generic;
+using System.Linq;
 using VDS.RDF;
 
 namespace ODDCIS.Web
@@ -24,9 +25,25 @@ namespace ODDCIS.Web
 
         // GET api/values
         [HttpGet("suggestions")]
-        public IList<RdfTerm> Suggestions(IList<RdfTerm> precedentRdfTerms)
+        public IList<RdfNode> Suggestions(List<RdfNode> precedentRdfTerms)
         {
-            return this.repository.GetSuggestionList(precedentRdfTerms);
+            if (precedentRdfTerms.Count > 0)
+            {
+                var precedentTerm = precedentRdfTerms.FirstOrDefault();
+                switch (precedentTerm.NodeType)
+                {
+                    case NodeType.Uri:
+                        return this.repository.GetAllPredicatesOf(precedentRdfTerms.Where(x => x.NodeType == NodeType.Uri));
+                    case NodeType.Literal:
+                        return this.repository.GetAllObjectsOf(precedentTerm);
+                    default:
+                        return null;
+                }
+            }
+            else
+            {
+                return this.repository.GetAllClasses();
+            }
         }
     }
 }

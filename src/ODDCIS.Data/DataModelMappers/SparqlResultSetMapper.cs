@@ -1,4 +1,5 @@
-﻿using ODDCIS.Models;
+﻿using ODDCIS.Common.Extensions;
+using ODDCIS.Models;
 using System;
 using System.Collections.Generic;
 using VDS.RDF;
@@ -18,32 +19,16 @@ namespace ODDCIS.Data.DataModelMappers
             };
         }
 
-        public static RdfTerm ToSuggestionList(this SparqlResult result)
+        public static RdfNode ToRdfNode(this SparqlResult result)
         {
-            Uri uri = default(Uri);
-            string comment = string.Empty, label = string.Empty;
-            if (result.TryGetValue("subject", out INode subNode))
+            return new RdfNode()
             {
-                uri = (subNode as IUriNode).Uri;
-            }
-
-            if (result.TryGetValue("comment", out INode commentNode))
-            {
-                comment = (commentNode as ILiteralNode).Value;
-            }
-
-            if (result.TryGetValue("label", out INode labelNode))
-            {
-                label = (labelNode as ILiteralNode).Value;
-            }
-
-            return new RdfTerm()
-            {
-                Uri = uri,
-                Comment = comment,
-                Label = label
+                Uri = result.GetNode<UriNode>("subject")?.Uri,
+                NodeType = result.GetNode<UriNode>("type").NodeType,
+                Comment = result.GetNode<ILiteralNode>("comment")?.Value,
+                Label = result.GetNode<ILiteralNode>("label")?.Value,
+                
             };
         }
-
     }
 }

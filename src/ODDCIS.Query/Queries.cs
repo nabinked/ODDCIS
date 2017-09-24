@@ -8,11 +8,20 @@
         {
             this.queryRetriever = queryRetriever;
         }
+
+        public string CommonPrefixes
+        {
+            get
+            {
+                return this.queryRetriever.GetQuery(nameof(CommonPrefixes));
+            }
+        }
+
         public string AllClasses
         {
             get
             {
-                return this.queryRetriever.GetQuery(nameof(AllClasses));
+                return CommonPrefixes + this.queryRetriever.GetQuery(nameof(AllClasses));
             }
         }
 
@@ -20,7 +29,15 @@
         {
             get
             {
-                return this.queryRetriever.GetQuery(nameof(SearchKeyWord));
+                return CommonPrefixes + this.queryRetriever.GetQuery(nameof(SearchKeyWord));
+            }
+        }
+
+        public string AllPropertiesOf
+        {
+            get
+            {
+                return CommonPrefixes + this.queryRetriever.GetQuery(nameof(AllPropertiesOf));
             }
         }
     }

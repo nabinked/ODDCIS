@@ -7,6 +7,8 @@ namespace ODDCIS.Data
     public interface IRepository
     {
         SparqlResultSet GetResult(string query);
-        IList<RdfTerm> GetSuggestionList(IList<RdfTerm> precedentsRdfTerms);
+        IList<RdfNode> GetAllClasses();
+        IList<RdfNode> GetAllPredicatesOf(IEnumerable<RdfNode> classes);
+        IList<RdfNode> GetAllObjectsOf(RdfNode precedentTerm);
     }
 }

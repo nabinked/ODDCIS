@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Runtime.Serialization;
 
-namespace ODDCIS.Query
+namespace ODDCIS.Common.Exceptions
 {
     public class QueryNotFoundException : Exception
     {

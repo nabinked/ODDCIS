@@ -2,7 +2,7 @@
 
 namespace ODDCIS.Models
 {
-    public class RdfTermList : List<RdfTerm>
+    public class RdfTermList : List<RdfNode>
     {
 
     }

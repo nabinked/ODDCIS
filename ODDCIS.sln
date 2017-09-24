@@ -13,7 +13,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ODDCIS.Query", "src\ODDCIS.
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ODDCIS.Logic", "src\ODDCIS.Logic\ODDCIS.Logic.csproj", "{82BC066F-01D1-42E7-83D5-D6D0E5D5DB4D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ODDCIS.Exceptions", "src\ODDCIS.Exceptions\ODDCIS.Exceptions.csproj", "{6FEA2457-0269-472C-9664-062D74A305EE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ODDCIS.Common", "src\ODDCIS.Common\ODDCIS.Common.csproj", "{E6B20FCB-6F40-4119-B752-E5CDEFD2FB10}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -41,10 +41,10 @@ Global
 		{82BC066F-01D1-42E7-83D5-D6D0E5D5DB4D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{82BC066F-01D1-42E7-83D5-D6D0E5D5DB4D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{82BC066F-01D1-42E7-83D5-D6D0E5D5DB4D}.Release|Any CPU.Build.0 = Release|Any CPU
-		{6FEA2457-0269-472C-9664-062D74A305EE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{6FEA2457-0269-472C-9664-062D74A305EE}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{6FEA2457-0269-472C-9664-062D74A305EE}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{6FEA2457-0269-472C-9664-062D74A305EE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E6B20FCB-6F40-4119-B752-E5CDEFD2FB10}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E6B20FCB-6F40-4119-B752-E5CDEFD2FB10}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E6B20FCB-6F40-4119-B752-E5CDEFD2FB10}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E6B20FCB-6F40-4119-B752-E5CDEFD2FB10}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

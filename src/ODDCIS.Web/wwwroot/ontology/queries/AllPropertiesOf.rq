@@ -1,8 +1,9 @@
-SELECT DISTINCT * 
+SELECT DISTINCT *
 	WHERE 
 	{ 
-		?subject a owl:Class .
+		@classTriplets 
 		?subject a ?type .
+		?subject rdfs:domain ?propertyOf
 		OPTIONAL { ?subject a rdfs:Class }
 		OPTIONAL { ?subject rdfs:label ?label }
 		OPTIONAL { ?subject rdfs:comment ?comment}

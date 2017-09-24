@@ -2,8 +2,8 @@
 
 namespace ODDCIS.Models
 {
-    public class PropertyRdfTerm : RdfTerm
+    public class PropertyRdfTerm : RdfNode
     {
-        public RdfTerm Subject { get; set; }
+        public RdfNode Subject { get; set; }
     }
 }

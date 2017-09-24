@@ -4,18 +4,16 @@ import './search-input.scss';
 import utils from '../../../utils';
 
 interface Tag {
-    id: number;
+    id?: number;
     text: string;
 }
 
-interface RdfTerm {
+interface RdfNode {
     uri: string;
     label: string;
     comment: string;
-}
-
-interface PropertyRdfTerm extends RdfTerm {
-    subject: RdfTerm;
+    rdfNodeType: number;
+    propertyOf:string; // if its a property then the uri for which it is the property
 }
 
 interface SearchFormInputProps {
@@ -23,69 +21,109 @@ interface SearchFormInputProps {
 }
 interface SearchFormInputState {
     tags: Array<Tag>,
-    rdfTermList: Array<RdfTerm>
+    selectedRdfTermList: Array<RdfNode>
     suggestions: Array<string>
+    suggestedRdfTermList?: Array<RdfNode>
 }
 export class SearchInput extends React.Component<SearchFormInputProps, SearchFormInputState>
 {
     constructor(props: SearchFormInputProps) {
         super(props);
         this.state = {
-            tags: [{ id: 1, text: "Thailand" }, { id: 2, text: "India" }],
+            tags: [],
             suggestions: [],
-            rdfTermList: null
+            selectedRdfTermList: []
         };
         this.handleDelete = this.handleDelete.bind(this);
         this.handleAddition = this.handleAddition.bind(this);
+        this.handleInputChange = this.handleInputChange.bind(this);
     }
-    handleInputChange() {
+    shoudlFecthSuggestions(): boolean {
+        return this.state.suggestions.length == 0;
+    }
+    fetchSuggestions(input) {
+        fetch('/api/search/suggestions?' + utils.serializeArray(this.state.selectedRdfTermList, "precedentRdfTerms"))
+            .then(response => response.json() as Promise<Array<RdfNode>>)
+            .then(data => {
+                this.setSuggestions(data);
+            });
+    }
+    setSuggestions(rdfTermList: Array<RdfNode>): void {
+        this.setState({ suggestedRdfTermList: rdfTermList, suggestions: this.suggestionsFromRdfTermList(rdfTermList) })
+    }
+    suggestionsFromRdfTermList(rdfTermList: Array<RdfNode>): string[] {
+        var suggestions: Array<string> = [];
+        var count = 1;
+        for (let rdfTerm of rdfTermList) {
+            suggestions.push(count + ". " + rdfTerm.label)
+            count++;
+        }
+        return suggestions;
+    }
+    addSelectedRdfTerm(tag: string) {
+        this.setState(function (prevState: SearchFormInputState, props: SearchFormInputProps) {
+            let tags = prevState.tags;
+            let rdfTermList = prevState.selectedRdfTermList;
+            var splitted = tag.split(".");
+            splitted.splice(0, 1);
+            tags.push({ text: splitted.join("") })
+            rdfTermList.push(this.getRdfTermFromTag(tag));
+            return {
+                tags: tags,
+                selectedRdfTermList: rdfTermList,
+                suggestions: []
+            }
+        });
 
+    }
+    clearSuggestions(): void {
+        this.setSuggestions([]);
+    }
+    getRdfTermFromTag(tag: string): RdfNode {
+        var index = parseInt(tag.split(".")[0]) - 1;
+        return this.state.suggestedRdfTermList[index];
+    }
+
+    handleInputChange(input: string) {
+        if (this.shoudlFecthSuggestions()) {
+            this.fetchSuggestions(input);
+        }
     }
     handleDelete(i) {
         let tags = this.state.tags;
         if (i == tags.length - 1) {
             tags.splice(i, 1);
-            this.setState({ tags: tags });
+            this.setState({
+                tags: tags,
+                suggestions: []
+            });
         } else {
             alert("Can only remove the last tag.")
         }
     }
-    fetchSuggestions(input) {
-        fetch('/api/search/suggestions?' + utils.serialize(this.state.rdfTermList))
-            .then(response => response.json() as Promise<Array<RdfTerm>>)
-            .then(data => {
-                this.setState({ rdfTermList: data });
-            });
+    handleAddition(tag) {
+        this.addSelectedRdfTerm(tag);
     }
     handleFilterSuggestions(textInputValue, possibleSuggestionsArray) {
 
         var lowerCaseQuery = textInputValue.toLowerCase()
 
-        return possibleSuggestionsArray.filter(function (suggestion) {
+        var newSuggestions = possibleSuggestionsArray.filter(function (suggestion) {
             return suggestion.toLowerCase().includes(lowerCaseQuery)
         })
-    }
-    handleAddition(tag) {
-        let tags = this.state.tags;
-        tags.push({
-            id: tags.length + 1,
-            text: tag
-        });
-        this.setState({ tags: tags });
+        return newSuggestions.splice(0, 5);
     }
     render() {
         const { tags } = this.state;
         return (
-            <div>
-                <ReactTags tags={tags}
-                    placeholder="Start searching for concepts"
-                    handleInputChange={this.handleInputChange}
-                    handleDelete={this.handleDelete}
-                    handleFilterSuggestions={this.handleFilterSuggestions}
-                    minQueryLength={1}
-                    suggestions={this.state.suggestions}
-                    handleAddition={this.handleAddition} />
-            </div>
+            <ReactTags tags={tags}
+                placeholder="Start searching for concepts"
+                handleInputChange={this.handleInputChange}
+                handleDelete={this.handleDelete}
+                handleFilterSuggestions={this.handleFilterSuggestions}
+                minQueryLength={1}
+                suggestions={this.state.suggestions}
+                handleAddition={this.handleAddition} />
         )
     }
 }   

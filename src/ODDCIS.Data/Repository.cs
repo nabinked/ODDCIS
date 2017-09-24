@@ -12,16 +12,16 @@ namespace ODDCIS.Data
     public class Repository : IRepository
     {
         private readonly Queries queries;
-        private readonly SuggestionsQueryGenerator suggestionQueryGenerator;
+        private readonly QueryHelper queryHelper;
         private readonly ISparqlDataset dataset;
 
         public Repository(
             Queries queries,
-            SuggestionsQueryGenerator suggestionQueryGenerator,
+            QueryHelper queryHelper,
             DatasetAccessor datasetAccessor)
         {
             this.queries = queries;
-            this.suggestionQueryGenerator = suggestionQueryGenerator;
+            this.queryHelper = queryHelper;
             this.dataset = datasetAccessor.DataSet;
         }
         public SparqlResultSet GetResult(string searchQuery)
@@ -46,20 +46,57 @@ namespace ODDCIS.Data
             return null;
         }
 
-        public IList<RdfTerm> GetSuggestionList(IList<RdfTerm> precedentRdfTerms)
+        public IList<RdfNode> GetAllClasses(IList<RdfNode> precedentRdfTerms)
         {
-            var query = suggestionQueryGenerator.SuggestionList(precedentRdfTerms);
             try
             {
-                LeviathanQueryProcessor processor = new LeviathanQueryProcessor(this.dataset);
-                var queryParser = new SparqlQueryParser();
-                var resultSet = processor.ProcessQuery(queryParser.ParseFromString(query)) as SparqlResultSet;
-                return resultSet.Results.Select(x => x.ToSuggestionList()).ToList();
+                var query = queryHelper.GetQueryAllPredicates(precedentRdfTerms);
+                return ExecuteQuery(query).Results.Select(x => x.ToRdfNode()).ToList();
             }
-                catch (System.Exception)
+            catch (System.Exception)
             {
                 throw;
             }
         }
+
+        public IList<RdfNode> GetAllClasses()
+        {
+            try
+            {
+                var query = queries.AllClasses;
+                return ExecuteQuery(query).Results.Select(x => x.ToRdfNode()).ToList();
+            }
+            catch (System.Exception)
+            {
+                throw;
+            }
+        }
+
+        public IList<RdfNode> GetAllPredicatesOf(IEnumerable<RdfNode> classes)
+        {
+            try
+            {
+                var query = queryHelper.GetQueryAllPredicates(classes);
+                return ExecuteQuery(query).Results.Select(x => x.ToRdfNode()).ToList();
+            }
+            catch (System.Exception)
+            {
+                throw;
+            }
+        }
+
+        public IList<RdfNode> GetAllObjectsOf(RdfNode precedentTerm)
+        {
+            return null;
+        }
+
+        #region Privates
+        private SparqlResultSet ExecuteQuery(string query)
+        {
+            LeviathanQueryProcessor processor = new LeviathanQueryProcessor(this.dataset);
+            var queryParser = new SparqlQueryParser();
+            return processor.ProcessQuery(queryParser.ParseFromString(query)) as SparqlResultSet;
+        }
+        #endregion
     }
 }

@@ -12,7 +12,7 @@
     <PackageReference Include="Microsoft.AspNetCore.Hosting" Version="2.0.0" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ODDCIS.Exceptions\ODDCIS.Exceptions.csproj" />
+    <ProjectReference Include="..\ODDCIS.Common\ODDCIS.Common.csproj" />
     <ProjectReference Include="..\ODDCIS.Models\ODDCIS.Models.csproj" />
     <ProjectReference Include="..\ODDCIS.Query\ODDCIS.Query.csproj" />
   </ItemGroup>

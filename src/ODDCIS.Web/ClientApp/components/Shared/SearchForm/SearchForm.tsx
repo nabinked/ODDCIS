@@ -19,7 +19,7 @@ export class SearchForm extends React.Component<SearchFormProps, SearchFormState
     }
     public render() {
         return <form action="/search" method="get" onSubmit={this.handleSubmit} className="form-inline search-form">
-            <div className="form-group text-center">
+            <div className="text-center">
                 <SearchInput tags={this.tags} />
                 <input type="submit"
                     className="btn btn-outline-primary"

@@ -8,8 +8,7 @@ namespace ODDCIS.Query
         {
             services.AddSingleton<QueryRetriever>();
             services.AddSingleton<Queries>();
-            services.AddSingleton<SuggestionsQueryGenerator>();
-
+            services.AddSingleton<QueryHelper>();
         }
 
     }
