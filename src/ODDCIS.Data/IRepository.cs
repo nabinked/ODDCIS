@@ -1,4 +1,5 @@
 ﻿using ODDCIS.Models;
+using System;
 using System.Collections.Generic;
 using VDS.RDF.Query;
 
@@ -7,8 +8,8 @@ namespace ODDCIS.Data
     public interface IRepository
     {
         SparqlResultSet GetResult(string query);
-        IList<RdfNode> GetAllClasses();
-        IList<RdfNode> GetAllPredicatesOf(IEnumerable<RdfNode> classes);
-        IList<RdfNode> GetAllObjectsOf(RdfNode precedentTerm);
+        IEnumerable<RdfNode> GetAllSubjects();
+        IEnumerable<RdfNode> GetAllPredicatesOf(IEnumerable<RdfNode> subjects);
+        IEnumerable<RdfNode> GetAllObjectsOf(Uri predicate);
     }
 }

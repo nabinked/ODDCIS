@@ -1,4 +1,6 @@
-﻿namespace ODDCIS.Query
+﻿using VDS.RDF.Query;
+
+namespace ODDCIS.Query
 {
     public class Queries
     {
@@ -33,11 +35,27 @@
             }
         }
 
-        public string AllPropertiesOf
+        public string AllPredicatesOf
         {
             get
             {
-                return CommonPrefixes + this.queryRetriever.GetQuery(nameof(AllPropertiesOf));
+                return CommonPrefixes + this.queryRetriever.GetQuery(nameof(AllPredicatesOf));
+            }
+        }
+
+        public string AllObjectsOf
+        {
+            get
+            {
+                return CommonPrefixes + this.queryRetriever.GetQuery(nameof(AllObjectsOf));
+            }
+        }
+
+        public string AllSubClassesOf
+        {
+            get
+            {
+                return CommonPrefixes + this.queryRetriever.GetQuery(nameof(AllSubClassesOf));
             }
         }
     }

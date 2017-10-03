@@ -1,8 +1,9 @@
-
 SELECT DISTINCT *
 	WHERE 
-	{	@predicateUri rdfs:range ?item
+	{ 
+		@classTriplets 
+		?item rdfs:domain ?predicateOf
+		OPTIONAL { ?item a rdfs:Class }
 		OPTIONAL { ?item rdfs:label ?label }
 		OPTIONAL { ?item rdfs:comment ?comment}
-	
 	}

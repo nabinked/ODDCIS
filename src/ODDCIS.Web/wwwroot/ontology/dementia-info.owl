@@ -13,6 +13,22 @@
 #    Object Properties
 #################################################################
 
+###  http://isit990.azurewebsites.net/ontology/dementia-info/associatedWith
+:associatedWith rdf:type owl:ObjectProperty ;
+                rdfs:subPropertyOf owl:topObjectProperty ;
+                rdfs:domain :Symptoms ;
+                rdfs:range :Disease ;
+                rdfs:label "associated with" .
+
+
+###  http://isit990.azurewebsites.net/ontology/dementia-info/atStage
+:atStage rdf:type owl:ObjectProperty ;
+         rdfs:domain :Dementia ;
+         rdfs:range :DementiaProgression ;
+         rdfs:comment "represernts stages of dementia" ;
+         rdfs:label "at stage of" .
+
+
 ###  http://isit990.azurewebsites.net/ontology/dementia-info/hasDefinitionOf
 :hasDefinitionOf rdf:type owl:ObjectProperty ;
                  rdfs:domain :WebPage ;
@@ -20,11 +36,18 @@
                  rdfs:label "has definition of" .
 
 
+###  http://isit990.azurewebsites.net/ontology/dementia-info/hasLocation
+:hasLocation rdf:type owl:ObjectProperty ;
+             rdfs:domain <http://xmlns.com/foaf/0.1/Agent> ;
+             rdfs:range :Place .
+
+
 ###  http://isit990.azurewebsites.net/ontology/dementia-info/isSufferingFrom
 :isSufferingFrom rdf:type owl:ObjectProperty ;
                  rdfs:subPropertyOf owl:topObjectProperty ;
+                 rdfs:domain <http://xmlns.com/foaf/0.1/Person> ;
                  rdfs:range :Disease ;
-                 rdfs:label "is suffering from" .
+                 rdfs:label "suffering from" .
 
 
 #################################################################
@@ -66,8 +89,7 @@
         rdfs:subPropertyOf owl:topDataProperty ;
         rdf:type owl:FunctionalProperty ;
         rdfs:domain :WebPage ;
-        rdfs:range xsd:string ;
-        rdfs:label "has url" .
+        rdfs:range xsd:string .
 
 
 ###  http://www.w3.org/2002/07/owl#topDataProperty
@@ -78,6 +100,12 @@ owl:topDataProperty rdfs:domain :WebPage ;
 #################################################################
 #    Classes
 #################################################################
+
+###  http://isit990.azurewebsites.net/ontology/dementia-info/Advanced
+:Advanced rdf:type owl:Class ;
+          rdfs:subClassOf :DementiaProgression ;
+          rdfs:label "Advanced Stage Dementia" .
+
 
 ###  http://isit990.azurewebsites.net/ontology/dementia-info/AlzeimersDisease
 :AlzeimersDisease rdf:type owl:Class ;
@@ -111,8 +139,13 @@ owl:topDataProperty rdfs:domain :WebPage ;
 
 ###  http://isit990.azurewebsites.net/ontology/dementia-info/Dementia
 :Dementia rdf:type owl:Class ;
-          rdfs:subClassOf :Disease ;
-          rdfs:label "Dementia"^^rdfs:Literal .
+          rdfs:subClassOf :Disease .
+
+
+###  http://isit990.azurewebsites.net/ontology/dementia-info/DementiaProgression
+:DementiaProgression rdf:type owl:Class ;
+                     rdfs:comment "Progression of Dementia" ;
+                     rdfs:label "Dementia Progression"^^rdfs:Literal .
 
 
 ###  http://isit990.azurewebsites.net/ontology/dementia-info/Diagnosis
@@ -124,6 +157,12 @@ owl:topDataProperty rdfs:domain :WebPage ;
 :Disease rdf:type owl:Class ;
          rdfs:comment "a particular abnormal condition that affects part or all of an organism and that consists of a disorder of a structure or function." ;
          rdfs:label "Disease" .
+
+
+###  http://isit990.azurewebsites.net/ontology/dementia-info/Early
+:Early rdf:type owl:Class ;
+       rdfs:subClassOf :DementiaProgression ;
+       rdfs:label "Early Stage of Dementia" .
 
 
 ###  http://isit990.azurewebsites.net/ontology/dementia-info/FrontotemporalDementia
@@ -144,6 +183,12 @@ owl:topDataProperty rdfs:domain :WebPage ;
                rdfs:label "Mixed Dementia"^^rdfs:Literal .
 
 
+###  http://isit990.azurewebsites.net/ontology/dementia-info/Moderate
+:Moderate rdf:type owl:Class ;
+          rdfs:subClassOf :DementiaProgression ;
+          rdfs:label "Moderate Stage of Dementia" .
+
+
 ###  http://isit990.azurewebsites.net/ontology/dementia-info/NormalPressureHydrocephalus
 :NormalPressureHydrocephalus rdf:type owl:Class ;
                              rdfs:subClassOf :Dementia ;
@@ -159,11 +204,6 @@ owl:topDataProperty rdfs:domain :WebPage ;
 ###  http://isit990.azurewebsites.net/ontology/dementia-info/Place
 :Place rdf:type owl:Class ;
        rdfs:label "Place"^^rdfs:Literal .
-
-
-###  http://isit990.azurewebsites.net/ontology/dementia-info/Progression
-:Progression rdf:type owl:Class ;
-             rdfs:label "Progression"^^rdfs:Literal .
 
 
 ###  http://isit990.azurewebsites.net/ontology/dementia-info/State
@@ -204,20 +244,48 @@ owl:topDataProperty rdfs:domain :WebPage ;
 #    Individuals
 #################################################################
 
+###  http://isit990.azurewebsites.net/ontology/dementia-info/Dementia
+:Dementia rdf:type owl:NamedIndividual ,
+                   :Dementia ;
+          :atStage :EarlyDementia .
+
+
+###  http://isit990.azurewebsites.net/ontology/dementia-info/EarlyDementia
+:EarlyDementia rdf:type owl:NamedIndividual ,
+                        :DementiaProgression .
+
+
+###  http://isit990.azurewebsites.net/ontology/dementia-info/NSW
+:NSW rdf:type owl:NamedIndividual ,
+              :State .
+
+
 ###  http://isit990.azurewebsites.net/ontology/dementia-info/Robert
-:Robert rdf:type owl:NamedIndividual .
+:Robert rdf:type owl:NamedIndividual ;
+        :isSufferingFrom :Dementia ;
+        <http://xmlns.com/foaf/0.1/age> 50 ;
+        <http://xmlns.com/foaf/0.1/name> "Robert" ;
+        rdfs:comment "A person named Robert" ;
+        rdfs:label "Robert" .
 
 
-###  http://isit990.azurewebsites.net/ontology/dementia-info/WhatIsDementia
-:WhatIsDementia rdf:type owl:NamedIndividual ,
-                         :Dementia .
+###  http://isit990.azurewebsites.net/ontology/dementia-info/RobertWikipedia
+:RobertWikipedia rdf:type owl:NamedIndividual ;
+                 :hasDefinitionOf :Robert .
 
 
 ###  http://isit990.azurewebsites.net/ontology/dementia-info/WhatIsDementiaWebPage
 :WhatIsDementiaWebPage rdf:type owl:NamedIndividual ,
                                 :WebPage ;
-                       :hasDefinitionOf :WhatIsDementia ;
+                       :hasDefinitionOf :Dementia ;
                        :hasUrl "https://www.fightdementia.org.au/about-dementia/what-is-dementia"^^xsd:anyURI .
+
+
+#################################################################
+#    Annotations
+#################################################################
+
+:Dementia rdfs:label "Dementia"^^rdfs:Literal .
 
 
 #################################################################

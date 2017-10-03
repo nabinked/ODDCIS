@@ -1,9 +1,8 @@
 SELECT DISTINCT * 
 	WHERE 
 	{ 
-		?subject a owl:Class .
-		?subject a ?type .
-		OPTIONAL { ?subject a rdfs:Class }
-		OPTIONAL { ?subject rdfs:label ?label }
-		OPTIONAL { ?subject rdfs:comment ?comment}
+		?item a owl:Class .
+		OPTIONAL { ?item a rdfs:Class }
+		OPTIONAL { ?item rdfs:label ?label }
+		OPTIONAL { ?item rdfs:comment ?comment}
 	}

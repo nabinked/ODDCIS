@@ -6,7 +6,6 @@ import { parse } from 'query-string'
 import './home.scss';
 
 interface HomeProps extends RouteComponentProps<any> {
-    history: any
 }
 export class Home extends React.Component<HomeProps, {}> {
     constructor() {
@@ -17,7 +16,7 @@ export class Home extends React.Component<HomeProps, {}> {
     }
     public render() {
         return <div className="home">
-            <SearchForm query={this.getQuery(this.props.location)} />
+            <SearchForm query={this.getQuery(this.props.location)} {...this.props} />
         </div>;
     }
 }

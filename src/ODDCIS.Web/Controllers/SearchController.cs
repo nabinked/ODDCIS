@@ -3,7 +3,6 @@ using ODDCIS.Data;
 using ODDCIS.Models;
 using System.Collections.Generic;
 using System.Linq;
-using VDS.RDF;
 
 namespace ODDCIS.Web
 {
@@ -25,25 +24,34 @@ namespace ODDCIS.Web
 
         // GET api/values
         [HttpGet("suggestions")]
-        public IList<RdfNode> Suggestions(List<RdfNode> precedentRdfTerms)
+        public IEnumerable<RdfNode> Suggestions(List<RdfNode> precedentRdfTerms)
         {
-            if (precedentRdfTerms.Count > 0)
+            var precedentTerm = precedentRdfTerms.LastOrDefault();
+            var precedentSubjects = precedentRdfTerms.Where(x => x.Type == RdfNodeType.Class);
+            switch (precedentTerm?.Type)
             {
-                var precedentTerm = precedentRdfTerms.FirstOrDefault();
-                switch (precedentTerm.NodeType)
-                {
-                    case NodeType.Uri:
-                        return this.repository.GetAllPredicatesOf(precedentRdfTerms.Where(x => x.NodeType == NodeType.Uri));
-                    case NodeType.Literal:
-                        return this.repository.GetAllObjectsOf(precedentTerm);
-                    default:
-                        return null;
-                }
-            }
-            else
-            {
-                return this.repository.GetAllClasses();
+                case RdfNodeType.Class:
+                    return this.repository.GetAllPredicatesOf(precedentSubjects);
+                case RdfNodeType.Predicate:
+                    return this.repository.GetAllObjectsOf(precedentTerm.Uri);
+                default:
+                    return GetAllSubjects(precedentSubjects);
             }
         }
+
+        private IEnumerable<RdfNode> GetAllSubjects(IEnumerable<RdfNode> precedentSubjects)
+        {
+            var filteredSubjects = new List<RdfNode>();
+            var allsubjects = this.repository.GetAllSubjects();
+            foreach (var subject in allsubjects)
+            {
+                if (allsubjects.Any(x => x.Uri != subject.Uri))
+                {
+                    filteredSubjects.Add(subject);
+                }
+            }
+            return filteredSubjects;
+        }
+
     }
 }

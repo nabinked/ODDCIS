@@ -9,7 +9,12 @@ module.exports = (env) => {
     return [{
         stats: { modules: false },
         entry: { 'main': './ClientApp/boot.tsx' },
-        resolve: { extensions: ['.js', '.jsx', '.ts', '.tsx'] },
+        resolve: {
+            extensions: ['.js', '.jsx', '.ts', '.tsx'],
+            alias: {
+                'react': path.join(__dirname, 'node_modules', 'react')
+            }
+        },
         output: {
             path: path.join(__dirname, bundleOutputDir),
             filename: '[name].js',

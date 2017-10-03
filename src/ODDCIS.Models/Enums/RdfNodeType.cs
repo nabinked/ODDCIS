@@ -3,7 +3,6 @@
     public enum RdfNodeType
     {
         Class = 1,
-        Property = 2,
-
+        Predicate = 2,
     }
 }

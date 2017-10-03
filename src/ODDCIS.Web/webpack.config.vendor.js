@@ -7,7 +7,10 @@ module.exports = (env) => {
     return [{
         stats: { modules: false },
         resolve: {
-            extensions: [ '.js' ]
+            extensions: ['.js'],
+            alias: {
+                'react': path.join(__dirname, 'node_modules', 'react')
+            }
         },
         module: {
             rules: [

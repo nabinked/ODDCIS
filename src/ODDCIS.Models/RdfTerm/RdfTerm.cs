@@ -15,13 +15,11 @@ namespace ODDCIS.Models
         [FromQuery(Name = "comment")]
         public string Comment { get; set; }
 
-        [FromQuery(Name = "nodeType")]
-        public NodeType NodeType { get; set; }
+        [FromQuery(Name = "type")]
+        public RdfNodeType? Type { get; set; }
 
         [FromQuery(Name = "predicateOf")]
         public Uri PredicateOf { get; set; }
 
-        [FromQuery(Name = "objectOf")]
-        public Uri ObjectOf { get; set; }
     }
 }

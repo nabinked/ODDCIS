@@ -1,8 +1,10 @@
 ﻿using ODDCIS.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using VDS.RDF;
+using VDS.RDF.Query;
 
 namespace ODDCIS.Query
 {
@@ -17,11 +19,27 @@ namespace ODDCIS.Query
         {
             if (clases.ToList().Count > 0)
             {
-                var query = queries.AllPropertiesOf;
-                var classes = clases.Where(x => x.NodeType == NodeType.Uri).ToList();
+                var query = queries.AllPredicatesOf;
+                var classes = clases.Where(x => x.Type == RdfNodeType.Class).ToList();
                 return query.Replace("@classTriplets", GetClassTriplets(classes));
             }
             return string.Empty;
+        }
+
+        public string GetQueryAllObjectsOf(Uri predicateUri)
+        {
+            var query = queries.AllObjectsOf;
+            var parmeterizedString = new SparqlParameterizedString(query);
+            parmeterizedString.SetUri("predicateUri", predicateUri);
+            return parmeterizedString.ToSafeString();
+        }
+
+        public string GetQueryAllSubClassesOf(Uri superCLass)
+        {
+            var query = queries.AllSubClassesOf;
+            var parmeterizedString = new SparqlParameterizedString(query);
+            parmeterizedString.SetUri("superClass", superCLass);
+            return parmeterizedString.ToSafeString();
         }
 
         #region Privates
@@ -30,7 +48,7 @@ namespace ODDCIS.Query
             var sb = new StringBuilder();
             for (int i = 0; i < classes.Count; i++)
             {
-                sb.Append($" {{?subject <{NamespaceMapper.RDFS}domain> <{classes[i].Uri}> .}} ");
+                sb.Append($" {{?item <{NamespaceMapper.RDFS}domain> <{classes[i].Uri}> .}} ");
                 if (i != classes.Count - 1)
                 {
                     sb.Append(" UNION ");
