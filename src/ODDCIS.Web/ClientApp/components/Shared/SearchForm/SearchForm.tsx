@@ -35,7 +35,7 @@ export const SearchForm = withRouter<SearchFormProps>(
             }
         }
         public render() {
-            return <form action="/search" method="get" onSubmit={this.handleSubmit} className="search-form">
+            return <form autoComplete="off" action="/search" method="get" onSubmit={this.handleSubmit} className="search-form">
                 <div className="text-center">
                     <SearchInput onChange={this.onChange} rdfTerms={this.state.rdfTerms} />
                     <input type="submit"
