@@ -21,17 +21,9 @@
                 rdfs:label "associated with" .
 
 
-###  http://isit990.azurewebsites.net/ontology/dementia-info/atStage
-:atStage rdf:type owl:ObjectProperty ;
-         rdfs:domain :Dementia ;
-         rdfs:range :DementiaProgression ;
-         rdfs:comment "represernts stages of dementia" ;
-         rdfs:label "of" .
-
-
 ###  http://isit990.azurewebsites.net/ontology/dementia-info/hasDefinitionOf
 :hasDefinitionOf rdf:type owl:ObjectProperty ;
-                 rdfs:domain :WebPage ;
+                 rdfs:domain :Webpage ;
                  rdfs:range owl:Thing ;
                  rdfs:label "has definition of" .
 
@@ -50,6 +42,14 @@
                  rdfs:label "suffering from" .
 
 
+###  http://isit990.azurewebsites.net/ontology/dementia-info/of
+:of rdf:type owl:ObjectProperty ;
+    rdfs:domain :Dementia ;
+    rdfs:range :DementiaProgression ;
+    rdfs:comment "represernts stages of dementia" ;
+    rdfs:label "of" .
+
+
 #################################################################
 #    Data properties
 #################################################################
@@ -57,7 +57,7 @@
 ###  http://isit990.azurewebsites.net/ontology/dementia-info/hasExcerpt
 :hasExcerpt rdf:type owl:DatatypeProperty ;
             rdfs:subPropertyOf owl:topDataProperty ;
-            rdfs:domain :WebPage ;
+            rdfs:domain :Webpage ;
             rdfs:range xsd:string ;
             rdfs:label "has excerpt" .
 
@@ -80,12 +80,12 @@
 :hasUrl rdf:type owl:DatatypeProperty ;
         rdfs:subPropertyOf owl:topDataProperty ;
         rdf:type owl:FunctionalProperty ;
-        rdfs:domain :WebPage ;
+        rdfs:domain :Webpage ;
         rdfs:range xsd:string .
 
 
 ###  http://www.w3.org/2002/07/owl#topDataProperty
-owl:topDataProperty rdfs:domain :WebPage ;
+owl:topDataProperty rdfs:domain :Webpage ;
                     rdfs:range xsd:string .
 
 
@@ -127,6 +127,10 @@ owl:topDataProperty rdfs:domain :WebPage ;
 :DLB rdf:type owl:Class ;
      rdfs:subClassOf :Dementia ;
      rdfs:label "Dementia with Lewy bodies"^^rdfs:Literal .
+
+
+###  http://isit990.azurewebsites.net/ontology/dementia-info/Definition
+:Definition rdf:type owl:Class .
 
 
 ###  http://isit990.azurewebsites.net/ontology/dementia-info/Dementia
@@ -218,8 +222,8 @@ owl:topDataProperty rdfs:domain :WebPage ;
                   rdfs:label "Vascular Dementia"^^rdfs:Literal .
 
 
-###  http://isit990.azurewebsites.net/ontology/dementia-info/WebPage
-:WebPage rdf:type owl:Class ;
+###  http://isit990.azurewebsites.net/ontology/dementia-info/Webpage
+:Webpage rdf:type owl:Class ;
          rdfs:comment "Represent a website" ;
          rdfs:label "Webpage" .
 
@@ -234,6 +238,10 @@ owl:topDataProperty rdfs:domain :WebPage ;
 #    Individuals
 #################################################################
 
+###  http://isit990.azurewebsites.net/ontology/dementia-info/Definition
+:Definition rdf:type owl:NamedIndividual .
+
+
 ###  http://isit990.azurewebsites.net/ontology/dementia-info/Dementia
 :Dementia rdf:type owl:NamedIndividual ,
                    :Dementia .
@@ -241,28 +249,8 @@ owl:topDataProperty rdfs:domain :WebPage ;
 
 ###  http://isit990.azurewebsites.net/ontology/dementia-info/EarlyStage
 :EarlyStage rdf:type owl:NamedIndividual ,
-                     :EarlyStage .
-
-
-###  http://isit990.azurewebsites.net/ontology/dementia-info/Early_Dementia
-:Early_Dementia rdf:type owl:NamedIndividual ,
-                         :Dementia ;
-                :atStage :EarlyStage .
-
-
-###  http://isit990.azurewebsites.net/ontology/dementia-info/NSW
-:NSW rdf:type owl:NamedIndividual ,
-              :State .
-
-
-###  http://isit990.azurewebsites.net/ontology/dementia-info/Robert
-:Robert rdf:type owl:NamedIndividual ;
-        :hasDefinitionOf :Robert ;
-        :isSufferingFrom :Dementia ;
-        <http://xmlns.com/foaf/0.1/age> 50 ;
-        <http://xmlns.com/foaf/0.1/name> "Robert" ;
-        rdfs:comment "A person named Robert" ;
-        rdfs:label "Robert" .
+                     :EarlyStage ;
+            :of :Dementia .
 
 
 ###  http://isit990.azurewebsites.net/ontology/dementia-info/Symptoms
@@ -271,22 +259,25 @@ owl:topDataProperty rdfs:domain :WebPage ;
           :associatedWith :Dementia .
 
 
-###  http://isit990.azurewebsites.net/ontology/dementia-info/What_is_Dementia
-:What_is_Dementia rdf:type owl:NamedIndividual ,
-                           :WebPage ;
-                  :hasDefinitionOf :Dementia ;
-                  :hasUrl "https://www.fightdementia.org.au/about-dementia/what-is-dementia"^^xsd:anyURI .
+###  http://isit990.azurewebsites.net/ontology/dementia-info/Webpage_Early_Symptoms_of_Dementia
+:Webpage_Early_Symptoms_of_Dementia rdf:type owl:NamedIndividual ,
+                                             :Webpage ;
+                                    :hasDefinitionOf :Dementia ,
+                                                     :EarlyStage ,
+                                                     :Symptoms ;
+                                    :hasExcerpt "Dementia is a collection of symptoms that can occur due to a variety of possible diseases. Dementia symptoms include impairments in thought, communication, and memory." ;
+                                    :hasTitle "10 Early Symptoms of Dementia" ;
+                                    :hasUrl "https://www.healthline.com/health/dementia/early-warning-signs" .
 
 
-###  http://isit990.azurewebsites.net/ontology/dementia-info/10_Early_Symptoms_of_Dementia
-:_Early_Symptoms_of_Dementia rdf:type owl:NamedIndividual ,
-                                      :WebPage ;
-                             :hasDefinitionOf :Dementia ,
-                                              :EarlyStage ,
-                                              :Symptoms ;
-                             :hasExcerpt "Dementia is a collection of symptoms that can occur due to a variety of possible diseases. Dementia symptoms include impairments in thought, communication, and memory." ;
-                             :hasTitle "10 Early Symptoms of Dementia" ;
-                             :hasUrl "https://www.healthline.com/health/dementia/early-warning-signs" .
+###  http://isit990.azurewebsites.net/ontology/dementia-info/Webpage_What_is_Dementia
+:Webpage_What_is_Dementia rdf:type owl:NamedIndividual ,
+                                   :Webpage ;
+                          :hasDefinitionOf :Definition ,
+                                           :Dementia ;
+                          :hasExcerpt "The information in this section defines dementia, describes the symptoms and causes of dementia and explains the difference between normal memory problems and dementia." ;
+                          :hasTitle "WHAT IS DEMENTIA?" ;
+                          :hasUrl "https://www.fightdementia.org.au/about-dementia/what-is-dementia"^^xsd:anyURI .
 
 
 #################################################################
