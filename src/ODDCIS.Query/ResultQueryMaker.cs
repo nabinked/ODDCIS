@@ -25,7 +25,7 @@ namespace ODDCIS.Query
             {
                 if (rdfnode.Type == RdfNodeType.Class)
                 {
-                    query += $"?webpage di:hasDefinitionOf <{rdfnode.Uri}> . ";
+                    query += $"?s di:hasDefinitionOf <{rdfnode.Uri}> . ";
                 }
             }
             return query;
