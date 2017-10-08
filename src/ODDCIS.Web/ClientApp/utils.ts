@@ -3,11 +3,14 @@
         var str = [];
         for (var prop in obj) {
             if (obj.hasOwnProperty(prop)) {
-                var key = prefix ? prefix + "." + prop : prop; 
+                var key = prefix ? prefix + "." + prop : prop;
                 var value = obj[prop];
-                str.push((value !== null && typeof value === "object") ?
-                    this.serializeObject(value, key) :
-                    encodeURIComponent(key) + "=" + encodeURIComponent(value));
+                if (value !== null) {
+                    str.push((typeof value === "object") ?
+                        this.serializeObject(value, key) :
+                        encodeURIComponent(key) + "=" + encodeURIComponent(value));
+
+                }
             }
         }
         return str.join("&");
@@ -19,9 +22,12 @@
             var element = arr[i];
             var k = prefix ? prefix + "[" + i + "]" : i.toString();
             var v = arr[i];
-            str.push((v !== null && typeof v === "object") ?
-                this.serializeObject(v, k) :
-                encodeURIComponent(k) + "=" + encodeURIComponent(v));
+            if (v !== null) {
+                str.push((typeof v === "object") ?
+                    this.serializeObject(v, k) :
+                    encodeURIComponent(k) + "=" + encodeURIComponent(v));
+            }
+
         }
         return str.join("&");
     }
