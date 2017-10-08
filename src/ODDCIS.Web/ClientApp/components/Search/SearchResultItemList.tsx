@@ -13,9 +13,10 @@ export class SearchResultItemList extends React.Component<SearchResultListProps,
     public render() {
         return <div>
             {
-                this.props.results.map(result => {
-                    return <SearchResultItem key={result.url} result={result} />
-                })
+                this.props.results && this.props.results.length ?
+                    this.props.results.map(result => {
+                        return <SearchResultItem key={result.url} result={result} />
+                    }) : "No result found"
             }
         </div>
     }

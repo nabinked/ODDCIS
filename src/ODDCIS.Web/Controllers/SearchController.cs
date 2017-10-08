@@ -17,9 +17,9 @@ namespace ODDCIS.Web
         }
         // GET api/values
         [HttpGet("")]
-        public SearchResultList Get(SearchQueryViewModel searchViewModel)
+        public SearchResultList Get(List<RdfNode> rdfNodes)
         {
-            return null;
+            return this.repository.GetResult(rdfNodes);
         }
 
         // GET api/values

@@ -58,5 +58,13 @@ namespace ODDCIS.Query
                 return CommonPrefixes + this.queryRetriever.GetQuery(nameof(AllSubClassesOf));
             }
         }
+
+        public string Results
+        {
+            get
+            {
+                return CommonPrefixes + this.queryRetriever.GetQuery(nameof(Results));
+            }
+        }
     }
 }

@@ -1,0 +1,7 @@
+SELECT * 
+	{
+		@triples
+		?s di:hasUrl ?u.
+		?s di:hasTitle ?t .
+		?s di:hasExcerpt ?e .
+	}

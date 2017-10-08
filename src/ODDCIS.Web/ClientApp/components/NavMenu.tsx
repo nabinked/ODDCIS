@@ -6,7 +6,9 @@ import { Link } from 'react-router-dom'
 export class NavMenu extends React.Component<{}, {}> {
     public render() {
         return <nav className="navbar-main navbar sticky-top">
-            <Link to="/" className="navbar-brand">ODDCIS</Link>
+            <Link to="/" title="Ontology Driven Information Retrieval System" className="navbar-brand">
+                ODIRS 
+            </Link>
         </nav>
     }
 }

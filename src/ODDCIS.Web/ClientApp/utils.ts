@@ -6,7 +6,7 @@
                 var key = prefix ? prefix + "." + prop : prop; 
                 var value = obj[prop];
                 str.push((value !== null && typeof value === "object") ?
-                    this.serialize(value, key) :
+                    this.serializeObject(value, key) :
                     encodeURIComponent(key) + "=" + encodeURIComponent(value));
             }
         }

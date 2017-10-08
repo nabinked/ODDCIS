@@ -34,6 +34,12 @@ namespace ODDCIS.Query
             return parmeterizedString.ToSafeString();
         }
 
+        public string GetQueryResults(IList<RdfNode> rdfNodes)
+        {
+            var query = queries.Results;
+            return query.Replace("@triples", new ResultQueryMaker(rdfNodes).GetTriples());
+        }
+
         public string GetQueryAllSubClassesOf(Uri superCLass)
         {
             var query = queries.AllSubClassesOf;

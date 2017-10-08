@@ -26,33 +26,30 @@ namespace ODDCIS.Data
             this.queryHelper = queryHelper;
             this.dataset = datasetAccessor.DataSet;
         }
-        public SparqlResultSet GetResult(string searchQuery)
+
+        public SearchResultList GetResult(IList<RdfNode> rdfNodes)
         {
             try
             {
-                var query = queries.SearchKeyWord;
-                if (!string.IsNullOrEmpty(query))
+                var query = this.queryHelper.GetQueryResults(rdfNodes);
+                var searchResults = ExecuteQuery(query).ToSearchResult();
+                return new SearchResultList()
                 {
-
-                    LeviathanQueryProcessor processor = new LeviathanQueryProcessor(this.dataset);
-                    var queryParser = new SparqlQueryParser();
-                    var parmeterizedString = new SparqlParameterizedString(query);
-                    parmeterizedString.SetLiteral("value", searchQuery);
-                    return processor.ProcessQuery(queryParser.ParseFromString(parmeterizedString.ToString())) as SparqlResultSet;
-                }
+                    ExecutedQuery = query,
+                    Results = searchResults.ToList()
+                };
             }
             catch
             {
                 throw;
             }
-            return null;
         }
 
         public IEnumerable<RdfNode> GetAllSubjects()
         {
             try
             {
-                var query = queries.AllClasses;
+                var query = this.queries.AllClasses;
                 var nodes = ExecuteQuery(query).ToRdfNodes().ToList();
                 SetRdfNodeType(nodes, RdfNodeType.Class);
                 return nodes;
@@ -67,7 +64,7 @@ namespace ODDCIS.Data
         {
             try
             {
-                var query = queryHelper.GetQueryAllPredicates(classes);
+                var query = this.queryHelper.GetQueryAllPredicates(classes);
                 var nodes = ExecuteQuery(query).ToRdfNodes().ToList();
                 SetRdfNodeType(nodes, RdfNodeType.Predicate);
                 return nodes;
@@ -82,7 +79,7 @@ namespace ODDCIS.Data
         {
             try
             {
-                var query = queryHelper.GetQueryAllObjectsOf(predicate);
+                var query = this.queryHelper.GetQueryAllObjectsOf(predicate);
                 var nodes = ExecuteQuery(query).ToRdfNodes().ToList();
                 nodes.AddRange(GetSubClasses(nodes));
                 SetRdfNodeType(nodes, RdfNodeType.Class);
@@ -108,7 +105,7 @@ namespace ODDCIS.Data
         }
         private IEnumerable<RdfNode> GetSubClassNode(RdfNode node)
         {
-            return ExecuteQuery(queryHelper.GetQueryAllSubClassesOf(node.Uri)).ToRdfNodes();
+            return ExecuteQuery(this.queryHelper.GetQueryAllSubClassesOf(node.Uri)).ToRdfNodes();
 
         }
         private SparqlResultSet ExecuteQuery(string query)
@@ -117,7 +114,6 @@ namespace ODDCIS.Data
             var queryParser = new SparqlQueryParser();
             return processor.ProcessQuery(queryParser.ParseFromString(query)) as SparqlResultSet;
         }
-
         private void SetRdfNodeType(IList<RdfNode> nodes, RdfNodeType type)
         {
             for (int i = 0; i < nodes.Count; i++)

@@ -59,32 +59,53 @@ namespace ODDCIS.Data
 
         public void AddImports(IList<IGraph> graphs, IGraph ontologyGraph)
         {
-            if (HasImport(ontologyGraph, out Triple triple))
+            if (HasImports(ontologyGraph, out var triples))
             {
-                var o = triple.Object as UriNode;
+                foreach (var triple in triples)
+                {
+                    var o = triple.Object as UriNode;
+                    IGraph import = LoadImport(o.Uri);
+                    graphs.Add(import);
+                    AddImports(graphs, import);
 
-                IGraph import = new Graph();
-                import.LoadFromUri(o.Uri);
-                import.BaseUri = null;
-                graphs.Add(import);
-
-                AddImports(graphs, import);
+                }
             }
         }
 
-        public bool HasImport(IGraph ontologyGraph, out Triple triple)
+        public IGraph LoadImport(Uri uri)
         {
+            var import = new Graph();
+            if (uri.IsFile)
+            {
+                FileLoader.Load(import, uri.ToString());
+            }
+            else
+            {
+                try
+                {
+                    UriLoader.Load(import, uri);
+                }
+                catch
+                {
+
+                }
+            }
+            import.BaseUri = null;
+            return import;
+        }
+
+        public bool HasImports(IGraph ontologyGraph, out IList<Triple> triples)
+        {
+            triples = new List<Triple>();
             foreach (var trple in ontologyGraph.Triples)
             {
                 var uri = trple.Predicate as UriNode;
                 if (uri.Uri.EqualsFull(new Uri(NamespaceMapper.OWL + "imports")))
                 {
-                    triple = trple;
-                    return true;
+                    triples.Add(trple);
                 }
             }
-            triple = null;
-            return false;
+            return triples.Count > 0;
         }
     }
 }

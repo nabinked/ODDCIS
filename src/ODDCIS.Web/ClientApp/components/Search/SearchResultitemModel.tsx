@@ -5,5 +5,6 @@ export interface SearchResultItemModel {
 }
 
 export interface SearchResultItemListModel {
-    results: SearchResultItemModel[]
+    results: SearchResultItemModel[];
+    executedQuery: string;
 }

@@ -1,7 +1,12 @@
 .search {
+    &-form {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 5px;
+    }
     &-result {
         margin-top: 1rem;
-
         &-item {
             &-title {
                 margin-bottom: 5px;

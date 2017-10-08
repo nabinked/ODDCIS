@@ -15,10 +15,15 @@ namespace ODDCIS.Data.DataModelMappers
         {
             return new SearchResult()
             {
-                Title = result.Value("title").ToString(),
-                Excerpt = result.Value("excerpt").ToString(),
-                Url = result.Value("url").ToString()
+                Title = result.GetNode<LiteralNode>("t")?.Value,
+                Excerpt = result.GetNode<LiteralNode>("e")?.Value,
+                Url = result.GetNode<LiteralNode>("u")?.Value
             };
+        }
+
+        public static IEnumerable<SearchResult> ToSearchResult(this SparqlResultSet resultSet)
+        {
+            return resultSet.Results.Select(x => x.ToSearchResult());
         }
 
         public static RdfNode ToRdfNode(this SparqlResult result)

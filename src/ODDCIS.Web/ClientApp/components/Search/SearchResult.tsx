@@ -1,6 +1,7 @@
 import * as React from 'react';
 import './search-result.scss';
 import { Loader } from '../Shared/Loader/Loader'
+import { ExecutedQuery } from './ExecutedQuery'
 import { SearchResultItemList } from './SearchResultItemList'
 import { SearchResultItem } from './SearchResultItem'
 import { SearchResultItemModel, SearchResultItemListModel } from './SearchResultitemModel';
@@ -9,7 +10,7 @@ import 'isomorphic-fetch';
 
 interface SearchResultState {
     loading: boolean,
-    results: SearchResultItemListModel
+    result: SearchResultItemListModel
 }
 
 interface SearchResultProps {
@@ -20,28 +21,29 @@ export class SearchResult extends React.Component<SearchResultProps, SearchResul
 
     constructor() {
         super();
-        this.state = { results: null, loading: true };
+        this.state = { result: null, loading: true };
     }
     fetchResults(query) {
-        fetch('/api/search?query=' + query)
+        fetch('/api/search' + query)
             .then(response => response.json() as Promise<SearchResultItemListModel>)
             .then(data => {
-                this.setState({ results: data, loading: false });
+                this.setState({ result: data, loading: false, });
             });
     };
     public componentDidMount() {
         this.fetchResults(this.props.query)
     }
-    public componentWillReceiveProps(nextProps){
+    public componentWillReceiveProps(nextProps) {
         this.fetchResults(nextProps.query);
-     }
+    }
     public render() {
         return <div className="search-result">
             {
                 this.state.loading ?
                     <Loader /> :
                     <div>
-                        <SearchResultItemList results={this.state.results.results} />
+                        <ExecutedQuery executedQuery={this.state.result.executedQuery} />
+                        <SearchResultItemList results={this.state.result.results} />
                     </div>
             }
         </div>;

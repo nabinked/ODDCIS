@@ -7,7 +7,7 @@ namespace ODDCIS.Data
 {
     public interface IRepository
     {
-        SparqlResultSet GetResult(string query);
+        SearchResultList GetResult(IList<RdfNode> rdfNodes);
         IEnumerable<RdfNode> GetAllSubjects();
         IEnumerable<RdfNode> GetAllPredicatesOf(IEnumerable<RdfNode> subjects);
         IEnumerable<RdfNode> GetAllObjectsOf(Uri predicate);

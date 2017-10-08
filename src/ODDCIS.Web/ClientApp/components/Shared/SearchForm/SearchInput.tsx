@@ -17,7 +17,7 @@ export interface RdfNode {
 }
 
 interface SearchFormInputProps {
-    tags: Array<Tag>;
+    rdfTerms: Array<RdfNode>;
     onChange?: Function;
 }
 interface SearchFormInputState {
@@ -28,19 +28,32 @@ interface SearchFormInputState {
 }
 export class SearchInput extends React.Component<SearchFormInputProps, SearchFormInputState>
 {
-
     idDelimiter: string;
     constructor(props: SearchFormInputProps) {
         super(props);
         this.state = {
-            selectedTags: [],
             suggestions: [],
-            selectedRdfTermList: []
+            selectedTags: [],
+            selectedRdfTermList: [],
         };
         this.idDelimiter = ": "
         this.handleDelete = this.handleDelete.bind(this);
         this.handleAddition = this.handleAddition.bind(this);
         this.handleInputChange = this.handleInputChange.bind(this);
+    }
+    componentWillReceiveProps(nextProps) {
+        this.setState({
+            selectedTags: this.getTagsFromRdfterms(nextProps.rdfTerms),
+            selectedRdfTermList: nextProps.rdfTerms
+        })
+    }
+    getTagsFromRdfterms(rdfNodes: Array<RdfNode>) {
+        var tags: Array<Tag> = []
+        rdfNodes.forEach(function (element) {
+            var tag: Tag = { text: element.label, id: element.uri };
+            tags.push(tag);
+        })
+        return tags;
     }
     shoudlFecthSuggestions(): boolean {
         return this.state.suggestions.length == 0;
@@ -64,7 +77,6 @@ export class SearchInput extends React.Component<SearchFormInputProps, SearchFor
         }
         return suggestions;
     }
-
     clearSuggestions(): void {
         this.setSuggestions([]);
     }
@@ -79,21 +91,21 @@ export class SearchInput extends React.Component<SearchFormInputProps, SearchFor
         });
         return rdfTerms;
     }
-
     handleInputChange(input: string) {
         if (this.shoudlFecthSuggestions()) {
             this.fetchSuggestions(input);
         }
     }
     addSelectedRdfTerm(tag: string) {
+        var self = this;
         this.setState(function (prevState: SearchFormInputState, props: SearchFormInputProps) {
             let tags = prevState.selectedTags;
             let rdfTermList = prevState.selectedRdfTermList;
-            var splitted = tag.split(this.idDelimiter);
+            var splitted = tag.split(self.idDelimiter);
             splitted.splice(0, 1);
             tags.push({ text: splitted.join("") })
-            rdfTermList.push(this.getRdfTermFromTag(tag));
-            this.props.onChange(rdfTermList);
+            rdfTermList.push(self.getRdfTermFromTag(tag));
+            self.props.onChange(rdfTermList);
             return {
                 tags: tags,
                 selectedRdfTermList: rdfTermList,
@@ -136,12 +148,11 @@ export class SearchInput extends React.Component<SearchFormInputProps, SearchFor
         return newSuggestions.splice(0, 5);
     }
     render() {
-        const { selectedTags } = this.state;
         return (
-            <ReactTags tags={selectedTags}
+            <ReactTags tags={this.state.selectedTags}
                 placeholder="Start searching for concepts"
                 minQueryLength={1}
-                suggestions={this.state.suggestions}                
+                suggestions={this.state.suggestions}
                 handleInputChange={this.handleInputChange}
                 handleFilterSuggestions={this.handleFilterSuggestions}
                 handleDelete={this.handleDelete}

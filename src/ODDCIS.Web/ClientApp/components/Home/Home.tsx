@@ -16,7 +16,7 @@ export class Home extends React.Component<HomeProps, {}> {
     }
     public render() {
         return <div className="home">
-            <SearchForm query={this.getQuery(this.props.location)} {...this.props} />
+            <SearchForm {...this.props} />
         </div>;
     }
 }

@@ -31,16 +31,17 @@ export class Loader extends React.Component<LoaderProps, LoaderState> {
         speed:300
     };
     componentDidMount() {
+        var self = this;        
         var stopper = this.originalText + '...'
         this.interval = setInterval(function () {
-            if (this.state.text === stopper) {
-                this.setState(function () {
+            if (self.state.text === stopper) {
+                self.setState(function () {
                     return {
-                        text: this.originalText
+                        text: self.originalText
                     }
                 });
             } else {
-                this.setState(function (prevState) {
+                self.setState(function (prevState) {
                     return {
                         text: prevState.text + '.'
                     }
