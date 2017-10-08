@@ -6,5 +6,6 @@ export interface SearchResultItemModel {
 
 export interface SearchResultItemListModel {
     results: SearchResultItemModel[];
-    executedQuery: string;
+    executedSparqlQuery: string;
+    requestedSemanticQuery: string;
 }

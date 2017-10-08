@@ -26,7 +26,7 @@ export class Search extends React.Component<SearchProps, SearchState> {
             <div className="search-form">
                 <SearchForm {...this.props} />
             </div>
-            <hr />
+            <hr className="divider" />
             <div className="search-result">
                 <SearchResult query={this.props.location.search} />
             </div>

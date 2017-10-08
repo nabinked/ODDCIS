@@ -42,7 +42,8 @@ export class SearchResult extends React.Component<SearchResultProps, SearchResul
                 this.state.loading ?
                     <Loader /> :
                     <div>
-                        <ExecutedQuery executedQuery={this.state.result.executedQuery} />
+                        <ExecutedQuery executedSparqlQuery={this.state.result.executedSparqlQuery} requestedSemanticQuery={this.state.result.requestedSemanticQuery} />
+                        <hr/>
                         <SearchResultItemList results={this.state.result.results} />
                     </div>
             }

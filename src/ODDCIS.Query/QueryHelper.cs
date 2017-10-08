@@ -48,6 +48,17 @@ namespace ODDCIS.Query
             return parmeterizedString.ToSafeString();
         }
 
+        public string GetSemanticQuery(IList<RdfNode> rdfNodes)
+        {
+            var query = string.Empty;
+            foreach (var rdfNode in rdfNodes)
+            {
+                query += $"{rdfNode.Label} ";
+            }
+
+            return query;
+        }
+
         #region Privates
         private string GetClassTriplets(IList<RdfNode> classes)
         {

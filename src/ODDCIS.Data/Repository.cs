@@ -35,8 +35,9 @@ namespace ODDCIS.Data
                 var searchResults = ExecuteQuery(query).ToSearchResult();
                 return new SearchResultList()
                 {
-                    ExecutedQuery = query,
-                    Results = searchResults.ToList()
+                    ExecutedSparqlQuery = query,
+                    Results = searchResults.ToList(),
+                    RequestedSemanticQuery = this.queryHelper.GetSemanticQuery(rdfNodes)
                 };
             }
             catch
