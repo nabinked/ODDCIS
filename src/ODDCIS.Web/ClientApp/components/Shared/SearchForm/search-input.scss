@@ -43,12 +43,15 @@ div.ReactTags__selected {
 /* Styles for suggestions */
 div.ReactTags__suggestions {
     position: absolute;
+    width: 100%;
+    max-height: 49vh;
+    overflow: auto;
     ul {
         list-style-type: none;
         box-shadow: .05em .01em .5em rgba(0, 0, 0, .2);
         background: white;
-        width: 200px;
         padding: 0px;
+        margin-bottom: 0px;
         li {
             border-bottom: 1px solid #ddd;
             padding: 5px 10px;

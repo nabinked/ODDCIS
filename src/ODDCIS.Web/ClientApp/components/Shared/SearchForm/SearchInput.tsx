@@ -145,7 +145,7 @@ export class SearchInput extends React.Component<SearchFormInputProps, SearchFor
         var newSuggestions = possibleSuggestionsArray.filter(function (suggestion) {
             return suggestion.toLowerCase().includes(lowerCaseQuery)
         })
-        return newSuggestions.splice(0, 5);
+        return newSuggestions;
     }
     render() {
         return (

@@ -1,8 +1,7 @@
-SELECT DISTINCT * 
+ SELECT DISTINCT * 
 	WHERE 
 	{ 
 		?item a owl:Class .
+		?item rdfs:label ?label 
 		OPTIONAL { ?item a rdfs:Class }
-		OPTIONAL { ?item rdfs:label ?label }
-		OPTIONAL { ?item rdfs:comment ?comment}
 	}
