@@ -33,6 +33,11 @@
      rdfs:label "for" .
 
 
+###  http://isit990.azurewebsites.net/ontology/dementia-info/hasBehaviour
+:hasBehaviour rdf:type owl:ObjectProperty ;
+              rdfs:domain :Symptom .
+
+
 ###  http://isit990.azurewebsites.net/ontology/dementia-info/hasDefinitionOf
 :hasDefinitionOf rdf:type owl:ObjectProperty ;
                  rdfs:domain :Webpage ;
