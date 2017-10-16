@@ -22,6 +22,21 @@
                 rdfs:label "associated with" .
 
 
+###  http://isit990.azurewebsites.net/ontology/dementia-info/consistingOf
+:consistingOf rdf:type owl:ObjectProperty ;
+              rdfs:subPropertyOf owl:topObjectProperty ;
+              rdfs:domain :Symptom ;
+              rdfs:range :Behavior ,
+                         :Confusion ,
+                         :DeclineInCognition ,
+                         :Dizziness ,
+                         :Hallucination ,
+                         :Headache ,
+                         :MemoryLoss ,
+                         :Tiredness ;
+              rdfs:label "consisting of" .
+
+
 ###  http://isit990.azurewebsites.net/ontology/dementia-info/for
 :for rdf:type owl:ObjectProperty ;
      rdfs:subPropertyOf owl:topObjectProperty ;
@@ -386,9 +401,7 @@ Bath, P. A. and H. Bouchier (2003). \"Development and application of a tool desg
 
 
 ###  http://isit990.azurewebsites.net/ontology/dementia-info/GeneralInformation
-:GeneralInformation rdf:type owl:Class ;
-                    rdfs:comment """Inspired by paper:
-Bath, P. A. and H. Bouchier (2003). \"Development and application of a tool desgined to evaluate web sites providing information on Alzheimer's disease.\" Journal of Information Science 29(4): 279-297.""" .
+:GeneralInformation rdf:type owl:Class .
 
 
 ###  http://isit990.azurewebsites.net/ontology/dementia-info/Genetics
@@ -994,6 +1007,11 @@ Bath, P. A. and H. Bouchier (2003). \"Development and application of a tool desg
                                  :FrontotemporalDementia .
 
 
+###  http://isit990.azurewebsites.net/ontology/dementia-info/GeneralInformation
+:GeneralInformation rdf:type owl:NamedIndividual ,
+                             :GeneralInformation .
+
+
 ###  http://isit990.azurewebsites.net/ontology/dementia-info/Genetics
 :Genetics rdf:type owl:NamedIndividual ,
                    :Genetics .
@@ -1123,6 +1141,35 @@ Bath, P. A. and H. Bouchier (2003). \"Development and application of a tool desg
                                                  :hasUrl "http://www.alz.org/dementia/chronic-traumatic-encephalopathy-cte-symptoms.asp" .
 
 
+###  http://isit990.azurewebsites.net/ontology/dementia-info/Webpage_ALzOrg_Diagnosis_of_Alzheimers_Disease_and_Dementia
+:Webpage_ALzOrg_Diagnosis_of_Alzheimers_Disease_and_Dementia rdf:type owl:NamedIndividual ,
+                                                                      :Webpage ;
+                                                             :hasDefinitionOf :AlzheimersDisease ,
+                                                                              :Dementia ,
+                                                                              :Diagnosis ;
+                                                             :hasExcerpt "Alzheimer's is diagnosed through a complete medical assessment. If you or a loved one have concerns about memory loss or other symptoms of Alzheimer's or dementia, it is important to be evaluated by a physician." ;
+                                                             :hasTitle "Diagnosis of Alzheimer's Disease and Dementia" ;
+                                                             :hasUrl "http://www.alz.org/alzheimers_disease_diagnosis.asp" .
+
+
+###  http://isit990.azurewebsites.net/ontology/dementia-info/Webpage_ALzOrg_Stages_of_Alzheimers
+:Webpage_ALzOrg_Stages_of_Alzheimers rdf:type owl:NamedIndividual ,
+                                              :Webpage ;
+                                     :hasDefinitionOf :GeneralInformation ;
+                                     :hasExcerpt "Alzheimer's disease typically progresses slowly in three general stages — mild (early-stage), moderate (middle-stage), and severe (late-stage). Since Alzheimer's affects people in different ways, each person will experience symptoms - or progress through Alzheimer's stages - differently." ;
+                                     :hasTitle "Stages of Alzheimer's" ;
+                                     :hasUrl "http://www.alz.org/alzheimers_disease_stages_of_alzheimers.asp" .
+
+
+###  http://isit990.azurewebsites.net/ontology/dementia-info/Webpage_AlzOrg_10_Early_Signs_and_Symptoms_of_Alzheimer
+:Webpage_AlzOrg_10_Early_Signs_and_Symptoms_of_Alzheimer rdf:type owl:NamedIndividual ,
+                                                                  :Webpage ;
+                                                         :hasDefinitionOf :Symptom ;
+                                                         :hasExcerpt "Memory loss that disrupts daily life may be a symptom of Alzheimer's or another dementia. Alzheimer's is a brain disease that causes a slow decline in memory, thinking and reasoning skills. There are 10 warning signs and symptoms. Every individual may experience one or more of these signs in a different degree. If you notice any of them, please see a doctor." ;
+                                                         :hasTitle "10 Early Signs and Symptoms of Alzheimer's" ;
+                                                         :hasUrl "http://alz.org/10-signs-symptoms-alzheimers-dementia.asp" .
+
+
 ###  http://isit990.azurewebsites.net/ontology/dementia-info/Webpage_AlzOrg_Creutzfeldt-Jakob_Disease
 :Webpage_AlzOrg_Creutzfeldt-Jakob_Disease rdf:type owl:NamedIndividual ,
                                                    :Webpage ;
@@ -1204,12 +1251,131 @@ Bath, P. A. and H. Bouchier (2003). \"Development and application of a tool desg
                                     :hasUrl "http://www.alz.org/dementia/huntingtons-disease-symptoms.asp" .
 
 
+###  http://isit990.azurewebsites.net/ontology/dementia-info/Webpage_AlzOrg_Inside_the_Brain_An_Interactive_Tour
+:Webpage_AlzOrg_Inside_the_Brain_An_Interactive_Tour rdf:type owl:NamedIndividual ,
+                                                              :Webpage ;
+                                                     :hasDefinitionOf :GeneralInformation ;
+                                                     :hasExcerpt "The Brain Tour explains how the brain works and how Alzheimer's affects it." ;
+                                                     :hasTitle "Inside the Brain: An Interactive Tour" ;
+                                                     :hasUrl "http://www.alz.org/alzheimers_disease_4719.asp" .
+
+
+###  http://isit990.azurewebsites.net/ontology/dementia-info/Webpage_AlzOrg_Korsakoff_Syndrome
+:Webpage_AlzOrg_Korsakoff_Syndrome rdf:type owl:NamedIndividual ,
+                                            :Webpage ;
+                                   :hasDefinitionOf :Diagnosis ,
+                                                    :Symptom ,
+                                                    :Treatment ,
+                                                    :TypesOfDementia ;
+                                   :hasExcerpt "Korsakoff syndrome is a chronic memory disorder caused by severe deficiency of thiamine (vitamin B-1). Korsakoff syndrome is most commonly caused by alcohol misuse, but certain other conditions also can cause the syndrome." ;
+                                   :hasTitle "Korsakoff Syndrome" ;
+                                   :hasUrl "http://www.alz.org/dementia/wernicke-korsakoff-syndrome-symptoms.asp" .
+
+
+###  http://isit990.azurewebsites.net/ontology/dementia-info/Webpage_AlzOrg_Life_After_Diagnosis
+:Webpage_AlzOrg_Life_After_Diagnosis rdf:type owl:NamedIndividual ,
+                                              :Webpage ;
+                                     :hasDefinitionOf :Diagnosis ,
+                                                      :Impact ;
+                                     :hasExcerpt "Once testing is complete, the doctor will review results and share conclusions. A diagnosis of Alzheimer’s disease reflects a doctor’s best judgment about the cause of a person’s symptoms. You may want to ask the doctor to explain." ;
+                                     :hasTitle "Life After Diagnosis" ;
+                                     :hasUrl "http://www.alz.org/alzheimers_disease_life_after_diagnosis.asp" .
+
+
 ###  http://isit990.azurewebsites.net/ontology/dementia-info/Webpage_AlzOrg_Mild_Cognitive_Impairment
 :Webpage_AlzOrg_Mild_Cognitive_Impairment rdf:type owl:NamedIndividual ,
                                                    :Webpage ;
                                           :hasExcerpt "Mild cognitive impairment (MCI) causes a slight but noticeable and measurable decline in cognitive abilities, including memory and thinking skills. A person with MCI is at an increased risk of developing Alzheimer's or another dementia." ;
                                           :hasTitle "Mild Cognitive Impairment" ;
                                           :hasUrl "http://www.alz.org/dementia/mild-cognitive-impairment-mci.asp" .
+
+
+###  http://isit990.azurewebsites.net/ontology/dementia-info/Webpage_AlzOrg_Mixed_Dementia
+:Webpage_AlzOrg_Mixed_Dementia rdf:type owl:NamedIndividual ,
+                                        :Webpage ;
+                               :hasDefinitionOf :Diagnosis ,
+                                                :Hallucination ,
+                                                :Symptom ,
+                                                :Treatment ,
+                                                :TypesOfDementia ;
+                               :hasExcerpt "Mixed dementia is a condition in which abnormalities characteristic of more than one type of dementia occur simultaneously. Physicians may also call mixed dementia \"Dementia — multifactorial.\"" ;
+                               :hasTitle "Mixed Dementia" ;
+                               :hasUrl "http://www.alz.org/dementia/mixed-dementia-symptoms.asp" .
+
+
+###  http://isit990.azurewebsites.net/ontology/dementia-info/Webpage_AlzOrg_Normal_Pressure_Hydrocephalus
+:Webpage_AlzOrg_Normal_Pressure_Hydrocephalus rdf:type owl:NamedIndividual ,
+                                                       :Webpage ;
+                                              :hasDefinitionOf :Diagnosis ,
+                                                               :Symptom ,
+                                                               :Treatment ,
+                                                               :TypesOfDementia ;
+                                              :hasExcerpt "Normal pressure hydrocephalus is a brain disorder in which excess cerebrospinal fluid accumulates in the brain's ventricle, causing thinking and reasoning problems, difficulty walking and loss of bladder control." ;
+                                              :hasTitle "Normal Pressure Hydrocephalus (NPH)" ;
+                                              :hasUrl "http://www.alz.org/dementia/normal-pressure-hydrocephalus-nph.asp" .
+
+
+###  http://isit990.azurewebsites.net/ontology/dementia-info/Webpage_AlzOrg_Parkinsons_DiseaseDementia
+:Webpage_AlzOrg_Parkinsons_DiseaseDementia rdf:type owl:NamedIndividual ,
+                                                    :Webpage ;
+                                           :hasDefinitionOf :Diagnosis ,
+                                                            :Symptom ,
+                                                            :Treatment ,
+                                                            :TypesOfDementia ;
+                                           :hasExcerpt "Parkinson's disease dementia is an impairment in thinking and reasoning that eventually affects many people with Parkinson's disease" ;
+                                           :hasTitle "Parkinson's Disease Dementia" ;
+                                           :hasUrl "http://www.alz.org/dementia/parkinsons-disease-symptoms.asp" .
+
+
+###  http://isit990.azurewebsites.net/ontology/dementia-info/Webpage_AlzOrg_Posterior_Cortical_Atrophy
+:Webpage_AlzOrg_Posterior_Cortical_Atrophy rdf:type owl:NamedIndividual ,
+                                                    :Webpage ;
+                                           :hasDefinitionOf :Diagnosis ,
+                                                            :Symptom ,
+                                                            :Treatment ;
+                                           :hasExcerpt "Posterior Cortical Atrophy A topic in the Alzheimer’s Association series on understanding dementia." ;
+                                           :hasTitle "Posterior Cortical Atrophy" ;
+                                           :hasUrl "http://www.alz.org/dementia/posterior-cortical-atrophy.asp" .
+
+
+###  http://isit990.azurewebsites.net/ontology/dementia-info/Webpage_AlzOrg_Risk_Factors
+:Webpage_AlzOrg_Risk_Factors rdf:type owl:NamedIndividual ,
+                                      :Webpage ;
+                             :hasDefinitionOf :RiskFactors ;
+                             :hasExcerpt "Scientists have identified factors that increase the risk of Alzheimer’s. The most important risk factors—age, family history and heredity—can't be changed, but emerging evidence suggests there may be other factors we can influence." ;
+                             :hasTitle "Risk Factors" ;
+                             :hasUrl "http://www.alz.org/alzheimers_disease_causes_risk_factors.asp" .
+
+
+###  http://isit990.azurewebsites.net/ontology/dementia-info/Webpage_AlzOrg_Tests_for_Alzheimers_Disease_and_Dementia
+:Webpage_AlzOrg_Tests_for_Alzheimers_Disease_and_Dementia rdf:type owl:NamedIndividual ,
+                                                                   :Webpage ;
+                                                          :hasDefinitionOf :AlzheimersDisease ,
+                                                                           :Dementia ;
+                                                          :hasExcerpt "There is no single test that proves a person has Alzheimer's. A diagnosis is made through a complete assessment that considers all possible causes." ;
+                                                          :hasTitle "Tests for Alzheimer's Disease and Dementia" ;
+                                                          :hasUrl "http://www.alz.org/alzheimers_disease_steps_to_diagnosis.asp" .
+
+
+###  http://isit990.azurewebsites.net/ontology/dementia-info/Webpage_AlzOrg_Traumatic_Brain_Injury
+:Webpage_AlzOrg_Traumatic_Brain_Injury rdf:type owl:NamedIndividual ,
+                                                :Webpage ;
+                                       :hasDefinitionOf :Diagnosis ,
+                                                        :Symptom ,
+                                                        :Treatment ;
+                                       :hasExcerpt "Traumatic brain injury results from an impact to the head that disrupts normal brain function. Traumatic brain injury may affect a person’s cognitive abilities, including learning and thinking skills." ;
+                                       :hasTitle "Traumatic Brain Injury" ;
+                                       :hasUrl "http://www.alz.org/dementia/traumatic-brain-injury-head-trauma-symptoms.asp" .
+
+
+###  http://isit990.azurewebsites.net/ontology/dementia-info/Webpage_AlzOrg_Treatments_for_Alzheimers_disease
+:Webpage_AlzOrg_Treatments_for_Alzheimers_disease rdf:type owl:NamedIndividual ,
+                                                           :Webpage ;
+                                                  :hasDefinitionOf :AlzheimersDisease ,
+                                                                   :Treatment ;
+                                                  :hasExcerpt "Currently, there is no cure for Alzheimer's. But drug and non-drug treatments may help with both cognitive and behavioral symptoms." ;
+                                                  :hasTitle "Treatments for Alzheimer's disease" ;
+                                                  :hasUrl "http://www.alz.org/alzheimers_disease_treatments.asp" .
 
 
 ###  http://isit990.azurewebsites.net/ontology/dementia-info/Webpage_AlzOrg_Types_Of_Dementia
@@ -1221,6 +1387,38 @@ Bath, P. A. and H. Bouchier (2003). \"Development and application of a tool desg
                                   :hasUrl "http://www.alz.org/dementia/types-of-dementia.asp" .
 
 
+###  http://isit990.azurewebsites.net/ontology/dementia-info/Webpage_AlzOrg_Vascular_Dementia
+:Webpage_AlzOrg_Vascular_Dementia rdf:type owl:NamedIndividual ,
+                                           :Webpage ;
+                                  :hasDefinitionOf :Confusion ,
+                                                   :Diagnosis ,
+                                                   :Symptom ,
+                                                   :Treatment ,
+                                                   :TypesOfDementia ,
+                                                   :VascularDementia ;
+                                  :hasExcerpt "Vascular dementia is a decline in thinking skills caused by conditions that block or reduce blood flow to the brain, depriving brain cells of vital oxygen and nutrients." ;
+                                  :hasTitle "Vascular Dementia" ;
+                                  :hasUrl "http://www.alz.org/dementia/vascular-dementia-symptoms.asp" .
+
+
+###  http://isit990.azurewebsites.net/ontology/dementia-info/Webpage_AlzOrg_Visiting_Your_Doctor
+:Webpage_AlzOrg_Visiting_Your_Doctor rdf:type owl:NamedIndividual ,
+                                              :Webpage ;
+                                     :hasDefinitionOf :PreventionMethod ;
+                                     :hasExcerpt "Effective communication with your doctor is important when you are seeking a diagnosis for memory loss. Ask questions, be prepared to answer questions, and be as honest as possible" ;
+                                     :hasTitle "Visiting Your Doctor" ;
+                                     :hasUrl "http://www.alz.org/alzheimers_disease_visiting_with_your_physician.asp" .
+
+
+###  http://isit990.azurewebsites.net/ontology/dementia-info/Webpage_AlzOrg_What_Is_Alzheimers
+:Webpage_AlzOrg_What_Is_Alzheimers rdf:type owl:NamedIndividual ,
+                                            :Webpage ;
+                                   :hasDefinitionOf :AlzheimersDisease ;
+                                   :hasExcerpt "Alzheimer's is a type of dementia that causes problems with memory, thinking and behavior. Symptoms usually develop slowly and get worse over time, becoming severe enough to interfere with daily tasks." ;
+                                   :hasTitle "What Is Alzheimer's?" ;
+                                   :hasUrl "http://www.alz.org/alzheimers_disease_what_is_alzheimers.asp" .
+
+
 ###  http://isit990.azurewebsites.net/ontology/dementia-info/Webpage_AlzOrg_What_Is_Dementia
 :Webpage_AlzOrg_What_Is_Dementia rdf:type owl:NamedIndividual ,
                                           :Webpage ;
@@ -1230,10 +1428,40 @@ Bath, P. A. and H. Bouchier (2003). \"Development and application of a tool desg
                                  :hasUrl "http://www.alz.org/what-is-dementia.asp" .
 
 
+###  http://isit990.azurewebsites.net/ontology/dementia-info/Webpage_AlzOrg_Why_Get_Checked
+:Webpage_AlzOrg_Why_Get_Checked rdf:type owl:NamedIndividual ,
+                                         :Webpage ;
+                                :hasDefinitionOf :Impact ,
+                                                 :PreventionMethod ;
+                                :hasExcerpt "If you notice any of the 10 Warning Signs of Alzheimer's in yourself or someone you know, don't ignore them. Schedule an appointment with your doctor." ;
+                                :hasTitle "Why Get Checked" ;
+                                :hasUrl "http://www.alz.org/alzheimers_disease_why_get_checked.asp" .
+
+
+###  http://isit990.azurewebsites.net/ontology/dementia-info/Webpage_AlzOrg_Younger_Early_Onset_Alzheimer_Dementia
+:Webpage_AlzOrg_Younger_Early_Onset_Alzheimer_Dementia rdf:type owl:NamedIndividual ,
+                                                                :Webpage ;
+                                                       :hasDefinitionOf :Demographic ,
+                                                                        :PhaseOfDementia ;
+                                                       :hasExcerpt "Alzheimer's is not just a disease of old age. Younger-onset (also known as early-onset) Alzheimer's affects people younger than age 65.  Up to 5 percent of the more than 5 million Americans with Alzheimer’s have younger-onset." ;
+                                                       :hasTitle "Younger/Early Onset Alzheimer's & Dementia" ;
+                                                       :hasUrl "http://www.alz.org/alzheimers_disease_early_onset.asp" .
+
+
 ###  http://isit990.azurewebsites.net/ontology/dementia-info/Website_AlzOrg
 :Website_AlzOrg rdf:type owl:NamedIndividual ,
                          :WebSite ;
                 :hasWebpage :Webpage_AlzOrg_What_Is_Dementia .
+
+
+###  http://isit990.azurewebsites.net/ontology/dementia-info/Webpage_AlzOrg_2017_Alzheimer's_Disease_Facts_and_Figures
+:s_Disease_Facts_and_Figures rdf:type owl:NamedIndividual ,
+                                      :Webpage ;
+                             :hasDefinitionOf :AlzheimersDisease ,
+                                              :Demographic ;
+                             :hasExcerpt "The number of Americans living with Alzheimer's disease is growing — and growing fast. An estimated 5.5 million Americans of all ages have Alzheimer's disease." ;
+                             :hasTitle "2017 Alzheimer's Disease Facts and Figures" ;
+                             :hasUrl "http://www.alz.org/facts/overview.asp" .
 
 
 #################################################################
@@ -1288,6 +1516,10 @@ Song, T.-M., et al. (2014). \"Development of Health Information Search Engine Ba
 
 
 :FrontotemporalDementia rdfs:label "Fronto Temporal Dementia" .
+
+
+:GeneralInformation rdfs:comment """Inspired by paper:
+Bath, P. A. and H. Bouchier (2003). \"Development and application of a tool desgined to evaluate web sites providing information on Alzheimer's disease.\" Journal of Information Science 29(4): 279-297.""" .
 
 
 :Genetics rdfs:label "Genetics" .
