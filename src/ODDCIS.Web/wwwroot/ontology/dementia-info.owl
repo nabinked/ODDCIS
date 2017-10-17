@@ -50,19 +50,23 @@
 
 ###  http://isit990.azurewebsites.net/ontology/dementia-info/hasBehaviour
 :hasBehaviour rdf:type owl:ObjectProperty ;
-              rdfs:domain :Symptom .
+              rdfs:domain :Symptom ;
+              rdfs:range :Behavior ;
+              rdfs:label "has behaviour" .
 
 
 ###  http://isit990.azurewebsites.net/ontology/dementia-info/hasDefinitionOf
 :hasDefinitionOf rdf:type owl:ObjectProperty ;
                  rdfs:domain :Webpage ;
-                 rdfs:range :Dementia .
+                 rdfs:range :Dementia ;
+                 rdfs:label "has definition of" .
 
 
 ###  http://isit990.azurewebsites.net/ontology/dementia-info/hasWebpage
 :hasWebpage rdf:type owl:ObjectProperty ;
             rdfs:domain :WebSite ;
-            rdfs:range :Webpage .
+            rdfs:range :Webpage ;
+            rdfs:label "has webpage" .
 
 
 ###  http://isit990.azurewebsites.net/ontology/dementia-info/of
@@ -80,6 +84,12 @@
     rdfs:label "of" .
 
 
+###  http://isit990.azurewebsites.net/ontology/dementia-info/providedTo
+:providedTo rdf:type owl:ObjectProperty ;
+            rdfs:domain :FinancialAssistance ;
+            rdfs:label "provided to" .
+
+
 ###  http://isit990.azurewebsites.net/ontology/dementia-info/relatedTo
 :relatedTo rdf:type owl:ObjectProperty ;
            rdfs:subPropertyOf owl:topObjectProperty ;
@@ -87,6 +97,13 @@
            rdfs:range :AlzheimersDisease ,
                       :Dementia ;
            rdfs:label "related to" .
+
+
+###  http://isit990.azurewebsites.net/ontology/dementia-info/usedFor
+:usedFor rdf:type owl:ObjectProperty ;
+         rdfs:domain :Treatment ;
+         rdfs:range :TypesOfDementia ;
+         rdfs:label "used for" .
 
 
 #################################################################
@@ -97,21 +114,23 @@
 :hasExcerpt rdf:type owl:DatatypeProperty ;
             rdfs:subPropertyOf owl:topDataProperty ;
             rdfs:domain :Webpage ;
-            rdfs:range rdf:PlainLiteral .
+            rdfs:range rdf:PlainLiteral ;
+            rdfs:label "has excerpt" .
 
 
 ###  http://isit990.azurewebsites.net/ontology/dementia-info/hasTitle
 :hasTitle rdf:type owl:DatatypeProperty ;
           rdfs:subPropertyOf owl:topDataProperty ;
           rdfs:domain :Webpage ;
-          rdfs:range rdf:PlainLiteral .
+          rdfs:range rdf:PlainLiteral ;
+          rdfs:label "has title" .
 
 
 ###  http://isit990.azurewebsites.net/ontology/dementia-info/hasUrl
 :hasUrl rdf:type owl:DatatypeProperty ;
         rdfs:domain :Webpage ;
         rdfs:range rdf:PlainLiteral ;
-        rdfs:label "hasUrlAddress"@en .
+        rdfs:label "has url address" .
 
 
 #################################################################
@@ -1468,7 +1487,7 @@ Bath, P. A. and H. Bouchier (2003). \"Development and application of a tool desg
                             :s_Disease_Facts_and_Figures .
 
 
-###  http://isit990.azurewebsites.net/ontology/dementia-info/Webpage_AlzOrg_2017_Alzheimer's_Disease_Facts_and_Figures
+###  http://isit990.azurewebsites.net/ontology/dementia-info/s_Disease_Facts_and_Figures
 :s_Disease_Facts_and_Figures rdf:type owl:NamedIndividual ,
                                       :Webpage ;
                              :hasDefinitionOf :AlzheimersDisease ,
