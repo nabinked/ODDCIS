@@ -80,6 +80,15 @@
     rdfs:label "of" .
 
 
+###  http://isit990.azurewebsites.net/ontology/dementia-info/relatedTo
+:relatedTo rdf:type owl:ObjectProperty ;
+           rdfs:subPropertyOf owl:topObjectProperty ;
+           rdfs:domain :RiskFactors ;
+           rdfs:range :AlzheimersDisease ,
+                      :Dementia ;
+           rdfs:label "related to" .
+
+
 #################################################################
 #    Data properties
 #################################################################
@@ -1451,7 +1460,12 @@ Bath, P. A. and H. Bouchier (2003). \"Development and application of a tool desg
 ###  http://isit990.azurewebsites.net/ontology/dementia-info/Website_AlzOrg
 :Website_AlzOrg rdf:type owl:NamedIndividual ,
                          :WebSite ;
-                :hasWebpage :Webpage_AlzOrg_What_Is_Dementia .
+                :hasWebpage :Webpage_ALzOrg_Chronic_Traumatic_Encephalopathy ,
+                            :Webpage_ALzOrg_Diagnosis_of_Alzheimers_Disease_and_Dementia ,
+                            :Webpage_AlzOrg_10_Early_Signs_and_Symptoms_of_Alzheimer ,
+                            :Webpage_AlzOrg_Dementia_with_Lewy_Bodies ,
+                            :Webpage_AlzOrg_What_Is_Dementia ,
+                            :s_Disease_Facts_and_Figures .
 
 
 ###  http://isit990.azurewebsites.net/ontology/dementia-info/Webpage_AlzOrg_2017_Alzheimer's_Disease_Facts_and_Figures
