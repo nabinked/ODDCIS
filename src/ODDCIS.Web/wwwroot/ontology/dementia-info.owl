@@ -957,6 +957,49 @@ Bath, P. A. and H. Bouchier (2003). \"Development and application of a tool desg
                                   <http://isit990.azurewebsites.net/ontology/dementia-info/hasUrl> "https://www.fightdementia.org.au/about-dementia/am-i-at-risk" .
 
 
+###  http://isit990.azurewebsites.net/ontology/dementia-info#Webpage_FightDemOrg_Behaviour
+:Webpage_FightDemOrg_Behaviour rdf:type owl:NamedIndividual ,
+                                        <http://isit990.azurewebsites.net/ontology/dementia-info/Webpage> ;
+                               <http://isit990.azurewebsites.net/ontology/dementia-info/hasDefinitionOf> <http://isit990.azurewebsites.net/ontology/dementia-info/Behaviour> ;
+                               <http://isit990.azurewebsites.net/ontology/dementia-info/hasExcerpt> "This section talks about how dementia affects a person’s behaviour and how as a carer or a family member we can cope with managing this behavioural change." ;
+                               <http://isit990.azurewebsites.net/ontology/dementia-info/hasTitle> "Behaviour" ;
+                               <http://isit990.azurewebsites.net/ontology/dementia-info/hasUrl> "https://www.fightdementia.org.au/national/about-dementia/behaviour" .
+
+
+###  http://isit990.azurewebsites.net/ontology/dementia-info#Webpage_FightDemOrg_BrainyApp
+:Webpage_FightDemOrg_BrainyApp rdf:type owl:NamedIndividual ,
+                                        <http://isit990.azurewebsites.net/ontology/dementia-info/Webpage> ;
+                               <http://isit990.azurewebsites.net/ontology/dementia-info/hasDefinitionOf> <http://isit990.azurewebsites.net/ontology/dementia-info/Demographic> ,
+                                                                                                         <http://isit990.azurewebsites.net/ontology/dementia-info/RiskFactors> ;
+                               <http://isit990.azurewebsites.net/ontology/dementia-info/hasExcerpt> """\" BrainyApp was developed in 2011 by Alzheimer’s Australia in partnership with Bupa Health Foundation
+(link is external)
+ to raise awareness of the risk factors for Alzheimer's disease and other types of dementia, and to help you be brain healthy.\"""" ;
+                               <http://isit990.azurewebsites.net/ontology/dementia-info/hasTitle> "BrainyApp" ;
+                               <http://isit990.azurewebsites.net/ontology/dementia-info/hasUrl> "https://www.fightdementia.org.au/about-dementia/am-i-at-risk/brainyapp" .
+
+
+###  http://isit990.azurewebsites.net/ontology/dementia-info#Webpage_FightDemOrg_Dementia_Research
+:Webpage_FightDemOrg_Dementia_Research rdf:type owl:NamedIndividual ,
+                                                <http://isit990.azurewebsites.net/ontology/dementia-info/Webpage> ;
+                                       <http://isit990.azurewebsites.net/ontology/dementia-info/hasDefinitionOf> <http://isit990.azurewebsites.net/ontology/dementia-info/Diagnosis> ,
+                                                                                                                 <http://isit990.azurewebsites.net/ontology/dementia-info/PreventionMethod> ,
+                                                                                                                 <http://isit990.azurewebsites.net/ontology/dementia-info/RiskFactors> ,
+                                                                                                                 <http://isit990.azurewebsites.net/ontology/dementia-info/Treatment> ;
+                                       <http://isit990.azurewebsites.net/ontology/dementia-info/hasExcerpt> "Researchers are currently investigating a number of aspects of dementia" ;
+                                       <http://isit990.azurewebsites.net/ontology/dementia-info/hasTitle> "Dementia Research" ;
+                                       <http://isit990.azurewebsites.net/ontology/dementia-info/hasUrl> "https://www.fightdementia.org.au/about-dementia/dementia-research" .
+
+
+###  http://isit990.azurewebsites.net/ontology/dementia-info#Webpage_FightDemOrg_Down_Syndrome_and_Alzheimers_Disease
+:Webpage_FightDemOrg_Down_Syndrome_and_Alzheimers_Disease rdf:type owl:NamedIndividual ,
+                                                                   <http://isit990.azurewebsites.net/ontology/dementia-info/Webpage> ;
+                                                          <http://isit990.azurewebsites.net/ontology/dementia-info/hasDefinitionOf> <http://isit990.azurewebsites.net/ontology/dementia-info/AlzheimersDisease> ,
+                                                                                                                                    <http://isit990.azurewebsites.net/ontology/dementia-info/Diagnosis> ;
+                                                          <http://isit990.azurewebsites.net/ontology/dementia-info/hasExcerpt> "This page explains what is currently known about this link, and discusses the diagnosis of Alzheimer’s disease in people with Down syndrome and some information about where to find additional support." ;
+                                                          <http://isit990.azurewebsites.net/ontology/dementia-info/hasTitle> "Down syndrome and Alzheimer's disease" ;
+                                                          <http://isit990.azurewebsites.net/ontology/dementia-info/hasUrl> "https://www.fightdementia.org.au/about-dementia/types-of-dementia/down-syndrome-and-alzheimers-disease" .
+
+
 ###  http://isit990.azurewebsites.net/ontology/dementia-info#Website_FightDemOrg
 :Website_FightDemOrg rdf:type owl:NamedIndividual ,
                               <http://isit990.azurewebsites.net/ontology/dementia-info/WebSite> .
