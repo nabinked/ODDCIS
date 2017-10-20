@@ -17,9 +17,15 @@
 :associatedWith rdf:type owl:ObjectProperty ;
                 rdfs:subPropertyOf owl:topObjectProperty ;
                 rdfs:domain :Symptom ;
-                rdfs:range :Dementia ,
-                           :TypesOfDementia ;
+                rdfs:range :Dementia ;
                 rdfs:label "associated with" .
+
+
+###  http://isit990.azurewebsites.net/ontology/dementia-info/atPhase
+:atPhase rdf:type owl:ObjectProperty ;
+         rdfs:domain :Dementia ;
+         rdfs:range :PhaseOfDementia ;
+         rdfs:label "at phase" .
 
 
 ###  http://isit990.azurewebsites.net/ontology/dementia-info/consistingOf
@@ -43,8 +49,8 @@
      rdfs:domain :PreventionMethod ,
                  :Symptom ,
                  :Treatment ;
-     rdfs:range :PhaseOfDementia ,
-                :TypesOfDementia ;
+     rdfs:range :Dementia ,
+                :PhaseOfDementia ;
      rdfs:label "for" .
 
 
@@ -79,14 +85,15 @@
                 :RiskFactors ,
                 :Symptom ,
                 :Treatment ;
-    rdfs:range :PhaseOfDementia ,
-               :TypesOfDementia ;
+    rdfs:range :Dementia ,
+               :PhaseOfDementia ;
     rdfs:label "of" .
 
 
 ###  http://isit990.azurewebsites.net/ontology/dementia-info/providedTo
 :providedTo rdf:type owl:ObjectProperty ;
             rdfs:domain :FinancialAssistance ;
+            rdfs:range :Person ;
             rdfs:label "provided to" .
 
 
@@ -99,10 +106,18 @@
            rdfs:label "related to" .
 
 
+###  http://isit990.azurewebsites.net/ontology/dementia-info/sufferingFrom
+:sufferingFrom rdf:type owl:ObjectProperty ;
+               rdfs:subPropertyOf owl:topObjectProperty ;
+               rdfs:domain :Patient ;
+               rdfs:range :Dementia ;
+               rdfs:label "suffering from" .
+
+
 ###  http://isit990.azurewebsites.net/ontology/dementia-info/usedFor
 :usedFor rdf:type owl:ObjectProperty ;
          rdfs:domain :Treatment ;
-         rdfs:range :TypesOfDementia ;
+         rdfs:range :Dementia ;
          rdfs:label "used for" .
 
 
@@ -116,6 +131,12 @@
             rdfs:domain :Webpage ;
             rdfs:range rdf:PlainLiteral ;
             rdfs:label "has excerpt" .
+
+
+###  http://isit990.azurewebsites.net/ontology/dementia-info/hasName
+:hasName rdf:type owl:DatatypeProperty ;
+         rdfs:domain :Person ;
+         rdfs:range rdf:PlainLiteral .
 
 
 ###  http://isit990.azurewebsites.net/ontology/dementia-info/hasTitle
@@ -154,7 +175,7 @@
 
 ###  http://isit990.azurewebsites.net/ontology/dementia-info/AlzheimersDisease
 :AlzheimersDisease rdf:type owl:Class ;
-                   rdfs:subClassOf :TypesOfDementia .
+                   rdfs:subClassOf :Dementia .
 
 
 ###  http://isit990.azurewebsites.net/ontology/dementia-info/Audio
@@ -182,7 +203,7 @@ Bath, P. A. and H. Bouchier (2003). \"Development and application of a tool desg
 
 ###  http://isit990.azurewebsites.net/ontology/dementia-info/Behavior
 :Behavior rdf:type owl:Class ;
-          rdfs:subClassOf :Symptom ;
+          rdfs:subClassOf :DementiaDomain ;
           rdfs:label "Behaviour" .
 
 
@@ -196,6 +217,11 @@ Bath, P. A. and H. Bouchier (2003). \"Development and application of a tool desg
         rdfs:subClassOf :SupportForCarers ;
         rdfs:comment """Inspired by paper:
 Bath, P. A. and H. Bouchier (2003). \"Development and application of a tool desgined to evaluate web sites providing information on Alzheimer's disease.\" Journal of Information Science 29(4): 279-297.""" .
+
+
+###  http://isit990.azurewebsites.net/ontology/dementia-info/Carer
+:Carer rdf:type owl:Class ;
+       rdfs:subClassOf :Person .
 
 
 ###  http://isit990.azurewebsites.net/ontology/dementia-info/CholinesteraseInhibitors
@@ -283,17 +309,17 @@ Bath, P. A. and H. Bouchier (2003). \"Development and application of a tool desg
 
 
 ###  http://isit990.azurewebsites.net/ontology/dementia-info/Dementia
-:Dementia rdf:type owl:Class .
+:Dementia rdf:type owl:Class ;
+          rdfs:subClassOf :DementiaDomain .
 
 
 ###  http://isit990.azurewebsites.net/ontology/dementia-info/DementiaCare
 :DementiaCare rdf:type owl:Class ;
-              rdfs:subClassOf :Dementia .
+              rdfs:label "Dementia Care" .
 
 
 ###  http://isit990.azurewebsites.net/ontology/dementia-info/DementiaDomain
 :DementiaDomain rdf:type owl:Class ;
-                rdfs:subClassOf :Dementia ;
                 rdfs:label "Dementia Domain" .
 
 
@@ -304,12 +330,11 @@ Bath, P. A. and H. Bouchier (2003). \"Development and application of a tool desg
 
 ###  http://isit990.azurewebsites.net/ontology/dementia-info/DementiaWithLewyBodies
 :DementiaWithLewyBodies rdf:type owl:Class ;
-                        rdfs:subClassOf :TypesOfDementia .
+                        rdfs:subClassOf :Dementia .
 
 
 ###  http://isit990.azurewebsites.net/ontology/dementia-info/Demographics
 :Demographics rdf:type owl:Class ;
-              rdfs:subClassOf :DementiaDomain ;
               rdfs:comment """Refer to:
 Song, T.-M., et al. (2014). \"Development of Health Information Search Engine Based on Metadata and Ontology.\" Healthcare Informatics Research 20(2): 88-98.""" ;
               rdfs:label "Demographic" .
@@ -415,7 +440,8 @@ Bath, P. A. and H. Bouchier (2003). \"Development and application of a tool desg
 
 ###  http://isit990.azurewebsites.net/ontology/dementia-info/FinancialAssistance
 :FinancialAssistance rdf:type owl:Class ;
-                     rdfs:subClassOf :DementiaCare .
+                     rdfs:subClassOf :DementiaCare ;
+                     rdfs:label "Financial Assistance" .
 
 
 ###  http://isit990.azurewebsites.net/ontology/dementia-info/FormalCaregiver
@@ -425,7 +451,7 @@ Bath, P. A. and H. Bouchier (2003). \"Development and application of a tool desg
 
 ###  http://isit990.azurewebsites.net/ontology/dementia-info/FrontotemporalDementia
 :FrontotemporalDementia rdf:type owl:Class ;
-                        rdfs:subClassOf :TypesOfDementia .
+                        rdfs:subClassOf :Dementia .
 
 
 ###  http://isit990.azurewebsites.net/ontology/dementia-info/GeneralInformation
@@ -587,9 +613,19 @@ Bath, P. A. and H. Bouchier (2003). \"Development and application of a tool desg
                       rdfs:comment "describes the different quality dimensions" .
 
 
-###  http://isit990.azurewebsites.net/ontology/dementia-info/MildCognitiveImpairement
-:MildCognitiveImpairement rdf:type owl:Class ;
+###  http://isit990.azurewebsites.net/ontology/dementia-info/MildCognitiveDecline
+:MildCognitiveDecline rdf:type owl:Class ;
+                      rdfs:subClassOf :PhaseOfDementia .
+
+
+###  http://isit990.azurewebsites.net/ontology/dementia-info/ModerateCognitiveDecline
+:ModerateCognitiveDecline rdf:type owl:Class ;
                           rdfs:subClassOf :PhaseOfDementia .
+
+
+###  http://isit990.azurewebsites.net/ontology/dementia-info/ModeratelySevereCognitiveDecline
+:ModeratelySevereCognitiveDecline rdf:type owl:Class ;
+                                  rdfs:subClassOf :PhaseOfDementia .
 
 
 ###  http://isit990.azurewebsites.net/ontology/dementia-info/Neuroimaging
@@ -607,6 +643,11 @@ Bath, P. A. and H. Bouchier (2003). \"Development and application of a tool desg
                    rdfs:subClassOf :ContentOfCare ;
                    rdfs:comment """Inspired by paper:
 Bath, P. A. and H. Bouchier (2003). \"Development and application of a tool desgined to evaluate web sites providing information on Alzheimer's disease.\" Journal of Information Science 29(4): 279-297.""" .
+
+
+###  http://isit990.azurewebsites.net/ontology/dementia-info/NoCognitiveDecline
+:NoCognitiveDecline rdf:type owl:Class ;
+                    rdfs:subClassOf :PhaseOfDementia .
 
 
 ###  http://isit990.azurewebsites.net/ontology/dementia-info/NonPharmacologicalTreatment
@@ -681,6 +722,15 @@ Bath, P. A. and H. Bouchier (2003). \"Development and application of a tool desg
 Bath, P. A. and H. Bouchier (2003). \"Development and application of a tool desgined to evaluate web sites providing information on Alzheimer's disease.\" Journal of Information Science 29(4): 279-297.""" .
 
 
+###  http://isit990.azurewebsites.net/ontology/dementia-info/Patient
+:Patient rdf:type owl:Class ;
+         rdfs:subClassOf :Person .
+
+
+###  http://isit990.azurewebsites.net/ontology/dementia-info/Person
+:Person rdf:type owl:Class .
+
+
 ###  http://isit990.azurewebsites.net/ontology/dementia-info/PersonWithDementia
 :PersonWithDementia rdf:type owl:Class ;
                     rdfs:subClassOf :TypesOfUsers .
@@ -697,6 +747,7 @@ This class describes the personal experiences of people suffering from dementia"
 
 ###  http://isit990.azurewebsites.net/ontology/dementia-info/PhaseOfDementia
 :PhaseOfDementia rdf:type owl:Class ;
+                 owl:equivalentClass :Progression ;
                  rdfs:subClassOf :DementiaDomain .
 
 
@@ -735,6 +786,11 @@ Bath, P. A. and H. Bouchier (2003). \"Development and application of a tool desg
 ###  http://isit990.azurewebsites.net/ontology/dementia-info/Prognosis
 :Prognosis rdf:type owl:Class ;
            rdfs:subClassOf :DementiaDomain .
+
+
+###  http://isit990.azurewebsites.net/ontology/dementia-info/Progression
+:Progression rdf:type owl:Class ;
+             rdfs:subClassOf :DementiaDomain .
 
 
 ###  http://isit990.azurewebsites.net/ontology/dementia-info/Psychosis
@@ -781,6 +837,11 @@ Bath, P. A. and H. Bouchier (2003). \"Development and application of a tool desg
               rdfs:subClassOf :WebSite ;
               rdfs:comment """Inspired by paper:
 Bath, P. A. and H. Bouchier (2003). \"Development and application of a tool desgined to evaluate web sites providing information on Alzheimer's disease.\" Journal of Information Science 29(4): 279-297.""" .
+
+
+###  http://isit990.azurewebsites.net/ontology/dementia-info/SevereCognitiveDecline
+:SevereCognitiveDecline rdf:type owl:Class ;
+                        rdfs:subClassOf :PhaseOfDementia .
 
 
 ###  http://isit990.azurewebsites.net/ontology/dementia-info/SexualDifficulties
@@ -840,11 +901,6 @@ Bath, P. A. and H. Bouchier (2003). \"Development and application of a tool desg
                  rdfs:subClassOf :Credibility .
 
 
-###  http://isit990.azurewebsites.net/ontology/dementia-info/TypesOfDementia
-:TypesOfDementia rdf:type owl:Class ;
-                 rdfs:subClassOf :DementiaDomain .
-
-
 ###  http://isit990.azurewebsites.net/ontology/dementia-info/TypesOfUsers
 :TypesOfUsers rdf:type owl:Class ;
               rdfs:subClassOf :UserContext ;
@@ -881,7 +937,17 @@ Bath, P. A. and H. Bouchier (2003). \"Development and application of a tool desg
 
 ###  http://isit990.azurewebsites.net/ontology/dementia-info/VascularDementia
 :VascularDementia rdf:type owl:Class ;
-                  rdfs:subClassOf :TypesOfDementia .
+                  rdfs:subClassOf :Dementia .
+
+
+###  http://isit990.azurewebsites.net/ontology/dementia-info/VeryMildCognitiveDecline
+:VeryMildCognitiveDecline rdf:type owl:Class ;
+                          rdfs:subClassOf :PhaseOfDementia .
+
+
+###  http://isit990.azurewebsites.net/ontology/dementia-info/VerySevereCognitiveDecline
+:VerySevereCognitiveDecline rdf:type owl:Class ;
+                            rdfs:subClassOf :PhaseOfDementia .
 
 
 ###  http://isit990.azurewebsites.net/ontology/dementia-info/VideoClip
@@ -960,6 +1026,11 @@ Bath, P. A. and H. Bouchier (2003). \"Development and application of a tool desg
                     :Behavior .
 
 
+###  http://isit990.azurewebsites.net/ontology/dementia-info/Carer
+:Carer rdf:type owl:NamedIndividual ,
+                :Carer .
+
+
 ###  http://isit990.azurewebsites.net/ontology/dementia-info/CholinesteraseInhibitors
 :CholinesteraseInhibitors rdf:type owl:NamedIndividual ,
                                    :CholinesteraseInhibitors .
@@ -1013,6 +1084,16 @@ Bath, P. A. and H. Bouchier (2003). \"Development and application of a tool desg
 ###  http://isit990.azurewebsites.net/ontology/dementia-info/DiagnosticMethod
 :DiagnosticMethod rdf:type owl:NamedIndividual ,
                            :DiagnosticMethod .
+
+
+###  http://isit990.azurewebsites.net/ontology/dementia-info/Disease_Facts_and_Figures
+:Disease_Facts_and_Figures rdf:type owl:NamedIndividual ,
+                                    :Webpage ;
+                           :hasDefinitionOf :AlzheimersDisease ,
+                                            :Demographic ;
+                           :hasExcerpt "The number of Americans living with Alzheimer's disease is growing — and growing fast. An estimated 5.5 million Americans of all ages have Alzheimer's disease." ;
+                           :hasTitle "2017 Alzheimer's Disease Facts and Figures" ;
+                           :hasUrl "http://www.alz.org/facts/overview.asp" .
 
 
 ###  http://isit990.azurewebsites.net/ontology/dementia-info/Dizziness
@@ -1080,9 +1161,19 @@ Bath, P. A. and H. Bouchier (2003). \"Development and application of a tool desg
                      :MemoryLoss .
 
 
-###  http://isit990.azurewebsites.net/ontology/dementia-info/MildCognitiveImpairement
-:MildCognitiveImpairement rdf:type owl:NamedIndividual ,
-                                   :MildCognitiveImpairement .
+###  http://isit990.azurewebsites.net/ontology/dementia-info/MildCognitiveDecline
+:MildCognitiveDecline rdf:type owl:NamedIndividual ,
+                               :MildCognitiveDecline .
+
+
+###  http://isit990.azurewebsites.net/ontology/dementia-info/ModerateCognitiveDecline
+:ModerateCognitiveDecline rdf:type owl:NamedIndividual ,
+                                   :ModerateCognitiveDecline .
+
+
+###  http://isit990.azurewebsites.net/ontology/dementia-info/ModeratelySevereCognitiveDecline
+:ModeratelySevereCognitiveDecline rdf:type owl:NamedIndividual ,
+                                           :ModeratelySevereCognitiveDecline .
 
 
 ###  http://isit990.azurewebsites.net/ontology/dementia-info/Neuroimaging
@@ -1095,9 +1186,24 @@ Bath, P. A. and H. Bouchier (2003). \"Development and application of a tool desg
                                        :NeurophychologicalEvaluation .
 
 
+###  http://isit990.azurewebsites.net/ontology/dementia-info/NoCognitiveDecline
+:NoCognitiveDecline rdf:type owl:NamedIndividual ,
+                             :NoCognitiveDecline .
+
+
 ###  http://isit990.azurewebsites.net/ontology/dementia-info/NonPharmacologicalTreatment
 :NonPharmacologicalTreatment rdf:type owl:NamedIndividual ,
                                       :NonPharmacologicalTreatment .
+
+
+###  http://isit990.azurewebsites.net/ontology/dementia-info/Patient
+:Patient rdf:type owl:NamedIndividual ,
+                  :Patient .
+
+
+###  http://isit990.azurewebsites.net/ontology/dementia-info/Person
+:Person rdf:type owl:NamedIndividual ,
+                 :Person .
 
 
 ###  http://isit990.azurewebsites.net/ontology/dementia-info/PhaseOfDementia
@@ -1115,6 +1221,11 @@ Bath, P. A. and H. Bouchier (2003). \"Development and application of a tool desg
                     :Prognosis .
 
 
+###  http://isit990.azurewebsites.net/ontology/dementia-info/Progression
+:Progression rdf:type owl:NamedIndividual ,
+                      :Progression .
+
+
 ###  http://isit990.azurewebsites.net/ontology/dementia-info/Psychosis
 :Psychosis rdf:type owl:NamedIndividual ,
                     :Psychosis .
@@ -1123,6 +1234,11 @@ Bath, P. A. and H. Bouchier (2003). \"Development and application of a tool desg
 ###  http://isit990.azurewebsites.net/ontology/dementia-info/RiskFactors
 :RiskFactors rdf:type owl:NamedIndividual ,
                       :RiskFactors .
+
+
+###  http://isit990.azurewebsites.net/ontology/dementia-info/SevereCognitiveDecline
+:SevereCognitiveDecline rdf:type owl:NamedIndividual ,
+                                 :SevereCognitiveDecline .
 
 
 ###  http://isit990.azurewebsites.net/ontology/dementia-info/Symptom
@@ -1140,14 +1256,19 @@ Bath, P. A. and H. Bouchier (2003). \"Development and application of a tool desg
                     :Treatment .
 
 
-###  http://isit990.azurewebsites.net/ontology/dementia-info/TypesOfDementia
-:TypesOfDementia rdf:type owl:NamedIndividual ,
-                          :TypesOfDementia .
-
-
 ###  http://isit990.azurewebsites.net/ontology/dementia-info/VascularDementia
 :VascularDementia rdf:type owl:NamedIndividual ,
                            :VascularDementia .
+
+
+###  http://isit990.azurewebsites.net/ontology/dementia-info/VeryMildCognitiveDecline
+:VeryMildCognitiveDecline rdf:type owl:NamedIndividual ,
+                                   :VeryMildCognitiveDecline .
+
+
+###  http://isit990.azurewebsites.net/ontology/dementia-info/VerySevereCognitiveDecline
+:VerySevereCognitiveDecline rdf:type owl:NamedIndividual ,
+                                     :VerySevereCognitiveDecline .
 
 
 ###  http://isit990.azurewebsites.net/ontology/dementia-info/Wandering
@@ -1159,11 +1280,11 @@ Bath, P. A. and H. Bouchier (2003). \"Development and application of a tool desg
 :Webpage_ALzOrg_Chronic_Traumatic_Encephalopathy rdf:type owl:NamedIndividual ,
                                                           :Webpage ;
                                                  :hasDefinitionOf :Confusion ,
+                                                                  :Dementia ,
                                                                   :Diagnosis ,
                                                                   :MemoryLoss ,
                                                                   :Symptom ,
-                                                                  :Treatment ,
-                                                                  :TypesOfDementia ;
+                                                                  :Treatment ;
                                                  :hasExcerpt "Chronic traumatic encephalopathy (CTE) is a brain condition associated with repeated blows to the head. Potential signs of CTE are problems with thinking and memory, personality changes, and behavioral changes including aggression and depression. People may not experience potential signs of CTE until years or decades after brain injuries occur. A definitive diagnosis of CTE can only be made after death, when an autopsy can reveal whether the known brain changes of CTE are present." ;
                                                  :hasTitle "Chronic Traumatic Encephalopathy (CTE)" ;
                                                  :hasUrl "http://www.alz.org/dementia/chronic-traumatic-encephalopathy-cte-symptoms.asp" .
@@ -1204,13 +1325,13 @@ Bath, P. A. and H. Bouchier (2003). \"Development and application of a tool desg
                                           :hasDefinitionOf :Agitation ,
                                                            :Confusion ,
                                                            :DeclineInCognition ,
+                                                           :Dementia ,
                                                            :Depression ,
                                                            :Diagnosis ,
                                                            :MemoryLoss ,
                                                            :Symptom ,
                                                            :Tiredness ,
                                                            :Treatment ,
-                                                           :TypesOfDementia ,
                                                            :Wandering ;
                                           :hasTitle "Creutzfeldt-Jakob Disease" ,
                                                     "Creutzfeldt-Jakob disease (CJD) is the most common human form of a group of rare, fatal brain disorders known as prion diseases." ,
@@ -1222,14 +1343,14 @@ Bath, P. A. and H. Bouchier (2003). \"Development and application of a tool desg
                                                    :Webpage ;
                                           :hasDefinitionOf :Confusion ,
                                                            :DeclineInCognition ,
+                                                           :Dementia ,
                                                            :DementiaWithLewyBodies ,
                                                            :Diagnosis ,
                                                            :Dizziness ,
                                                            :Hallucination ,
                                                            :MemoryLoss ,
                                                            :Symptom ,
-                                                           :Treatment ,
-                                                           :TypesOfDementia ;
+                                                           :Treatment ;
                                           :hasExcerpt "Dementia with Lewy bodies (DLB) is a type of progressive dementia that leads to a decline in thinking, reasoning and independent function because of abnormal microscopic deposits that damage brain cells over time." ;
                                           :hasTitle "Dementia with Lewy Bodies" ;
                                           :hasUrl "http://www.alz.org/dementia/dementia-with-lewy-bodies-symptoms.asp" .
@@ -1242,11 +1363,11 @@ Bath, P. A. and H. Bouchier (2003). \"Development and application of a tool desg
                                                                       :AlzheimersDisease ,
                                                                       :Behaviour ,
                                                                       :Confusion ,
+                                                                      :Dementia ,
                                                                       :Depression ,
                                                                       :Symptom ,
                                                                       :Tiredness ,
-                                                                      :Treatment ,
-                                                                      :TypesOfDementia ;
+                                                                      :Treatment ;
                                                      :hasTitle "As they age, those affected by Down syndrome have a greatly increased risk of developing a type of dementia that's either the same as or very similar to Alzheimer's disease." ,
                                                                "Down Syndrome and Alzheimer's Disease" ;
                                                      :hasUrl "http://www.alz.org/dementia/down-syndrome-alzheimers-symptoms.asp" .
@@ -1256,11 +1377,11 @@ Bath, P. A. and H. Bouchier (2003). \"Development and application of a tool desg
 :Webpage_AlzOrg_Frontotemporal_Dementia rdf:type owl:NamedIndividual ,
                                                  :Webpage ;
                                         :hasDefinitionOf :Behaviour ,
+                                                         :Dementia ,
                                                          :Diagnosis ,
                                                          :FrontotemporalDementia ,
                                                          :RiskFactors ,
-                                                         :Treatment ,
-                                                         :TypesOfDementia ;
+                                                         :Treatment ;
                                         :hasExcerpt "Frontotemporal dementia (FTD) or frontotemporal degenerations refers to a group of disorders caused by progressive nerve cell loss in the brain's frontal lobes (the areas behind your forehead) or its temporal lobes (the regions behind your ears)." ;
                                         :hasTitle "Frontotemporal Dementia (FTD)" ;
                                         :hasUrl "http://www.alz.org/dementia/fronto-temporal-dementia-ftd-symptoms.asp" .
@@ -1270,10 +1391,10 @@ Bath, P. A. and H. Bouchier (2003). \"Development and application of a tool desg
 :Webpage_AlzOrg_Huntingtons_Disease rdf:type owl:NamedIndividual ,
                                              :Webpage ;
                                     :hasDefinitionOf :Agitation ,
+                                                     :Dementia ,
                                                      :Diagnosis ,
                                                      :Symptom ,
-                                                     :Treatment ,
-                                                     :TypesOfDementia ;
+                                                     :Treatment ;
                                     :hasExcerpt "Huntington's Disease (HD) is a progressive brain disorder caused by a defective gene. This disease causes changes in the central area of the brain, which affect movement, mood and thinking skills." ;
                                     :hasTitle "Huntington's Disease" ;
                                     :hasUrl "http://www.alz.org/dementia/huntingtons-disease-symptoms.asp" .
@@ -1291,10 +1412,10 @@ Bath, P. A. and H. Bouchier (2003). \"Development and application of a tool desg
 ###  http://isit990.azurewebsites.net/ontology/dementia-info/Webpage_AlzOrg_Korsakoff_Syndrome
 :Webpage_AlzOrg_Korsakoff_Syndrome rdf:type owl:NamedIndividual ,
                                             :Webpage ;
-                                   :hasDefinitionOf :Diagnosis ,
+                                   :hasDefinitionOf :Dementia ,
+                                                    :Diagnosis ,
                                                     :Symptom ,
-                                                    :Treatment ,
-                                                    :TypesOfDementia ;
+                                                    :Treatment ;
                                    :hasExcerpt "Korsakoff syndrome is a chronic memory disorder caused by severe deficiency of thiamine (vitamin B-1). Korsakoff syndrome is most commonly caused by alcohol misuse, but certain other conditions also can cause the syndrome." ;
                                    :hasTitle "Korsakoff Syndrome" ;
                                    :hasUrl "http://www.alz.org/dementia/wernicke-korsakoff-syndrome-symptoms.asp" .
@@ -1321,11 +1442,11 @@ Bath, P. A. and H. Bouchier (2003). \"Development and application of a tool desg
 ###  http://isit990.azurewebsites.net/ontology/dementia-info/Webpage_AlzOrg_Mixed_Dementia
 :Webpage_AlzOrg_Mixed_Dementia rdf:type owl:NamedIndividual ,
                                         :Webpage ;
-                               :hasDefinitionOf :Diagnosis ,
+                               :hasDefinitionOf :Dementia ,
+                                                :Diagnosis ,
                                                 :Hallucination ,
                                                 :Symptom ,
-                                                :Treatment ,
-                                                :TypesOfDementia ;
+                                                :Treatment ;
                                :hasExcerpt "Mixed dementia is a condition in which abnormalities characteristic of more than one type of dementia occur simultaneously. Physicians may also call mixed dementia \"Dementia — multifactorial.\"" ;
                                :hasTitle "Mixed Dementia" ;
                                :hasUrl "http://www.alz.org/dementia/mixed-dementia-symptoms.asp" .
@@ -1334,10 +1455,10 @@ Bath, P. A. and H. Bouchier (2003). \"Development and application of a tool desg
 ###  http://isit990.azurewebsites.net/ontology/dementia-info/Webpage_AlzOrg_Normal_Pressure_Hydrocephalus
 :Webpage_AlzOrg_Normal_Pressure_Hydrocephalus rdf:type owl:NamedIndividual ,
                                                        :Webpage ;
-                                              :hasDefinitionOf :Diagnosis ,
+                                              :hasDefinitionOf :Dementia ,
+                                                               :Diagnosis ,
                                                                :Symptom ,
-                                                               :Treatment ,
-                                                               :TypesOfDementia ;
+                                                               :Treatment ;
                                               :hasExcerpt "Normal pressure hydrocephalus is a brain disorder in which excess cerebrospinal fluid accumulates in the brain's ventricle, causing thinking and reasoning problems, difficulty walking and loss of bladder control." ;
                                               :hasTitle "Normal Pressure Hydrocephalus (NPH)" ;
                                               :hasUrl "http://www.alz.org/dementia/normal-pressure-hydrocephalus-nph.asp" .
@@ -1346,10 +1467,10 @@ Bath, P. A. and H. Bouchier (2003). \"Development and application of a tool desg
 ###  http://isit990.azurewebsites.net/ontology/dementia-info/Webpage_AlzOrg_Parkinsons_DiseaseDementia
 :Webpage_AlzOrg_Parkinsons_DiseaseDementia rdf:type owl:NamedIndividual ,
                                                     :Webpage ;
-                                           :hasDefinitionOf :Diagnosis ,
+                                           :hasDefinitionOf :Dementia ,
+                                                            :Diagnosis ,
                                                             :Symptom ,
-                                                            :Treatment ,
-                                                            :TypesOfDementia ;
+                                                            :Treatment ;
                                            :hasExcerpt "Parkinson's disease dementia is an impairment in thinking and reasoning that eventually affects many people with Parkinson's disease" ;
                                            :hasTitle "Parkinson's Disease Dementia" ;
                                            :hasUrl "http://www.alz.org/dementia/parkinsons-disease-symptoms.asp" .
@@ -1409,7 +1530,7 @@ Bath, P. A. and H. Bouchier (2003). \"Development and application of a tool desg
 ###  http://isit990.azurewebsites.net/ontology/dementia-info/Webpage_AlzOrg_Types_Of_Dementia
 :Webpage_AlzOrg_Types_Of_Dementia rdf:type owl:NamedIndividual ,
                                            :Webpage ;
-                                  :hasDefinitionOf :TypesOfDementia ;
+                                  :hasDefinitionOf :Dementia ;
                                   :hasExcerpt "Dementia is a general term for loss of memory and other mental abilities severe enough to interfere with daily life. It is caused by physical changes in the brain." ;
                                   :hasTitle "Types of Dementia" ;
                                   :hasUrl "http://www.alz.org/dementia/types-of-dementia.asp" .
@@ -1419,10 +1540,10 @@ Bath, P. A. and H. Bouchier (2003). \"Development and application of a tool desg
 :Webpage_AlzOrg_Vascular_Dementia rdf:type owl:NamedIndividual ,
                                            :Webpage ;
                                   :hasDefinitionOf :Confusion ,
+                                                   :Dementia ,
                                                    :Diagnosis ,
                                                    :Symptom ,
                                                    :Treatment ,
-                                                   :TypesOfDementia ,
                                                    :VascularDementia ;
                                   :hasExcerpt "Vascular dementia is a decline in thinking skills caused by conditions that block or reduce blood flow to the brain, depriving brain cells of vital oxygen and nutrients." ;
                                   :hasTitle "Vascular Dementia" ;
@@ -1476,25 +1597,33 @@ Bath, P. A. and H. Bouchier (2003). \"Development and application of a tool desg
                                                        :hasUrl "http://www.alz.org/alzheimers_disease_early_onset.asp" .
 
 
+###  http://isit990.azurewebsites.net/ontology/dementia-info/Webpage_DementiaCareCentral_Seven_Stages_of_Dementia
+:Webpage_DementiaCareCentral_Seven_Stages_of_Dementia rdf:type owl:NamedIndividual ,
+                                                               :Webpage ;
+                                                      :hasDefinitionOf :Dementia ,
+                                                                       :MildCognitiveDecline ,
+                                                                       :PhaseOfDementia ,
+                                                                       :Progression ,
+                                                                       :Symptom ;
+                                                      :hasExcerpt "Health professionals sometimes discuss dementia in “stages,” which refers to how far a person’s dementia has progressed. Defining a person’s disease stage helps physicians determine the best treatment approach and aids communication between health providers and caregivers." ;
+                                                      :hasTitle "Seven Stages of Dementia | Symptoms & Progression" ;
+                                                      :hasUrl "https://www.dementiacarecentral.com/aboutdementia/facts/stages/" .
+
+
 ###  http://isit990.azurewebsites.net/ontology/dementia-info/Website_AlzOrg
 :Website_AlzOrg rdf:type owl:NamedIndividual ,
                          :WebSite ;
-                :hasWebpage :Webpage_ALzOrg_Chronic_Traumatic_Encephalopathy ,
+                :hasWebpage :Disease_Facts_and_Figures ,
+                            :Webpage_ALzOrg_Chronic_Traumatic_Encephalopathy ,
                             :Webpage_ALzOrg_Diagnosis_of_Alzheimers_Disease_and_Dementia ,
                             :Webpage_AlzOrg_10_Early_Signs_and_Symptoms_of_Alzheimer ,
                             :Webpage_AlzOrg_Dementia_with_Lewy_Bodies ,
-                            :Webpage_AlzOrg_What_Is_Dementia ,
-                            :s_Disease_Facts_and_Figures .
+                            :Webpage_AlzOrg_What_Is_Dementia .
 
 
-###  http://isit990.azurewebsites.net/ontology/dementia-info/s_Disease_Facts_and_Figures
-:s_Disease_Facts_and_Figures rdf:type owl:NamedIndividual ,
-                                      :Webpage ;
-                             :hasDefinitionOf :AlzheimersDisease ,
-                                              :Demographic ;
-                             :hasExcerpt "The number of Americans living with Alzheimer's disease is growing — and growing fast. An estimated 5.5 million Americans of all ages have Alzheimer's disease." ;
-                             :hasTitle "2017 Alzheimer's Disease Facts and Figures" ;
-                             :hasUrl "http://www.alz.org/facts/overview.asp" .
+###  http://isit990.azurewebsites.net/ontology/dementia-info/Website_DementiaCareCentral
+:Website_DementiaCareCentral rdf:type owl:NamedIndividual ,
+                                      :WebSite .
 
 
 #################################################################
@@ -1508,6 +1637,9 @@ Bath, P. A. and H. Bouchier (2003). \"Development and application of a tool desg
 
 
 :AlzheimersDisease rdfs:label "Alzheimers Disease" .
+
+
+:Carer rdfs:label "Carer" .
 
 
 :CholinesteraseInhibitors rdfs:label "Cholinesterase Inhibitors" .
@@ -1551,7 +1683,8 @@ Song, T.-M., et al. (2014). \"Development of Health Information Search Engine Ba
 :FrontotemporalDementia rdfs:label "Fronto Temporal Dementia" .
 
 
-:GeneralInformation rdfs:comment """Inspired by paper:
+:GeneralInformation rdfs:label "General Information" ;
+                    rdfs:comment """Inspired by paper:
 Bath, P. A. and H. Bouchier (2003). \"Development and application of a tool desgined to evaluate web sites providing information on Alzheimer's disease.\" Journal of Information Science 29(4): 279-297.""" .
 
 
@@ -1582,7 +1715,16 @@ Song, T.-M., et al. (2014). \"Development of Health Information Search Engine Ba
 :MemoryLoss rdfs:label "Memory Loss" .
 
 
-:MildCognitiveImpairement rdfs:label "Mild Cognitive Impairement" .
+:MildCognitiveDecline rdfs:label "Mild Cognitive Decline" ;
+                      rdfs:comment "This stage includes increased forgetfulness, slight difficulty concentrating, decreased work performance. People may get lost more often or have difficulty finding the right words. At this stage, a person’s loved ones will begin to notice a cognitive decline. Average duration: 7 years before onset of dementia" .
+
+
+:ModerateCognitiveDecline rdfs:label "Moderate Cognitive Decline" ;
+                          rdfs:comment "This stage includes difficulty concentrating, decreased memory of recent events, and difficulties managing finances or traveling alone to new locations. People have trouble completing complex tasks efficiently or accurately and may be in denial about their symptoms. They may also start withdrawing from family or friends, because socialization becomes difficult. At this stage a physician can detect clear cognitive problems during a patient interview and exam. Average duration: 2 years" .
+
+
+:ModeratelySevereCognitiveDecline rdfs:comment "People in this stage have major memory deficiencies and need some assistance to complete their daily activities (dressing, bathing, preparing meals). Memory loss is more prominent and may include major relevant aspects of current lives; for example, people may not remember their address or phone number and may not know the time or day or where they are. Average duration: 1.5 years" ;
+                                  rdfs:label "Moderately Severe Cognitive Decline" .
 
 
 :Neuroimaging rdfs:label "Neuro Imaging" .
@@ -1591,11 +1733,20 @@ Song, T.-M., et al. (2014). \"Development of Health Information Search Engine Ba
 :NeurophychologicalEvaluation rdfs:label "Neuro Phsychological Evaluation" .
 
 
+:NoCognitiveDecline rdfs:comment "n this stage the person functions normally, has no memory loss, and is mentally healthy. People with NO dementia would be considered to be in Stage 1." ;
+                    rdfs:label "No Cognitive Decline" .
+
+
 :NonPharmacologicalTreatment rdfs:label "None-Pharmacological Treatment" .
 
 
-:PhaseOfDementia rdfs:label "Phase of Dementia" ;
-                 rdfs:comment """This term is adopted from
+:Patient rdfs:label "Patient" .
+
+
+:Person rdfs:label "Person" .
+
+
+:PhaseOfDementia rdfs:comment """This term is adopted from
 Dillon WA, Prorok JC, Seitz DP. Content and Quality of Information Provided on Canadian Dementia Websites. Canadian Geriatrics Journal. 2013; 16(1):6-15.""" .
 
 
@@ -1611,10 +1762,17 @@ Dillon WA, Prorok JC, Seitz DP. Content and Quality of Information Provided on C
            rdfs:label "Prognosis" .
 
 
+:Progression rdfs:label "Progression" .
+
+
 :Psychosis rdfs:label "Psychosis" .
 
 
 :RiskFactors rdfs:label "Risk Factors" .
+
+
+:SevereCognitiveDecline rdfs:label "Severe Cognitive Decline" ;
+                        rdfs:comment "People in Stage 6 require extensive assistance to carry out daily activities. They start to forget names of close family members and have little memory of recent events. Many people can remember only some details of earlier life. They also have difficulty counting down from 10 and finishing tasks. Incontinence (loss of bladder or bowel control) is a problem in this stage. Ability to speak declines. Personality changes, such as delusions (believing something to be true that is not), compulsions (repeating a simple behavior, such as cleaning), or anxiety and agitation may occur. Average duration: 2.5 years" .
 
 
 :Symptom rdfs:label "Symptom" ;
@@ -1628,10 +1786,15 @@ Dillon WA, Prorok JC, Seitz DP. Content and Quality of Information Provided on C
 :Treatment rdfs:label "Treatment" .
 
 
-:TypesOfDementia rdfs:label "Types of Dementia" .
-
-
 :VascularDementia rdfs:label "Vascular Dementia" .
+
+
+:VeryMildCognitiveDecline rdfs:label "Very Mild Cognitive Decline" ;
+                          rdfs:comment "This stage is used to describe normal forgetfulness associated with aging; for example, forgetfulness of names and where familiar objects were left. Symptoms are not evident to loved ones or the physician." .
+
+
+:VerySevereCognitiveDecline rdfs:label "Very Severe Cognitive Decline" ;
+                            rdfs:comment "People in this stage have essentially no ability to speak or communicate. They require assistance with most activities (e.g., using the toilet, eating). They often lose psychomotor skills, for example, the ability to walk. Average duration: 2.5 years" .
 
 
 :Wandering rdfs:label "Wandering" .
