@@ -23,7 +23,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\ODDCIS.Data\ODDCIS.Data.csproj" />
-    <ProjectReference Include="..\ODDCIS.Logic\ODDCIS.Logic.csproj" />
     <ProjectReference Include="..\ODDCIS.Models\ODDCIS.Models.csproj" />
     <ProjectReference Include="..\ODDCIS.Query\ODDCIS.Query.csproj" />
   </ItemGroup>

@@ -1,8 +1,8 @@
 
 SELECT DISTINCT *
 	WHERE 
-	{	?item rdfs:subClassOf* @superClass
-		OPTIONAL { ?item rdfs:label ?label }
+	{	?item rdfs:subClassOf* @superClass . 
+		?item rdfs:label ?label .
 		OPTIONAL { ?item rdfs:comment ?comment}
 	
 	}

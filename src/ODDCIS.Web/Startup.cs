@@ -7,7 +7,6 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using ODDCIS.Data;
 using Microsoft.Extensions.Options;
-using ODDCIS.Logic;
 using ODDCIS.Query;
 
 namespace ODDCIS.Web
@@ -26,7 +25,6 @@ namespace ODDCIS.Web
         {
             services.Configure<Appsettings>(Configuration);
             services.AddSingleton(cfg => cfg.GetService<IOptions<Appsettings>>().Value);
-            services.AddLogic();
             services.AddQueries();
             services.AddDataLayer();
             services.AddMvc();
