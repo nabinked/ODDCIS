@@ -101,8 +101,8 @@
 :relatedTo rdf:type owl:ObjectProperty ;
            rdfs:subPropertyOf owl:topObjectProperty ;
            rdfs:domain :RiskFactors ;
-           rdfs:range :AlzheimersDisease ,
-                      :Dementia ;
+           rdfs:range :Dementia ,
+                      :sDisease ;
            rdfs:label "related to" .
 
 
@@ -175,7 +175,7 @@
 
 ###  http://isit990.azurewebsites.net/ontology/dementia-info/AlzheimersDisease
 :AlzheimersDisease rdf:type owl:Class ;
-                   rdfs:subClassOf :Dementia .
+                   rdfs:subClassOf :TypesOfDementia .
 
 
 ###  http://isit990.azurewebsites.net/ontology/dementia-info/Audio
@@ -997,9 +997,255 @@ Bath, P. A. and H. Bouchier (2003). \"Development and application of a tool desg
                rdfs:subClassOf :SupportForCarers .
 
 
+###  http://isit990.azurewebsites.net/ontology/dementia-info/Alzhemer'sDisease
+:sDisease rdf:type owl:Class ;
+          rdfs:subClassOf :TypesOfDementia ;
+          rdfs:label "Alzheimers Disease" .
+
+
 #################################################################
 #    Individuals
 #################################################################
+
+###  http://isit990.azurewebsites.net/ontology/dementia-info#Webpage_FightDemOrg_Drug_Treatments_and_Dementia
+:Webpage_FightDemOrg_Drug_Treatments_and_Dementia rdf:type owl:NamedIndividual ,
+                                                           :Webpage ;
+                                                  :hasDefinitionOf :CholinesteraseInhibitors ,
+                                                                   :Dementia ,
+                                                                   :Memantine ,
+                                                                   :Symptom ,
+                                                                   :Treatment ;
+                                                  :hasExcerpt "Dementia is the term used to describe the symptoms of a large group of illnesses that cause a progressive decline in a person’s functioning." ;
+                                                  :hasTitle "Drug treatments & dementia" ;
+                                                  :hasUrl "https://www.fightdementia.org.au/national/about-dementia/how-is-dementia-treated/drug-treatments-and-dementia" .
+
+
+###  http://isit990.azurewebsites.net/ontology/dementia-info#Webpage_FightDemOrg_Early_Planning_and_Younger_Onset_Dementia
+:Webpage_FightDemOrg_Early_Planning_and_Younger_Onset_Dementia rdf:type owl:NamedIndividual ,
+                                                                        :Webpage ;
+                                                               :hasDefinitionOf :Treatment ;
+                                                               :hasExcerpt "People with younger onset dementia and their families often face significant changes to their financial situation. The person with dementia may still be in full employment when diagnosed or when the symptoms of dementia make working too much to manage. The person with younger onset dementia may be responsible for a family, have a mortgage and other financial responsibilities" ;
+                                                               :hasTitle "Early planning and younger onset dementia" ;
+                                                               :hasUrl "https://www.fightdementia.org.au/national/about-dementia/what-is-younger-onset-dementia/early-planning" .
+
+
+###  http://isit990.azurewebsites.net/ontology/dementia-info#Webpage_FightDemOrg_Employment_and_Younger_Onset_Dementia
+:Webpage_FightDemOrg_Employment_and_Younger_Onset_Dementia rdf:type owl:NamedIndividual ,
+                                                                    :Webpage ;
+                                                           :hasDefinitionOf :GeneralInformation ;
+                                                           :hasExcerpt "When someone has been diagnosed with dementia it is an upsetting time for the individual and for those close to them. If the person has been diagnosed with younger onset dementia they may still be in full employment at the time of the diagnosis. They may still be responsible for a family and have a mortgage or other financial responsibilities." ;
+                                                           :hasTitle "Employment and younger onset dementia" ;
+                                                           :hasUrl "https://www.fightdementia.org.au/national/about-dementia/what-is-younger-onset-dementia/employment" .
+
+
+###  http://isit990.azurewebsites.net/ontology/dementia-info#Webpage_FightDemOrg_Frontotemporal_Dementia
+:Webpage_FightDemOrg_Frontotemporal_Dementia rdf:type owl:NamedIndividual ,
+                                                      :Webpage ;
+                                             :hasDefinitionOf :Behaviour ,
+                                                              :Dementia ,
+                                                              :Diagnosis ,
+                                                              :FrontotemporalDementia ,
+                                                              :Genetics ,
+                                                              :NeurophychologicalEvaluation ,
+                                                              :Symptom ,
+                                                              :Treatment ,
+                                                              :TypesOfDementia ;
+                                             :hasExcerpt "This section describes a type of dementia known as frontotemporal dementia, which has different forms including behavioural-variant frontotemporal dementia, progressive non-fluent aphasia and semantic dementia." ;
+                                             :hasTitle "Frontotemporal dementia" ;
+                                             :hasUrl "https://www.fightdementia.org.au/about-dementia/types-of-dementia/frontotemporal" .
+
+
+###  http://isit990.azurewebsites.net/ontology/dementia-info#Webpage_FightDemOrg_Further_Reading_and_Resources
+:Webpage_FightDemOrg_Further_Reading_and_Resources rdf:type owl:NamedIndividual ,
+                                                            :Webpage ;
+                                                   :hasDefinitionOf :Dementia ,
+                                                                    :GeneralInformation ;
+                                                   :hasExcerpt "Our help sheets provide a range of useful information, specifically addressing the needs of people diagnosed with younger onset dementia and their families and carers" ;
+                                                   :hasTitle "Further reading and resources" ;
+                                                   :hasUrl "https://www.fightdementia.org.au/about-dementia/what-is-younger-onset-dementia/resources" .
+
+
+###  http://isit990.azurewebsites.net/ontology/dementia-info#Webpage_FightDemOrg_Genetics_of_Dementia
+:Webpage_FightDemOrg_Genetics_of_Dementia rdf:type owl:NamedIndividual ,
+                                                   :Webpage ;
+                                          :hasDefinitionOf :Genetics ;
+                                          :hasExcerpt "People affected by dementia are often concerned about whether the condition can be passed along in families." ;
+                                          :hasTitle "Genetics of dementia" ;
+                                          :hasUrl "https://www.fightdementia.org.au/about-dementia-and-memory-loss/am-i-at-risk/genetics-of-dementia" .
+
+
+###  http://isit990.azurewebsites.net/ontology/dementia-info#Webpage_FightDemOrg_HIV_Associated_Dementia
+:Webpage_FightDemOrg_HIV_Associated_Dementia rdf:type owl:NamedIndividual ,
+                                                      :Webpage ;
+                                             :hasDefinitionOf :Diagnosis ,
+                                                              :Symptom ,
+                                                              :Treatment ,
+                                                              :TypesOfDementia ;
+                                             :hasExcerpt "When someone has the human immunodeficiency virus (HIV) and acquired immune deficiency syndrome (AIDS) they may develop a complication to the disease which is known as HIV associated dementia, or as AIDS Dementia Complex (ADC)." ;
+                                             :hasTitle "HIV associated dementia" ;
+                                             :hasUrl "https://www.fightdementia.org.au/about-dementia/types-of-dementia/aids-related-dementia" .
+
+
+###  http://isit990.azurewebsites.net/ontology/dementia-info#Webpage_FightDemOrg_How_Is_Dementia_Treated
+:Webpage_FightDemOrg_How_Is_Dementia_Treated rdf:type owl:NamedIndividual ,
+                                                      :Webpage ;
+                                             :hasDefinitionOf :Treatment ;
+                                             :hasExcerpt "Information about some of the drug treatments currently used in the treatment of dementia." ;
+                                             :hasTitle "How is dementia treated" ;
+                                             :hasUrl "https://www.fightdementia.org.au/about-dementia/how-is-dementia-treated" .
+
+
+###  http://isit990.azurewebsites.net/ontology/dementia-info#Webpage_FightDemOrg_Lewy_Body_Disease
+:Webpage_FightDemOrg_Lewy_Body_Disease rdf:type owl:NamedIndividual ,
+                                                :Webpage ;
+                                       :hasDefinitionOf :DementiaWithLewyBodies ,
+                                                        :Diagnosis ,
+                                                        :Symptom ,
+                                                        :Treatment ,
+                                                        :TypesOfDementia ;
+                                       :hasExcerpt "Lewy body disease is a common form of dementia, sharing many similarities with Alzheimer’s disease." ;
+                                       :hasTitle "Lewy Body Disease" ;
+                                       :hasUrl "https://www.fightdementia.org.au/about-dementia/types-of-dementia/lewy-body-disease" .
+
+
+###  http://isit990.azurewebsites.net/ontology/dementia-info#Webpage_FightDemOrg_Memory_Changes
+:Webpage_FightDemOrg_Memory_Changes rdf:type owl:NamedIndividual ,
+                                             :Webpage ;
+                                    :hasDefinitionOf :MemoryLoss ;
+                                    :hasExcerpt "There is a difference between memory loss as a part of normal ageing and as a symptom of dementia." ;
+                                    :hasTitle "Memory changes" ;
+                                    :hasUrl "https://www.fightdementia.org.au/about-dementia/memory-loss/memory-changes" .
+
+
+###  http://isit990.azurewebsites.net/ontology/dementia-info#Webpage_FightDemOrg_Memory_Loss
+:Webpage_FightDemOrg_Memory_Loss rdf:type owl:NamedIndividual ,
+                                          :Webpage ;
+                                 :hasDefinitionOf :MemoryLoss ,
+                                                  :MildCognitiveImpairement ;
+                                 :hasExcerpt "When we talk about memory loss, we often tend to associate it as a normal part of ageing. This section talks about memory loss associated with dementia and how it is not a part of normal ageing." ;
+                                 :hasTitle "Memory loss" ;
+                                 :hasUrl "https://www.fightdementia.org.au/about-dementia/memory-loss" .
+
+
+###  http://isit990.azurewebsites.net/ontology/dementia-info#Webpage_FightDemOrg_Mild_Cognitive_Impairment
+:Webpage_FightDemOrg_Mild_Cognitive_Impairment rdf:type owl:NamedIndividual ,
+                                                        :Webpage ;
+                                               :hasDefinitionOf :CognitiveScreeningTests ,
+                                                                :DeclineInCognition ,
+                                                                :Diagnosis ,
+                                                                :MemoryLoss ,
+                                                                :MildCognitiveImpairement ,
+                                                                :NonPharmacologicalTreatment ,
+                                                                :Symptom ,
+                                                                :Treatment ;
+                                               :hasExcerpt "Recently there has been increasing recognition that some people experience a level of memory loss greater than that usually experienced with ageing, but without other signs of dementia. This has been termed Mild Cognitive Impairment (MCI). As MCI has only recently been defined, there is limited research on it and there is much that we do not yet understand." ;
+                                               :hasTitle "Mild Cognitive Impairment" ;
+                                               :hasUrl "https://www.fightdementia.org.au/about-dementia-and-memory-loss/about-dementia/memory-loss/mild-cognitive-impairment" .
+
+
+###  http://isit990.azurewebsites.net/ontology/dementia-info#Webpage_FightDemOrg_Progression_Of_Dementia
+:Webpage_FightDemOrg_Progression_Of_Dementia rdf:type owl:NamedIndividual ,
+                                                      :Webpage ;
+                                             :hasDefinitionOf :Dementia ,
+                                                              :PhaseOfDementia ;
+                                             :hasExcerpt "People with dementia differ in the patterns of problems they have, and the speed with which their abilities deteriorate." ;
+                                             :hasTitle "Progression of dementia" ;
+                                             :hasUrl "https://www.fightdementia.org.au/about-dementia/what-is-dementia/progression-of-dementia" .
+
+
+###  http://isit990.azurewebsites.net/ontology/dementia-info#Webpage_FightDemOrg_Risk_Factors
+:Webpage_FightDemOrg_Risk_Factors rdf:type owl:NamedIndividual ,
+                                           :Webpage ;
+                                  :hasDefinitionOf :AlzheimersDisease ,
+                                                   :RiskFactors ;
+                                  :hasExcerpt "Some of the risk factors associated with dementia can be managed through lifestyle changes or appropriate medical treatments." ;
+                                  :hasTitle "Risk factors" ;
+                                  :hasUrl "https://www.fightdementia.org.au/about-dementia-and-memory-loss/am-i-at-risk/risk-factors" .
+
+
+###  http://isit990.azurewebsites.net/ontology/dementia-info#Webpage_FightDemOrg_Types_Of_Dementia
+:Webpage_FightDemOrg_Types_Of_Dementia rdf:type owl:NamedIndividual ,
+                                                :Webpage ;
+                                       :hasDefinitionOf :AlzheimersDisease ,
+                                                        :Dementia ,
+                                                        :DementiaWithLewyBodies ,
+                                                        :FrontotemporalDementia ,
+                                                        :TypesOfDementia ,
+                                                        :VascularDementia ;
+                                       :hasExcerpt "Dementia is the umbrella term for a number of neurological conditions, of which the major symptom includes a global decline in brain function." ;
+                                       :hasTitle "Types of dementia" ;
+                                       :hasUrl "https://www.fightdementia.org.au/about-dementia/types-of-dementia" .
+
+
+###  http://isit990.azurewebsites.net/ontology/dementia-info#Webpage_FightDemOrg_Use_Of_Other_Therapeutic_Treatments
+:Webpage_FightDemOrg_Use_Of_Other_Therapeutic_Treatments rdf:type owl:NamedIndividual ,
+                                                                  :Webpage ;
+                                                         :hasDefinitionOf :NonPharmacologicalTreatment ,
+                                                                          :Treatment ;
+                                                         :hasExcerpt "In addition to the various drugs approved for use in treating Alzheimer’s disease, there is considerable interest in the use of other treatment therapies" ;
+                                                         :hasTitle "Use of other therapeutic treatments" ;
+                                                         :hasUrl "https://www.fightdementia.org.au/national/about-dementia/how-is-dementia-treated/use-of-other-therapeutic-treatments" .
+
+
+###  http://isit990.azurewebsites.net/ontology/dementia-info#Webpage_FightDemOrg_Vascular_Dementia
+:Webpage_FightDemOrg_Vascular_Dementia rdf:type owl:NamedIndividual ,
+                                                :Webpage ;
+                                       :hasDefinitionOf :Treatment ,
+                                                        :VascularDementia ;
+                                       :hasExcerpt "Vascular dementia is the second most common cause of dementia after Alzheimer's disease" ;
+                                       :hasTitle "Vascular dementia" ;
+                                       :hasUrl "https://www.fightdementia.org.au/about-dementia/types-of-dementia/vascular-dementia" .
+
+
+###  http://isit990.azurewebsites.net/ontology/dementia-info#Webpage_FightDemOrg_What_Is_Dementia
+:Webpage_FightDemOrg_What_Is_Dementia rdf:type owl:NamedIndividual ,
+                                               :Webpage ;
+                                      :hasDefinitionOf :Dementia ,
+                                                       :Symptom ;
+                                      :hasExcerpt "The information in this section defines dementia, describes the symptoms and causes of dementia and explains the difference between normal memory problems and dementia" ;
+                                      :hasTitle "What is dementia?" ;
+                                      :hasUrl "https://www.fightdementia.org.au/about-dementia/what-is-dementia" .
+
+
+###  http://isit990.azurewebsites.net/ontology/dementia-info#Webpage_FightDemOrg_What_Is_Younger_Onset_Dementia
+:Webpage_FightDemOrg_What_Is_Younger_Onset_Dementia rdf:type owl:NamedIndividual ,
+                                                             :Webpage ;
+                                                    :hasDefinitionOf :Dementia ,
+                                                                     :Diagnosis ,
+                                                                     :TypesOfDementia ;
+                                                    :hasExcerpt "Dementia is the term used to describe the symptoms of a large group of illnesses which cause a progressive decline in a person’s mental functioning. It is a broad term which describes symptoms such as loss of memory, intellect, rationality, social skills and normal emotional reactions" ;
+                                                    :hasTitle "What is younger onset dementia?" ;
+                                                    :hasUrl "https://www.fightdementia.org.au/about-dementia/what-is-younger-onset-dementia" .
+
+
+###  http://isit990.azurewebsites.net/ontology/dementia-info#Webpage_FightDemOrg_Your_Brain_Matters
+:Webpage_FightDemOrg_Your_Brain_Matters rdf:type owl:NamedIndividual ,
+                                                 :Webpage ;
+                                        :hasDefinitionOf :PreventionMethod ;
+                                        :hasExcerpt "\"Your Brain Matters is Alzheimer's Australia's brain health program, designed to help Australians live a brain healthy life. As part of the program we encourage you to take up the Brain Health Challenge for 21 Days. \"" ;
+                                        :hasTitle "Your Brain Matters" ;
+                                        :hasUrl "https://www.fightdementia.org.au/about-dementia-and-memory-loss/am-i-at-risk/your-brain-matters" .
+
+
+###  http://isit990.azurewebsites.net/ontology/dementia-info#_Psychological_Symptoms_of_Dementia
+:_Psychological_Symptoms_of_Dementia rdf:type owl:NamedIndividual ,
+                                              :Webpage ;
+                                     :hasDefinitionOf :Agitation ,
+                                                      :CholinesteraseInhibitors ,
+                                                      :DeclineInCognition ,
+                                                      :Depression ,
+                                                      :Impact ,
+                                                      :Medication ,
+                                                      :Memantine ,
+                                                      :MemoryLoss ,
+                                                      :MildCognitiveImpairement ,
+                                                      :NeurophychologicalEvaluation ,
+                                                      :Psychosis ,
+                                                      :Treatment ;
+                                     :hasExcerpt "Before any of the drugs mentioned on this page are prescribed it is essential to ensure that the person with dementia is physically healthy, comfortable and well cared for" ;
+                                     :hasTitle "Drugs used to relieve behavioural & psychological symptoms of dementia" ;
+                                     :hasUrl "https://www.fightdementia.org.au/national/about-dementia/how-is-dementia-treated/drugs-used-to-relieve-behavioural-and-psychological-symptoms-of-dementia" .
+
 
 ###  http://isit990.azurewebsites.net/ontology/dementia-info/Aggression
 :Aggression rdf:type owl:NamedIndividual ,
@@ -1013,7 +1259,7 @@ Bath, P. A. and H. Bouchier (2003). \"Development and application of a tool desg
 
 ###  http://isit990.azurewebsites.net/ontology/dementia-info/AlzheimersDisease
 :AlzheimersDisease rdf:type owl:NamedIndividual ,
-                            :AlzheimersDisease .
+                            :sDisease .
 
 
 ###  http://isit990.azurewebsites.net/ontology/dementia-info/AlzheimersOrgUk
@@ -1310,6 +1556,153 @@ Bath, P. A. and H. Bouchier (2003). \"Development and application of a tool desg
                                      :hasUrl "http://www.alz.org/alzheimers_disease_stages_of_alzheimers.asp" .
 
 
+###  http://isit990.azurewebsites.net/ontology/dementia-info/Webpage_AlzOrgUK_Resources_For_Professionals
+:Webpage_AlzOrgUK_Resources_For_Professionals rdf:type owl:NamedIndividual ;
+                                              :hasDefinitionOf :HealthPromotion .
+
+
+###  http://isit990.azurewebsites.net/ontology/dementia-info/Webpage_AlzOrgUk_About_Dementia
+:Webpage_AlzOrgUk_About_Dementia rdf:type owl:NamedIndividual ;
+                                 :hasDefinitionOf :Dementia ;
+                                 :hasExcerpt "We all forget a name or a face sometimes. Especially as we get older. But dementia is something different"^^rdfs:Literal ;
+                                 :hasTitle "Five things you should know about dementia"^^rdfs:Literal ;
+                                 :hasUrl "https://www.alzheimers.org.uk/info/20000/about_dementia/847/five_things_you_should_know_about_dementia?_ga=2.257555976.2015287132.1507751636-281622506.1507751636"^^rdfs:Literal .
+
+
+###  http://isit990.azurewebsites.net/ontology/dementia-info/Webpage_AlzOrgUk_Engaging_People_With_Dementia
+:Webpage_AlzOrgUk_Engaging_People_With_Dementia rdf:type owl:NamedIndividual ;
+                                                :hasDefinitionOf :PreventionMethod ,
+                                                                 :RiskFactors .
+
+
+###  http://isit990.azurewebsites.net/ontology/dementia-info/Webpage_AlzOrgUk_For_Dementia_Professionals
+:Webpage_AlzOrgUk_For_Dementia_Professionals rdf:type owl:NamedIndividual ;
+                                             :hasDefinitionOf :Dementia ,
+                                                              :PreventionMethod .
+
+
+###  http://isit990.azurewebsites.net/ontology/dementia-info/Webpage_AlzOrgUk_Health_Care_Trainging_Supporting_People_With_Dementia_Over_The_Phone
+:Webpage_AlzOrgUk_Health_Care_Trainging_Supporting_People_With_Dementia_Over_The_Phone rdf:type owl:NamedIndividual ;
+                                                                                       :hasDefinitionOf :PreventionMethod .
+
+
+###  http://isit990.azurewebsites.net/ontology/dementia-info/Webpage_AlzOrgUk_Health_Care_Training_Building_Skills_And_Confidene_Peopel_Living_With_Dementia
+:Webpage_AlzOrgUk_Health_Care_Training_Building_Skills_And_Confidene_Peopel_Living_With_Dementia rdf:type owl:NamedIndividual ;
+                                                                                                 :hasDefinitionOf :Diagnosis ,
+                                                                                                                  :MemoryLoss .
+
+
+###  http://isit990.azurewebsites.net/ontology/dementia-info/Webpage_AlzOrgUk_Most_Popular_Courses
+:Webpage_AlzOrgUk_Most_Popular_Courses rdf:type owl:NamedIndividual ;
+                                       :hasDefinitionOf :Behaviour ,
+                                                        :CognitiveScreeningTests ,
+                                                        :Dementia ,
+                                                        :MildCognitiveImpairement .
+
+
+###  http://isit990.azurewebsites.net/ontology/dementia-info/Webpage_AlzOrgUk_Private_Sector_Training_Understanding_Your_Customers_With_Dementia
+:Webpage_AlzOrgUk_Private_Sector_Training_Understanding_Your_Customers_With_Dementia rdf:type owl:NamedIndividual ;
+                                                                                     :hasDefinitionOf :Dementia ,
+                                                                                                      :DementiaProtection .
+
+
+###  http://isit990.azurewebsites.net/ontology/dementia-info/Webpage_AlzOrgUk_Resources_For_Professional_Online_Resources_For_Professionals
+:Webpage_AlzOrgUk_Resources_For_Professional_Online_Resources_For_Professionals rdf:type owl:NamedIndividual ;
+                                                                                :hasDefinitionOf :Behaviour ,
+                                                                                                 :Diagnosis .
+
+
+###  http://isit990.azurewebsites.net/ontology/dementia-info/Webpage_AlzOrgUk_Resources_For_Professionals_Publications
+:Webpage_AlzOrgUk_Resources_For_Professionals_Publications rdf:type owl:NamedIndividual ;
+                                                           :hasDefinitionOf :Dementia ,
+                                                                            :DiagnosticMethod .
+
+
+###  http://isit990.azurewebsites.net/ontology/dementia-info/Webpage_AlzOrgUk_Risk_Factors_And_Prevention_Genetics_Of_Dementia
+:Webpage_AlzOrgUk_Risk_Factors_And_Prevention_Genetics_Of_Dementia rdf:type owl:NamedIndividual ;
+                                                                   :hasDefinitionOf :Dementia ,
+                                                                                    :Genetics .
+
+
+###  http://isit990.azurewebsites.net/ontology/dementia-info/Webpage_AlzOrgUk_Risk_Factors_And_Prevention_Genetics_Of_Dementia7
+:Webpage_AlzOrgUk_Risk_Factors_And_Prevention_Genetics_Of_Dementia7 rdf:type owl:NamedIndividual ;
+                                                                    :hasDefinitionOf :Genetics ,
+                                                                                     :RiskFactors .
+
+
+###  http://isit990.azurewebsites.net/ontology/dementia-info/Webpage_AlzOrgUk_Risk_Factors_And_Prevention_High_Blood_Pressure
+:Webpage_AlzOrgUk_Risk_Factors_And_Prevention_High_Blood_Pressure rdf:type owl:NamedIndividual ;
+                                                                  :hasDefinitionOf :Dementia ,
+                                                                                   :RiskFactors .
+
+
+###  http://isit990.azurewebsites.net/ontology/dementia-info/Webpage_AlzOrgUk_Risk_Factors_and_Prevention_Risk_Factors
+:Webpage_AlzOrgUk_Risk_Factors_and_Prevention_Risk_Factors rdf:type owl:NamedIndividual ;
+                                                           :hasDefinitionOf :Diagnosis ,
+                                                                            :Genetics ,
+                                                                            :PreventionMethod ,
+                                                                            :Symptom .
+
+
+###  http://isit990.azurewebsites.net/ontology/dementia-info/Webpage_AlzOrgUk_Traning_And_Consultancy
+:Webpage_AlzOrgUk_Traning_And_Consultancy rdf:type owl:NamedIndividual ;
+                                          :hasDefinitionOf :CognitiveScreeningTests ,
+                                                           :Dementia ,
+                                                           :PreventionMethod .
+
+
+###  http://isit990.azurewebsites.net/ontology/dementia-info/Webpage_AlzOrgUk_Type_Of_Dementia
+:Webpage_AlzOrgUk_Type_Of_Dementia rdf:type owl:NamedIndividual ;
+                                   :hasDefinitionOf :AlzheimersDisease ,
+                                                    :Dementia ,
+                                                    :DementiaWithLewyBodies ,
+                                                    :FrontotemporalDementia ,
+                                                    :TypesOfDementia ,
+                                                    :VascularDementia .
+
+
+###  http://isit990.azurewebsites.net/ontology/dementia-info/Webpage_AlzOrgUk_Voluntary_And_Third_Sector_Training
+:Webpage_AlzOrgUk_Voluntary_And_Third_Sector_Training rdf:type owl:NamedIndividual ;
+                                                      :hasDefinitionOf :Depression ,
+                                                                       :DrivingSafety .
+
+
+###  http://isit990.azurewebsites.net/ontology/dementia-info/Webpage_AlzOrgUk_resources_For_Gps
+:Webpage_AlzOrgUk_resources_For_Gps rdf:type owl:NamedIndividual ;
+                                    :hasDefinitionOf :Dementia ,
+                                                     :Diagnosis ,
+                                                     :Symptom ,
+                                                     :Treatment .
+
+
+###  http://isit990.azurewebsites.net/ontology/dementia-info/Webpage_AlzOrgUk_resources_For_Gps_2
+:Webpage_AlzOrgUk_resources_For_Gps_2 rdf:type owl:NamedIndividual ;
+                                      :hasDefinitionOf :Diagnosis ,
+                                                       :Treatment .
+
+
+###  http://isit990.azurewebsites.net/ontology/dementia-info/Webpage_AlzOrgUk_resources_For_Gps_3
+:Webpage_AlzOrgUk_resources_For_Gps_3 rdf:type owl:NamedIndividual ;
+                                      :hasDefinitionOf :Diagnosis .
+
+
+###  http://isit990.azurewebsites.net/ontology/dementia-info/Webpage_AlzOrgUk_resources_For_Gps_4
+:Webpage_AlzOrgUk_resources_For_Gps_4 rdf:type owl:NamedIndividual ;
+                                      :hasDefinitionOf :Diagnosis ,
+                                                       :RiskFactors .
+
+
+###  http://isit990.azurewebsites.net/ontology/dementia-info/Webpage_AlzOrgUk_resources_For_Professional_Resources_For_Pharmacist
+:Webpage_AlzOrgUk_resources_For_Professional_Resources_For_Pharmacist rdf:type owl:NamedIndividual ;
+                                                                      :hasDefinitionOf :Dementia ,
+                                                                                       :DrivingSafety .
+
+
+###  http://isit990.azurewebsites.net/ontology/dementia-info/Webpage_AlzOrgUk_resources_For_professionals_Dementia_Knowledge_Centre
+:Webpage_AlzOrgUk_resources_For_professionals_Dementia_Knowledge_Centre rdf:type owl:NamedIndividual ;
+                                                                        :hasDefinitionOf :Dementia .
+
+
 ###  http://isit990.azurewebsites.net/ontology/dementia-info/Webpage_AlzOrg_10_Early_Signs_and_Symptoms_of_Alzheimer
 :Webpage_AlzOrg_10_Early_Signs_and_Symptoms_of_Alzheimer rdf:type owl:NamedIndividual ,
                                                                   :Webpage ;
@@ -1597,19 +1990,6 @@ Bath, P. A. and H. Bouchier (2003). \"Development and application of a tool desg
                                                        :hasUrl "http://www.alz.org/alzheimers_disease_early_onset.asp" .
 
 
-###  http://isit990.azurewebsites.net/ontology/dementia-info/Webpage_DementiaCareCentral_Seven_Stages_of_Dementia
-:Webpage_DementiaCareCentral_Seven_Stages_of_Dementia rdf:type owl:NamedIndividual ,
-                                                               :Webpage ;
-                                                      :hasDefinitionOf :Dementia ,
-                                                                       :MildCognitiveDecline ,
-                                                                       :PhaseOfDementia ,
-                                                                       :Progression ,
-                                                                       :Symptom ;
-                                                      :hasExcerpt "Health professionals sometimes discuss dementia in “stages,” which refers to how far a person’s dementia has progressed. Defining a person’s disease stage helps physicians determine the best treatment approach and aids communication between health providers and caregivers." ;
-                                                      :hasTitle "Seven Stages of Dementia | Symptoms & Progression" ;
-                                                      :hasUrl "https://www.dementiacarecentral.com/aboutdementia/facts/stages/" .
-
-
 ###  http://isit990.azurewebsites.net/ontology/dementia-info/Website_AlzOrg
 :Website_AlzOrg rdf:type owl:NamedIndividual ,
                          :WebSite ;
@@ -1621,9 +2001,14 @@ Bath, P. A. and H. Bouchier (2003). \"Development and application of a tool desg
                             :Webpage_AlzOrg_What_Is_Dementia .
 
 
-###  http://isit990.azurewebsites.net/ontology/dementia-info/Website_DementiaCareCentral
-:Website_DementiaCareCentral rdf:type owl:NamedIndividual ,
-                                      :WebSite .
+###  http://isit990.azurewebsites.net/ontology/dementia-info/s_Disease_Facts_and_Figures
+:s_Disease_Facts_and_Figures rdf:type owl:NamedIndividual ,
+                                      :Webpage ;
+                             :hasDefinitionOf :AlzheimersDisease ,
+                                              :Demographic ;
+                             :hasExcerpt "The number of Americans living with Alzheimer's disease is growing — and growing fast. An estimated 5.5 million Americans of all ages have Alzheimer's disease." ;
+                             :hasTitle "2017 Alzheimer's Disease Facts and Figures" ;
+                             :hasUrl "http://www.alz.org/facts/overview.asp" .
 
 
 #################################################################
@@ -1637,9 +2022,6 @@ Bath, P. A. and H. Bouchier (2003). \"Development and application of a tool desg
 
 
 :AlzheimersDisease rdfs:label "Alzheimers Disease" .
-
-
-:Carer rdfs:label "Carer" .
 
 
 :CholinesteraseInhibitors rdfs:label "Cholinesterase Inhibitors" .
@@ -1669,9 +2051,9 @@ Bath, P. A. and H. Bouchier (2003). \"Development and application of a tool desg
 :Diagnosis rdfs:label "Diagnosis" .
 
 
-:DiagnosticMethod rdfs:label "Diagnosis Method" ;
-                  rdfs:comment """Further modified according to the reference:
-Song, T.-M., et al. (2014). \"Development of Health Information Search Engine Based on Metadata and Ontology.\" Healthcare Informatics Research 20(2): 88-98.""" .
+:DiagnosticMethod rdfs:comment """Further modified according to the reference:
+Song, T.-M., et al. (2014). \"Development of Health Information Search Engine Based on Metadata and Ontology.\" Healthcare Informatics Research 20(2): 88-98.""" ;
+                  rdfs:label "Diagnosis Method" .
 
 
 :Dizziness rdfs:label "Dizziness" .
