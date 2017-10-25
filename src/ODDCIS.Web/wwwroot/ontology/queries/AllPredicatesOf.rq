@@ -2,7 +2,6 @@ SELECT DISTINCT *
 	WHERE 
 	{ 
 		@classTriplets 
-		OPTIONAL { ?item a rdfs:Class }
-		OPTIONAL { ?item rdfs:label ?label }
+		?item rdfs:label ?label .
 		OPTIONAL { ?item rdfs:comment ?comment}
 	}

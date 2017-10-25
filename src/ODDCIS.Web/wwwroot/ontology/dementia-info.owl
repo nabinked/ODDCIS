@@ -13,6 +13,13 @@
 #    Object Properties
 #################################################################
 
+###  http://isit990.azurewebsites.net/ontology/dementia-info/and
+:and rdf:type owl:ObjectProperty ;
+     rdfs:domain owl:Thing ;
+     rdfs:range owl:Thing ;
+     rdfs:label "and" .
+
+
 ###  http://isit990.azurewebsites.net/ontology/dementia-info/associatedWith
 :associatedWith rdf:type owl:ObjectProperty ;
                 rdfs:subPropertyOf owl:topObjectProperty ;
@@ -23,9 +30,17 @@
 
 ###  http://isit990.azurewebsites.net/ontology/dementia-info/atPhase
 :atPhase rdf:type owl:ObjectProperty ;
+         owl:equivalentProperty :atStage ;
          rdfs:domain :Dementia ;
          rdfs:range :PhaseOfDementia ;
          rdfs:label "at phase" .
+
+
+###  http://isit990.azurewebsites.net/ontology/dementia-info/atStage
+:atStage rdf:type owl:ObjectProperty ;
+         rdfs:subPropertyOf owl:topObjectProperty ;
+         rdfs:domain :Dementia ;
+         rdfs:range :PhaseOfDementia .
 
 
 ###  http://isit990.azurewebsites.net/ontology/dementia-info/consistingOf
@@ -64,8 +79,7 @@
 ###  http://isit990.azurewebsites.net/ontology/dementia-info/hasDefinitionOf
 :hasDefinitionOf rdf:type owl:ObjectProperty ;
                  rdfs:domain :Webpage ;
-                 rdfs:range :Dementia ;
-                 rdfs:label "has definition of" .
+                 rdfs:range :Dementia .
 
 
 ###  http://isit990.azurewebsites.net/ontology/dementia-info/hasWebpage
@@ -75,10 +89,18 @@
             rdfs:label "has webpage" .
 
 
+###  http://isit990.azurewebsites.net/ontology/dementia-info/in
+:in rdf:type owl:ObjectProperty ;
+    rdfs:domain :Effect ;
+    rdfs:range :Patient ;
+    rdfs:label "in" .
+
+
 ###  http://isit990.azurewebsites.net/ontology/dementia-info/of
 :of rdf:type owl:ObjectProperty ;
     rdfs:subPropertyOf owl:topObjectProperty ;
-    rdfs:domain :Definition ,
+    rdfs:domain :Behaviour ,
+                :Effect ,
                 :Impact ,
                 :PreventionMethod ,
                 :Prognosis ,
@@ -86,8 +108,16 @@
                 :Symptom ,
                 :Treatment ;
     rdfs:range :Dementia ,
+               :Medicine ,
                :PhaseOfDementia ;
     rdfs:label "of" .
+
+
+###  http://isit990.azurewebsites.net/ontology/dementia-info/offer
+:offer rdf:type owl:ObjectProperty ;
+       rdfs:domain :BehaviourChange ;
+       rdfs:range :Suggestion ;
+       rdfs:label "offer" .
 
 
 ###  http://isit990.azurewebsites.net/ontology/dementia-info/providedTo
@@ -111,6 +141,13 @@
                rdfs:domain :Patient ;
                rdfs:range :Dementia ;
                rdfs:label "suffering from" .
+
+
+###  http://isit990.azurewebsites.net/ontology/dementia-info/toReduce
+:toReduce rdf:type owl:ObjectProperty ;
+          rdfs:domain :Medication ;
+          rdfs:range :Behaviour ;
+          rdfs:label "to reduce" .
 
 
 ###  http://isit990.azurewebsites.net/ontology/dementia-info/usedFor
@@ -156,6 +193,13 @@
 #################################################################
 #    Classes
 #################################################################
+
+###  http://isit990.azurewebsites.net/ontology/dementia-info/Activities
+:Activities rdf:type owl:Class ;
+            owl:equivalentClass :Program ;
+            rdfs:subClassOf :DementiaDomain ;
+            rdfs:label "Activities" .
+
 
 ###  http://isit990.azurewebsites.net/ontology/dementia-info/AgedCareOrganisation
 :AgedCareOrganisation rdf:type owl:Class ;
@@ -210,6 +254,12 @@ Bath, P. A. and H. Bouchier (2003). \"Development and application of a tool desg
            rdfs:subClassOf :DementiaDomain .
 
 
+###  http://isit990.azurewebsites.net/ontology/dementia-info/BehaviourChange
+:BehaviourChange rdf:type owl:Class ;
+                 rdfs:subClassOf :Change ;
+                 rdfs:label "Behaviour Change" .
+
+
 ###  http://isit990.azurewebsites.net/ontology/dementia-info/Breaks
 :Breaks rdf:type owl:Class ;
         rdfs:subClassOf :SupportForCarers ;
@@ -220,6 +270,10 @@ Bath, P. A. and H. Bouchier (2003). \"Development and application of a tool desg
 ###  http://isit990.azurewebsites.net/ontology/dementia-info/Carer
 :Carer rdf:type owl:Class ;
        rdfs:subClassOf :Person .
+
+
+###  http://isit990.azurewebsites.net/ontology/dementia-info/Change
+:Change rdf:type owl:Class .
 
 
 ###  http://isit990.azurewebsites.net/ontology/dementia-info/CholinesteraseInhibitors
@@ -404,6 +458,10 @@ Bath, P. A. and H. Bouchier (2003). \"Development and application of a tool desg
            rdfs:subClassOf :UserProfiles .
 
 
+###  http://isit990.azurewebsites.net/ontology/dementia-info/Effect
+:Effect rdf:type owl:Class .
+
+
 ###  http://isit990.azurewebsites.net/ontology/dementia-info/EmotionalSupport
 :EmotionalSupport rdf:type owl:Class ;
                   rdfs:subClassOf :SupportForCarers .
@@ -448,10 +506,21 @@ Bath, P. A. and H. Bouchier (2003). \"Development and application of a tool desg
         rdfs:subClassOf :InformalCaregivers .
 
 
+###  http://isit990.azurewebsites.net/ontology/dementia-info/FemalePatient
+:FemalePatient rdf:type owl:Class ;
+               rdfs:subClassOf :Patient ;
+               owl:disjointWith :MalePatient .
+
+
 ###  http://isit990.azurewebsites.net/ontology/dementia-info/FinancialAssistance
 :FinancialAssistance rdf:type owl:Class ;
                      rdfs:subClassOf :DementiaCare ;
                      rdfs:label "Financial Assistance" .
+
+
+###  http://isit990.azurewebsites.net/ontology/dementia-info/FoodHabit
+:FoodHabit rdf:type owl:Class ;
+           rdfs:label "Food Habit" .
 
 
 ###  http://isit990.azurewebsites.net/ontology/dementia-info/FormalCaregiver
@@ -562,6 +631,11 @@ Bath, P. A. and H. Bouchier (2003). \"Development and application of a tool desg
                        rdfs:subClassOf :SupportForCarers .
 
 
+###  http://isit990.azurewebsites.net/ontology/dementia-info/MalePatient
+:MalePatient rdf:type owl:Class ;
+             rdfs:subClassOf :Patient .
+
+
 ###  http://isit990.azurewebsites.net/ontology/dementia-info/ManageAggression
 :ManageAggression rdf:type owl:Class ;
                   rdfs:subClassOf :BehavioralManagement .
@@ -610,6 +684,11 @@ Bath, P. A. and H. Bouchier (2003). \"Development and application of a tool desg
 ###  http://isit990.azurewebsites.net/ontology/dementia-info/MedicationManagement
 :MedicationManagement rdf:type owl:Class ;
                       rdfs:subClassOf :ContentOfCare .
+
+
+###  http://isit990.azurewebsites.net/ontology/dementia-info/Medicine
+:Medicine rdf:type owl:Class ;
+          rdfs:label "Medicine" .
 
 
 ###  http://isit990.azurewebsites.net/ontology/dementia-info/Memantine
@@ -813,6 +892,12 @@ Bath, P. A. and H. Bouchier (2003). \"Development and application of a tool desg
            rdfs:subClassOf :DementiaDomain .
 
 
+###  http://isit990.azurewebsites.net/ontology/dementia-info/Program
+:Program rdf:type owl:Class ;
+         rdfs:subClassOf :DementiaDomain ;
+         rdfs:label "Program" .
+
+
 ###  http://isit990.azurewebsites.net/ontology/dementia-info/Progression
 :Progression rdf:type owl:Class ;
              rdfs:subClassOf :DementiaDomain .
@@ -882,6 +967,17 @@ Bath, P. A. and H. Bouchier (2003). \"Development and application of a tool desg
 Bath, P. A. and H. Bouchier (2003). \"Development and application of a tool desgined to evaluate web sites providing information on Alzheimer's disease.\" Journal of Information Science 29(4): 279-297.""" .
 
 
+###  http://isit990.azurewebsites.net/ontology/dementia-info/SideEffect
+:SideEffect rdf:type owl:Class ;
+            rdfs:subClassOf :Effect .
+
+
+###  http://isit990.azurewebsites.net/ontology/dementia-info/SpecialActivities
+:SpecialActivities rdf:type owl:Class ;
+                   rdfs:subClassOf :Activities ;
+                   rdfs:label "Special Activities" .
+
+
 ###  http://isit990.azurewebsites.net/ontology/dementia-info/StatutorySupport
 :StatutorySupport rdf:type owl:Class ;
                   rdfs:subClassOf :SupportForCarers .
@@ -890,6 +986,12 @@ Bath, P. A. and H. Bouchier (2003). \"Development and application of a tool desg
 ###  http://isit990.azurewebsites.net/ontology/dementia-info/Stress
 :Stress rdf:type owl:Class ;
         rdfs:subClassOf :SupportForCarers .
+
+
+###  http://isit990.azurewebsites.net/ontology/dementia-info/Suggestion
+:Suggestion rdf:type owl:Class ;
+            rdfs:label "Clue" ,
+                       "Suggestion" .
 
 
 ###  http://isit990.azurewebsites.net/ontology/dementia-info/SupportForCarers
@@ -915,6 +1017,11 @@ Bath, P. A. and H. Bouchier (2003). \"Development and application of a tool desg
 ###  http://isit990.azurewebsites.net/ontology/dementia-info/Tiredness
 :Tiredness rdf:type owl:Class ;
            rdfs:subClassOf :Symptom .
+
+
+###  http://isit990.azurewebsites.net/ontology/dementia-info/TraditionalMedicine
+:TraditionalMedicine rdf:type owl:Class ;
+                     rdfs:subClassOf :Medicine .
 
 
 ###  http://isit990.azurewebsites.net/ontology/dementia-info/Treatment
@@ -1028,6 +1135,15 @@ Bath, P. A. and H. Bouchier (2003). \"Development and application of a tool desg
                rdfs:subClassOf :SupportForCarers .
 
 
+###  http://isit990.azurewebsites.net/ontology/dementia-info/YoungerOnsetDementia
+:YoungerOnsetDementia rdf:type owl:Class ;
+                      rdfs:subClassOf :Dementia .
+
+
+###  http://www.w3.org/2002/07/owl#Thing
+owl:Thing rdfs:label "Every Thing" .
+
+
 #################################################################
 #    Individuals
 #################################################################
@@ -1098,7 +1214,8 @@ Bath, P. A. and H. Bouchier (2003). \"Development and application of a tool desg
 
 
 ###  http://isit990.azurewebsites.net/ontology/dementia-info/DementiaTypes
-:DementiaTypes rdf:type owl:NamedIndividual .
+:DementiaTypes rdf:type owl:NamedIndividual ,
+                        :DementiaTypes .
 
 
 ###  http://isit990.azurewebsites.net/ontology/dementia-info/DementiaWithLewyBodies
@@ -1121,15 +1238,6 @@ Bath, P. A. and H. Bouchier (2003). \"Development and application of a tool desg
                     :Diagnosis .
 
 
-###  http://isit990.azurewebsites.net/ontology/dementia-info/Disease_Facts_and_Figures
-:Disease_Facts_and_Figures rdf:type owl:NamedIndividual ,
-                                    :Webpage ;
-                           :hasDefinitionOf :Demographic ;
-                           :hasExcerpt "The number of Americans living with Alzheimer's disease is growing — and growing fast. An estimated 5.5 million Americans of all ages have Alzheimer's disease." ;
-                           :hasTitle "2017 Alzheimer's Disease Facts and Figures" ;
-                           :hasUrl "http://www.alz.org/facts/overview.asp" .
-
-
 ###  http://isit990.azurewebsites.net/ontology/dementia-info/Dizziness
 :Dizziness rdf:type owl:NamedIndividual ,
                     :Dizziness .
@@ -1143,6 +1251,16 @@ Bath, P. A. and H. Bouchier (2003). \"Development and application of a tool desg
 ###  http://isit990.azurewebsites.net/ontology/dementia-info/EarlySymptoms
 :EarlySymptoms rdf:type owl:NamedIndividual ,
                         :EarlySymptoms .
+
+
+###  http://isit990.azurewebsites.net/ontology/dementia-info/Effect
+:Effect rdf:type owl:NamedIndividual ,
+                 :Effect .
+
+
+###  http://isit990.azurewebsites.net/ontology/dementia-info/FemalePatient
+:FemalePatient rdf:type owl:NamedIndividual ,
+                        :FemalePatient .
 
 
 ###  http://isit990.azurewebsites.net/ontology/dementia-info/FrontotemporalDementia
@@ -1183,6 +1301,11 @@ Bath, P. A. and H. Bouchier (2003). \"Development and application of a tool desg
 ###  http://isit990.azurewebsites.net/ontology/dementia-info/Impact
 :Impact rdf:type owl:NamedIndividual ,
                  :Impact .
+
+
+###  http://isit990.azurewebsites.net/ontology/dementia-info/MalePatient
+:MalePatient rdf:type owl:NamedIndividual ,
+                      :MalePatient .
 
 
 ###  http://isit990.azurewebsites.net/ontology/dementia-info/Medication
@@ -1290,6 +1413,11 @@ Bath, P. A. and H. Bouchier (2003). \"Development and application of a tool desg
                                  :SevereCognitiveDecline .
 
 
+###  http://isit990.azurewebsites.net/ontology/dementia-info/SideEffect
+:SideEffect rdf:type owl:NamedIndividual ,
+                     :SideEffect .
+
+
 ###  http://isit990.azurewebsites.net/ontology/dementia-info/Symptom
 :Symptom rdf:type owl:NamedIndividual ,
                   :Symptom .
@@ -1298,6 +1426,11 @@ Bath, P. A. and H. Bouchier (2003). \"Development and application of a tool desg
 ###  http://isit990.azurewebsites.net/ontology/dementia-info/Tiredness
 :Tiredness rdf:type owl:NamedIndividual ,
                     :Tiredness .
+
+
+###  http://isit990.azurewebsites.net/ontology/dementia-info/TraditionalMedicine
+:TraditionalMedicine rdf:type owl:NamedIndividual ,
+                              :TraditionalMedicine .
 
 
 ###  http://isit990.azurewebsites.net/ontology/dementia-info/Treatment
@@ -1967,7 +2100,8 @@ c"""^^rdfs:Literal .
 ###  http://isit990.azurewebsites.net/ontology/dementia-info/Webpage_FightDemOrg_Vascular_Dementia
 :Webpage_FightDemOrg_Vascular_Dementia rdf:type owl:NamedIndividual ,
                                                 :Webpage ;
-                                       :hasDefinitionOf :Treatment ,
+                                       :hasDefinitionOf :Symptom ,
+                                                        :Treatment ,
                                                         :VascularDementia ;
                                        :hasExcerpt "Vascular dementia is the second most common cause of dementia after Alzheimer's disease" ;
                                        :hasTitle "Vascular dementia" ;
@@ -1986,7 +2120,7 @@ c"""^^rdfs:Literal .
 ###  http://isit990.azurewebsites.net/ontology/dementia-info/Webpage_FightDemOrg_What_Is_Younger_Onset_Dementia
 :Webpage_FightDemOrg_What_Is_Younger_Onset_Dementia rdf:type owl:NamedIndividual ,
                                                              :Webpage ;
-                                                    :hasDefinitionOf :Dementia ;
+                                                    :hasDefinitionOf :YoungerOnsetDementia ;
                                                     :hasExcerpt "Dementia is the term used to describe the symptoms of a large group of illnesses which cause a progressive decline in a person’s mental functioning. It is a broad term which describes symptoms such as loss of memory, intellect, rationality, social skills and normal emotional reactions" ;
                                                     :hasTitle "What is younger onset dementia?" ;
                                                     :hasUrl "https://www.fightdementia.org.au/about-dementia/what-is-younger-onset-dementia" .
@@ -2001,11 +2135,41 @@ c"""^^rdfs:Literal .
                                         :hasUrl "https://www.fightdementia.org.au/about-dementia-and-memory-loss/am-i-at-risk/your-brain-matters" .
 
 
+###  http://isit990.azurewebsites.net/ontology/dementia-info/Webpage_PsychiatricTimes_Medications_for_Agitation_in_Dementia
+:Webpage_PsychiatricTimes_Medications_for_Agitation_in_Dementia rdf:type owl:NamedIndividual ,
+                                                                         :Webpage ;
+                                                                :hasDefinitionOf :Agitation ,
+                                                                                 :Dementia ,
+                                                                                 :Medication ;
+                                                                :hasExcerpt "Almost 3 years after the FDA warned of increased mortality in elderly patients who received atypical antipsychotics off-label for neuropsychiatric syndromes of dementia, no medication has been approved as safe and effective for this increasingly challenging problem." ;
+                                                                :hasTitle "Medications for Agitation in Dementia: Seeking Efficacy With Safety References" ;
+                                                                :hasUrl "http://www.psychiatrictimes.com/articles/medications-agitation-dementia-seeking-efficacy-safety-references" .
+
+
+###  http://isit990.azurewebsites.net/ontology/dementia-info/Webpage_alzorg_Alzheimers_Disease_Facts_and_Figures
+:Webpage_alzorg_Alzheimers_Disease_Facts_and_Figures rdf:type owl:NamedIndividual ,
+                                                              :Webpage ;
+                                                     :hasDefinitionOf :Demographic ;
+                                                     :hasExcerpt "The number of Americans living with Alzheimer's disease is growing — and growing fast. An estimated 5.5 million Americans of all ages have Alzheimer's disease." ;
+                                                     :hasTitle "2017 Alzheimer's Disease Facts and Figures" ;
+                                                     :hasUrl "http://www.alz.org/facts/overview.asp" .
+
+
+###  http://isit990.azurewebsites.net/ontology/dementia-info/Webpage_omicsonline_Effect_of_Yokukansan
+:Webpage_omicsonline_Effect_of_Yokukansan rdf:type owl:NamedIndividual ,
+                                                   :Webpage ;
+                                          :hasDefinitionOf :Alzheimersdisease ,
+                                                           :Effect ,
+                                                           :TraditionalMedicine ;
+                                          :hasExcerpt "Evidence of the effects of Yokukansan (YKS), a traditional herbal medicine, on behavioral and psychological symptoms of dementia (BPSD) has accumulated. As well as BPSD, patients with Alzheimer’s disease (AD) demonstrate poorer sleep quality." ;
+                                          :hasTitle "Effect of Yokukansan, a Traditional Herbal Prescription, on Sle ep Disturbances in Patients with Alzheimer's Disease" ;
+                                          :hasUrl "https://www.omicsonline.org/open-access/effect-of-yokukansan-a-traditional-herbal-prescription-on-sle-epdisturbances-in-patients-with-alzheimer39s-disease-2161-0460-1000215.php?aid=69234" .
+
+
 ###  http://isit990.azurewebsites.net/ontology/dementia-info/Website_AlzOrg
 :Website_AlzOrg rdf:type owl:NamedIndividual ,
                          :WebSite ;
-                :hasWebpage :Disease_Facts_and_Figures ,
-                            :Webpage_ALzOrg_Chronic_Traumatic_Encephalopathy ,
+                :hasWebpage :Webpage_ALzOrg_Chronic_Traumatic_Encephalopathy ,
                             :Webpage_ALzOrg_Diagnosis_of_Alzheimers_Disease_and_Dementia ,
                             :Webpage_AlzOrg_10_Early_Signs_and_Symptoms_of_Alzheimer ,
                             :Webpage_AlzOrg_Dementia_with_Lewy_Bodies ,
@@ -2017,32 +2181,9 @@ c"""^^rdfs:Literal .
                                     :WernickeKorsakoffSyndrome .
 
 
-###  http://isit990.azurewebsites.net/ontology/dementia-info/_Psychological_Symptoms_of_Dementia
-:_Psychological_Symptoms_of_Dementia rdf:type owl:NamedIndividual ,
-                                              :Webpage ;
-                                     :hasDefinitionOf :Agitation ,
-                                                      :CholinesteraseInhibitors ,
-                                                      :DeclineInCognition ,
-                                                      :Depression ,
-                                                      :Impact ,
-                                                      :Medication ,
-                                                      :Memantine ,
-                                                      :MemoryLoss ,
-                                                      :NeurophychologicalEvaluation ,
-                                                      :Psychosis ,
-                                                      :Treatment ;
-                                     :hasExcerpt "Before any of the drugs mentioned on this page are prescribed it is essential to ensure that the person with dementia is physically healthy, comfortable and well cared for" ;
-                                     :hasTitle "Drugs used to relieve behavioural & psychological symptoms of dementia" ;
-                                     :hasUrl "https://www.fightdementia.org.au/national/about-dementia/how-is-dementia-treated/drugs-used-to-relieve-behavioural-and-psychological-symptoms-of-dementia" .
-
-
-###  http://isit990.azurewebsites.net/ontology/dementia-info/s_Disease_Facts_and_Figures
-:s_Disease_Facts_and_Figures rdf:type owl:NamedIndividual ,
-                                      :Webpage ;
-                             :hasDefinitionOf :Demographic ;
-                             :hasExcerpt "The number of Americans living with Alzheimer's disease is growing — and growing fast. An estimated 5.5 million Americans of all ages have Alzheimer's disease." ;
-                             :hasTitle "2017 Alzheimer's Disease Facts and Figures" ;
-                             :hasUrl "http://www.alz.org/facts/overview.asp" .
+###  http://isit990.azurewebsites.net/ontology/dementia-info/YoungerOnsetDementia
+:YoungerOnsetDementia rdf:type owl:NamedIndividual ,
+                               :YoungerOnsetDementia .
 
 
 #################################################################
@@ -2116,6 +2257,12 @@ Song, T.-M., et al. (2014). \"Development of Health Information Search Engine Ba
 :EarlySymptoms rdfs:label "Early Symptoms" .
 
 
+:Effect rdfs:label "Effect" .
+
+
+:FemalePatient rdfs:label "Female Patient" .
+
+
 :FrontotemporalDementia rdfs:label "Fronto Temporal Dementia" .
 
 
@@ -2142,6 +2289,9 @@ Song, T.-M., et al. (2014). \"Development of Health Information Search Engine Ba
 
 
 :Impact rdfs:label "Impact" .
+
+
+:MalePatient rdfs:label "Male Patient" .
 
 
 :Medication rdfs:label "Medication" .
@@ -2221,12 +2371,18 @@ Dillon WA, Prorok JC, Seitz DP. Content and Quality of Information Provided on C
                         rdfs:comment "People in Stage 6 require extensive assistance to carry out daily activities. They start to forget names of close family members and have little memory of recent events. Many people can remember only some details of earlier life. They also have difficulty counting down from 10 and finishing tasks. Incontinence (loss of bladder or bowel control) is a problem in this stage. Ability to speak declines. Personality changes, such as delusions (believing something to be true that is not), compulsions (repeating a simple behavior, such as cleaning), or anxiety and agitation may occur. Average duration: 2.5 years" .
 
 
+:SideEffect rdfs:label "Side Effect" .
+
+
 :Symptom rdfs:label "Symptom" ;
          rdfs:comment "Reference site: https://www.hon.ch/Dossier/Ageing/part3.html#alzheimer" ,
                       "The terms for the sub-classes in this class come from HON site." .
 
 
 :Tiredness rdfs:label "Tiredness" .
+
+
+:TraditionalMedicine rdfs:label "Traditional Medicine" .
 
 
 :Treatment rdfs:label "Treatment" .
@@ -2247,6 +2403,9 @@ Dillon WA, Prorok JC, Seitz DP. Content and Quality of Information Provided on C
 
 
 :WernickeKorsakoffSyndrome rdfs:label "Wernicke-Korsakoff Syndrome" .
+
+
+:YoungerOnsetDementia rdfs:label "Younger onset Dementia" .
 
 
 xsd:int rdfs:comment "Experience can be days, months to years" .

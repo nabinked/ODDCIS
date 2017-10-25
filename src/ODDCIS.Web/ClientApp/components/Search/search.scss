@@ -10,6 +10,16 @@
         &-item {
             &-title {
                 margin-bottom: 0.2rem;
+                white-space: nowrap;
+                text-overflow: ellipsis;
+                overflow: hidden;
+                color: map-get($theme-colors, primary)
+            }
+            &-url {
+                text-overflow: ellipsis;
+                white-space: nowrap;
+                overflow: hidden;
+                display: block;
             }
         }
         .executed-query {

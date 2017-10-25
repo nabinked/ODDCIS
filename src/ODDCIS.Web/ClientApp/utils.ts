@@ -1,10 +1,10 @@
 ﻿var utils = {
-    serializeObject: function (obj: Object, prefix?: string) {
+    serializeObject(obj: Object, prefix?: string): string {
         var str = [];
         for (var prop in obj) {
             if (obj.hasOwnProperty(prop)) {
                 var key = prefix ? prefix + "." + prop : prop;
-                var value = obj[prop];
+                var value = (<any>obj)[prop];
                 if (value !== null) {
                     str.push((typeof value === "object") ?
                         this.serializeObject(value, key) :
@@ -16,7 +16,7 @@
         return str.join("&");
     },
 
-    serializeArray: function (arr: Array<any>, prefix: string) {
+    serializeArray(arr: Array<any>, prefix: string) {
         var str = [];
         for (var i = 0; i < arr.length; i++) {
             var element = arr[i];
@@ -30,6 +30,9 @@
 
         }
         return str.join("&");
+    },
+    truncate(str: string, length: number) {
+        return (str.length > length) ? str.substr(0, length - 1) + '...' : str;
     }
 }
 

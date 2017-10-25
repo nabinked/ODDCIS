@@ -7,6 +7,7 @@
     "sourceMap": true,
     "skipDefaultLibCheck": true,
     "noImplicitThis": true,
+    "noImplicitAny": true,
     "typeRoots" : ["./@types","./node_modules/@types"],
     "paths": {
       // Fix "Duplicate identifier" errors caused by multiple dependencies fetching their own copies of type definitions.
