@@ -7,11 +7,19 @@
 @base <http://isit990.azurewebsites.net/ontology/dementia-info> .
 
 <http://isit990.azurewebsites.net/ontology/dementia-info> rdf:type owl:Ontology ;
-                                                           rdfs:comment "An ontology for a information retrieval system developed by the student of UOW, Australia as part of thrie ISIT 990 final year project."^^rdfs:Literal .
+                                                           rdfs:comment "An ontology for a information retrieval system developed by the student of UOW, Australia as part of their ISIT 990 final year project."^^rdfs:Literal .
 
 #################################################################
 #    Object Properties
 #################################################################
+
+###  http://isit990.azurewebsites.net/ontology/dementia-info/about
+:about rdf:type owl:ObjectProperty ;
+       rdfs:subPropertyOf owl:topObjectProperty ;
+       rdfs:domain :GeneralInformation ;
+       rdfs:range :Dementia ;
+       rdfs:label "about" .
+
 
 ###  http://isit990.azurewebsites.net/ontology/dementia-info/and
 :and rdf:type owl:ObjectProperty ;
@@ -100,6 +108,7 @@
 :of rdf:type owl:ObjectProperty ;
     rdfs:subPropertyOf owl:topObjectProperty ;
     rdfs:domain :Behaviour ,
+                :Definition ,
                 :Effect ,
                 :Impact ,
                 :PreventionMethod ,
@@ -1500,7 +1509,8 @@ owl:Thing rdfs:label "Every Thing" .
 ###  http://isit990.azurewebsites.net/ontology/dementia-info/Webpage_AlzOrgUk_About_Dementia
 :Webpage_AlzOrgUk_About_Dementia rdf:type owl:NamedIndividual ,
                                           :Webpage ;
-                                 :hasDefinitionOf :Dementia ;
+                                 :hasDefinitionOf :Dementia ,
+                                                  :GeneralInformation ;
                                  :hasExcerpt "We all forget a name or a face sometimes. Especially as we get older. But dementia is something different"^^rdfs:Literal ;
                                  :hasTitle "Five things you should know about dementia"^^rdfs:Literal ;
                                  :hasUrl "https://www.alzheimers.org.uk/info/20000/about_dementia/847/five_things_you_should_know_about_dementia?_ga=2.257555976.2015287132.1507751636-281622506.1507751636"^^rdfs:Literal .

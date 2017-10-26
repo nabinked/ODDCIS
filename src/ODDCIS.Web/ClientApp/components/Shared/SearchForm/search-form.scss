@@ -1,5 +1,8 @@
 .search-form {
         margin: 0 auto;
+        &-search-btn {
+            padding: 0.4rem;
+        }
         input {
             margin-top: 5px;
             margin-left: 5px;
