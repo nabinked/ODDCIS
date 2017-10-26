@@ -16,7 +16,7 @@ To check if node is installed. Open command prompt and run `node --version`. If 
  * Make sure above requirements are met
  * Git clone this repository or download project
  * Go to the /src/ODDCIS.Web/ folder inside this repository
- * do a `dotnet restore` and `dotnet run`
+ * Open the command line in that foler and do a `dotnet restore` and `dotnet run`
  * Go to localhost:[port] in your browser. Check the command line for [port] number after running `dotnet run`. 
  ## With Visual Studio 2017 or above
  * Git clone this repository or download project
