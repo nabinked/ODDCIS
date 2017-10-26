@@ -269,6 +269,11 @@ Bath, P. A. and H. Bouchier (2003). \"Development and application of a tool desg
                  rdfs:label "Behaviour Change" .
 
 
+###  http://isit990.azurewebsites.net/ontology/dementia-info/BloodThinningMedicine
+:BloodThinningMedicine rdf:type owl:Class ;
+                       rdfs:subClassOf :Medicine .
+
+
 ###  http://isit990.azurewebsites.net/ontology/dementia-info/Breaks
 :Breaks rdf:type owl:Class ;
         rdfs:subClassOf :SupportForCarers ;
@@ -1175,6 +1180,11 @@ owl:Thing rdfs:label "Every Thing" .
 ###  http://isit990.azurewebsites.net/ontology/dementia-info/Behaviour
 :Behaviour rdf:type owl:NamedIndividual ,
                     :Behaviour .
+
+
+###  http://isit990.azurewebsites.net/ontology/dementia-info/BloodThinningMedicine
+:BloodThinningMedicine rdf:type owl:NamedIndividual ,
+                                :BloodThinningMedicine .
 
 
 ###  http://isit990.azurewebsites.net/ontology/dementia-info/Carer
@@ -2165,6 +2175,18 @@ c"""^^rdfs:Literal .
                                                      :hasUrl "http://www.alz.org/facts/overview.asp" .
 
 
+###  http://isit990.azurewebsites.net/ontology/dementia-info/Webpage_dailymail_Blood_thinners_cut_dementia_risk_heart_patients
+:Webpage_dailymail_Blood_thinners_cut_dementia_risk_heart_patients rdf:type owl:NamedIndividual ,
+                                                                            :Webpage ;
+                                                                   :hasDefinitionOf :BloodThinningMedicine ,
+                                                                                    :Dementia ,
+                                                                                    :RiskFactors ;
+                                                                   :hasExcerpt """Common blood thinning drugs can halve the risk of dementia among people with an irregular heartbeat, scientists have found.
+A study of 440,000 people found patients who took warfarin and other clot busters were 48 per cent less likely to develop dementia over a decade.""" ;
+                                                                   :hasTitle "Blood thinners cut dementia risk heart patients" ;
+                                                                   :hasUrl "http://www.dailymail.co.uk/health/article-5014135/Blood-thinners-cut-dementia-risk-heart-patients.html" .
+
+
 ###  http://isit990.azurewebsites.net/ontology/dementia-info/Webpage_omicsonline_Effect_of_Yokukansan
 :Webpage_omicsonline_Effect_of_Yokukansan rdf:type owl:NamedIndividual ,
                                                    :Webpage ;
@@ -2210,6 +2232,9 @@ c"""^^rdfs:Literal .
 
 
 :Behaviour rdfs:label "Behaviour" .
+
+
+:BloodThinningMedicine rdfs:label "Blood Thinning Medicine" .
 
 
 :Carer rdfs:label "Carer" .
