@@ -23,7 +23,7 @@ export class SearchResult extends React.Component<SearchResultProps, SearchResul
         super();
         this.state = { result: null, loading: true };
     }
-    fetchResults(query) {
+    fetchResults(query: string) {
         fetch('/api/search' + query)
             .then(response => response.json() as Promise<SearchResultItemListModel>)
             .then(data => {
@@ -33,7 +33,7 @@ export class SearchResult extends React.Component<SearchResultProps, SearchResul
     public componentDidMount() {
         this.fetchResults(this.props.query)
     }
-    public componentWillReceiveProps(nextProps) {
+    public componentWillReceiveProps(nextProps:SearchResultProps) {
         this.fetchResults(nextProps.query);
     }
     public render() {
@@ -43,7 +43,7 @@ export class SearchResult extends React.Component<SearchResultProps, SearchResul
                     <Loader /> :
                     <div>
                         <ExecutedQuery executedSparqlQuery={this.state.result.executedSparqlQuery} requestedSemanticQuery={this.state.result.requestedSemanticQuery} />
-                        <hr/>
+                        <hr />
                         <SearchResultItemList results={this.state.result.results} />
                     </div>
             }

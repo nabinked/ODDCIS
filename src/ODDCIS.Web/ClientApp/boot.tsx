@@ -35,7 +35,7 @@ function reloadStyleSheets() {
     const success = reporter.success;
     reporter.success = function () {
         let nodelist = document.querySelectorAll('link[href][rel=stylesheet]');
-        Array.prototype.forEach.call(nodelist, (link) => {
+        Array.prototype.forEach.call(nodelist, (link:HTMLAnchorElement) => {
             const nextStyleHref = link.href.replace(/(\?\d+)?$/, `?${Date.now()}`);
             link.href = nextStyleHref;
         });
