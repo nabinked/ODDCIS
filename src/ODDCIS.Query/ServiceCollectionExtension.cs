@@ -6,9 +6,9 @@ namespace ODDCIS.Query
     {
         public static void AddQueries(this IServiceCollection services)
         {
-            services.AddSingleton<QueryRetriever>();
-            services.AddSingleton<Queries>();
-            services.AddSingleton<QueryHelper>();
+            services.AddScoped<QueryRetriever>();
+            services.AddScoped<Queries>();
+            services.AddScoped<QueryHelper>();
         }
 
     }

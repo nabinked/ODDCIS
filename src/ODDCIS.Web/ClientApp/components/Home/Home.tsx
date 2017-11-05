@@ -11,7 +11,7 @@ export class Home extends React.Component<HomeProps, {}> {
     constructor() {
         super();
     }
-    getQuery(location) {
+    getQuery(location:Location) {
         return location ? parse(location.search).query : ""
     }
     public render() {

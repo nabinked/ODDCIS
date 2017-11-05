@@ -14,9 +14,6 @@ body {
         background-color: map-get($theme-colors, primary);
         flex: none;
     }
-    footer {
-        background-color: map-get($theme-colors, primary);
-    }
     main {
         background-color: white;
         flex: 1;
@@ -26,4 +23,8 @@ body {
             min-height: 100%;
         }
     }
+    footer {
+        background-color: map-get($theme-colors, primary);
+    }
+   
 }

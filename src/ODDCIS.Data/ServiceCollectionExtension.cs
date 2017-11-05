@@ -6,8 +6,8 @@ namespace ODDCIS.Data
     {
         public static void AddDataLayer(this IServiceCollection services)
         {
-            services.AddSingleton<IRepository, Repository>();
-            services.AddSingleton<DatasetAccessor>();
+            services.AddScoped<IRepository, Repository>();
+            services.AddScoped<DatasetAccessor>();
         }
 
     }

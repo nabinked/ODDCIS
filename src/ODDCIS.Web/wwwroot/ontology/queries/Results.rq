@@ -4,4 +4,12 @@ SELECT DISTINCT *
 		?s di:hasUrl ?u.
 		?s di:hasTitle ?t .
 		?s di:hasExcerpt ?e .
+		{
+			SELECT ?s  (COUNT(?definition) AS ?count) WHERE
+					{
+						?s di:hasDefinitionOf ?definition .
+					}
+			GROUP BY ?s 
+			ORDER BY ?count
+		}
 	}

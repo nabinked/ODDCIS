@@ -1,8 +1,8 @@
 
 SELECT DISTINCT *
 	WHERE 
-	{	@predicateUri rdfs:range ?item
-		OPTIONAL { ?item rdfs:label ?label }
+	{	@predicateUri rdfs:range ?super .
+		?item (rdfs:subClassOf|(owl:equivalentClass|^owl:equivalentClass))* ?super.
+		?item rdfs:label ?label .
 		OPTIONAL { ?item rdfs:comment ?comment}
-	
 	}

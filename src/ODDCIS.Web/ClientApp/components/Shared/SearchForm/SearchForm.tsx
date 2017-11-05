@@ -39,7 +39,7 @@ export const SearchForm = withRouter<SearchFormProps>(
                 <div className="text-center">
                     <SearchInput onChange={this.onChange} rdfTerms={this.state.rdfTerms} />
                     <input type="submit"
-                        className="btn btn-outline-primary"
+                        className="btn btn-outline-primary search-form-search-btn"
                         value="Search"
                     />
                 </div>

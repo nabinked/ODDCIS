@@ -41,7 +41,7 @@ export class SearchInput extends React.Component<SearchFormInputProps, SearchFor
         this.handleAddition = this.handleAddition.bind(this);
         this.handleInputChange = this.handleInputChange.bind(this);
     }
-    componentWillReceiveProps(nextProps) {
+    componentWillReceiveProps(nextProps: SearchFormInputProps) {
         this.setState({
             selectedTags: this.getTagsFromRdfterms(nextProps.rdfTerms),
             selectedRdfTermList: nextProps.rdfTerms
@@ -58,7 +58,7 @@ export class SearchInput extends React.Component<SearchFormInputProps, SearchFor
     shoudlFecthSuggestions(): boolean {
         return this.state.suggestions.length == 0;
     }
-    fetchSuggestions(input) {
+    fetchSuggestions() {
         fetch('/api/search/suggestions?' + utils.serializeArray(this.state.selectedRdfTermList, "precedentRdfTerms"))
             .then(response => response.json() as Promise<Array<RdfNode>>)
             .then(data => {
@@ -93,7 +93,7 @@ export class SearchInput extends React.Component<SearchFormInputProps, SearchFor
     }
     handleInputChange(input: string) {
         if (this.shoudlFecthSuggestions()) {
-            this.fetchSuggestions(input);
+            this.fetchSuggestions();
         }
     }
     addSelectedRdfTerm(tag: string) {
@@ -132,31 +132,32 @@ export class SearchInput extends React.Component<SearchFormInputProps, SearchFor
             alert("Can only remove the last tag.")
         }
     }
-    handleDelete(i) {
+    handleDelete(i: number) {
         this.removeTag(i);
     }
-    handleAddition(tag) {
+    handleAddition(tag: any) {
         this.addSelectedRdfTerm(tag);
     }
-    handleFilterSuggestions(textInputValue, possibleSuggestionsArray) {
+    handleFilterSuggestions(textInputValue: string, possibleSuggestionsArray: Array<string>) {
 
         var lowerCaseQuery = textInputValue.toLowerCase()
 
         var newSuggestions = possibleSuggestionsArray.filter(function (suggestion) {
-            return suggestion.toLowerCase().includes(lowerCaseQuery)
+            // TODO includes not part of string. Change lib target in tsconfig ???
+            return (suggestion.toLowerCase() as any).includes(lowerCaseQuery) 
         })
         return newSuggestions;
     }
     render() {
         return (
             <ReactTags tags={this.state.selectedTags}
-                placeholder="Start searching for concepts"
-                minQueryLength={1}
-                suggestions={this.state.suggestions}
-                handleInputChange={this.handleInputChange}
-                handleFilterSuggestions={this.handleFilterSuggestions}
-                handleDelete={this.handleDelete}
-                handleAddition={this.handleAddition} />
-        )
+                    placeholder="Start searching for concepts"
+                    minQueryLength={1}
+                    suggestions={this.state.suggestions}
+                    handleInputChange={this.handleInputChange}
+                    handleFilterSuggestions={this.handleFilterSuggestions}
+                    handleDelete={this.handleDelete}
+                    handleAddition={this.handleAddition} />
+                )
     }
 }   

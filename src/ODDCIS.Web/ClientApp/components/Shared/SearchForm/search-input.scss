@@ -1,12 +1,15 @@
 /* Example Styles for React Tags*/
+
 div.ReactTags__tags {
     position: relative;
 }
 
+
 /* Styles for the input */
+
 div.ReactTags__tagInput {
     width: 280px;
-    border-radius: 1px;
+    border-radius: 0px;
     display: block;
     margin: 3px auto;
     input.ReactTags__tagInputField,
@@ -22,17 +25,27 @@ div.ReactTags__tagInput {
 
 
 /* Styles for selected tags */
+
 div.ReactTags__selected {
     span.ReactTags__tag {
-        border: 1px solid #ddd;
         background: #eee;
-        font-size: 12px;
+        font-size: 0.8rem;
         display: inline-block;
-        padding: 5px;
-        margin: 2px;
-        border-radius: 2px;
+        padding: 2px;
+        margin: 0px;
+        border-radius: 0px;
+        &:first-of-type{
+            padding-left: 8px;
+        }
+        &:last-of-type {
+            padding-right: 8px;
+            a.ReactTags__remove {
+                display: inline;
+            }
+        }
     }
     a.ReactTags__remove {
+        display: none;
         color: #aaa;
         margin-left: 5px;
         cursor: pointer;
@@ -41,6 +54,7 @@ div.ReactTags__selected {
 
 
 /* Styles for suggestions */
+
 div.ReactTags__suggestions {
     position: absolute;
     width: 100%;

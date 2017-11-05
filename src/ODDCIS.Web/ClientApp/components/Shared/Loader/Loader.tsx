@@ -19,7 +19,7 @@ interface LoaderState {
 export class Loader extends React.Component<LoaderProps, LoaderState> {
     interval: number;
     originalText: string;
-    constructor(props) {
+    constructor(props: LoaderProps) {
         super(props);
         this.originalText = props.text;
         this.state = {
@@ -28,10 +28,10 @@ export class Loader extends React.Component<LoaderProps, LoaderState> {
     }
     public static defaultProps: Partial<LoaderProps> = {
         text: "Loading",
-        speed:300
+        speed: 300
     };
     componentDidMount() {
-        var self = this;        
+        var self = this;
         var stopper = this.originalText + '...'
         this.interval = setInterval(function () {
             if (self.state.text === stopper) {

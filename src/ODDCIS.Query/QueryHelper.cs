@@ -65,7 +65,8 @@ namespace ODDCIS.Query
             var sb = new StringBuilder();
             for (int i = 0; i < classes.Count; i++)
             {
-                sb.Append($" {{?item <{NamespaceMapper.RDFS}domain> <{classes[i].Uri}> .}} ");
+                sb.Append($" {{<{classes[i].Uri}> (rdfs:subClassOf|(owl:equivalentClass|^owl:equivalentClass))* ?super . ?item <{NamespaceMapper.RDFS}domain>  ?super .}} ");
+
                 if (i != classes.Count - 1)
                 {
                     sb.Append(" UNION ");

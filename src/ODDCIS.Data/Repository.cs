@@ -82,7 +82,6 @@ namespace ODDCIS.Data
             {
                 var query = this.queryHelper.GetQueryAllObjectsOf(predicate);
                 var nodes = ExecuteQuery(query).ToRdfNodes().ToList();
-                nodes.AddRange(GetSubClasses(nodes));
                 SetRdfNodeType(nodes, RdfNodeType.Class);
                 return nodes;
             }
