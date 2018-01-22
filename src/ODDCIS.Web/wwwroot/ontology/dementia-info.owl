@@ -1519,12 +1519,8 @@ owl:Thing rdfs:label "Every Thing" .
 ###  http://isit990.azurewebsites.net/ontology/dementia-info/Webpage_AlzOrgUk_About_Dementia
 :Webpage_AlzOrgUk_About_Dementia rdf:type owl:NamedIndividual ,
                                           :Webpage ;
-<<<<<<< HEAD
-                                 :hasDefinitionOf :Dementia ;
-=======
                                  :hasDefinitionOf :Dementia ,
                                                   :GeneralInformation ;
->>>>>>> b969763ec331bd3b177372a3f95a0493896a5c4e
                                  :hasExcerpt "We all forget a name or a face sometimes. Especially as we get older. But dementia is something different"^^rdfs:Literal ;
                                  :hasTitle "Five things you should know about dementia"^^rdfs:Literal ;
                                  :hasUrl "https://www.alzheimers.org.uk/info/20000/about_dementia/847/five_things_you_should_know_about_dementia?_ga=2.257555976.2015287132.1507751636-281622506.1507751636"^^rdfs:Literal .
@@ -1572,14 +1568,7 @@ owl:Thing rdfs:label "Every Thing" .
 ###  http://isit990.azurewebsites.net/ontology/dementia-info/Webpage_AlzOrgUk_Most_Popular_Courses
 :Webpage_AlzOrgUk_Most_Popular_Courses rdf:type owl:NamedIndividual ,
                                                 :Webpage ;
-<<<<<<< HEAD
-                                       :hasDefinitionOf :Behaviour ,
-                                                        :CognitiveScreeningTests ,
-                                                        :Dementia ,
-                                                        :MildCognitiveImpairement ;
-=======
                                        :hasDefinitionOf :GeneralInformation ;
->>>>>>> b969763ec331bd3b177372a3f95a0493896a5c4e
                                        :hasExcerpt "People with dementia need to be better understood and supported by society. Increase your knowledge and understanding by signing up to one of our most popular training courses."^^rdfs:Literal ;
                                        :hasTitle "Most popular courses"^^rdfs:Literal ;
                                        :hasUrl "https://www.alzheimers.org.uk/info/20164/most_popular_courses"^^rdfs:Literal .
@@ -1609,11 +1598,7 @@ owl:Thing rdfs:label "Every Thing" .
 :Webpage_AlzOrgUk_Resources_For_Professionals_Publications rdf:type owl:NamedIndividual ,
                                                                     :Webpage ;
                                                            :hasDefinitionOf :Dementia ,
-<<<<<<< HEAD
-                                                                            :DiagnosticMethod ;
-=======
                                                                             :Diagnosis ;
->>>>>>> b969763ec331bd3b177372a3f95a0493896a5c4e
                                                            :hasExcerpt "Our publications for professionals cover a wide variety of topics on dementia and dementia care. Whether you are just starting out in your first role or you are looking for specialist information on specific areas of care, we can help find high quality resources."^^rdfs:Literal ;
                                                            :hasTitle "Publications"^^rdfs:Literal ;
                                                            :hasUrl "https://www.alzheimers.org.uk/info/20048/resources_for_professionals/392/publications"^^rdfs:Literal .
@@ -1652,15 +1637,8 @@ owl:Thing rdfs:label "Every Thing" .
 ###  http://isit990.azurewebsites.net/ontology/dementia-info/Webpage_AlzOrgUk_Risk_Factors_and_Prevention_Risk_Factors
 :Webpage_AlzOrgUk_Risk_Factors_and_Prevention_Risk_Factors rdf:type owl:NamedIndividual ,
                                                                     :Webpage ;
-<<<<<<< HEAD
-                                                           :hasDefinitionOf :Diagnosis ,
-                                                                            :Genetics ,
-                                                                            :PreventionMethod ,
-                                                                            :Symptom ;
-=======
                                                            :hasDefinitionOf :PreventionMethod ,
                                                                             :RiskFactors ;
->>>>>>> b969763ec331bd3b177372a3f95a0493896a5c4e
                                                            :hasExcerpt "The newspapers are full of headlines about things that can help prevent dementia or things that increase your risk. This section explores the research evidence behind each topic."^^rdfs:Literal ;
                                                            :hasTitle "Risk factors - understanding the evidence"^^rdfs:Literal ;
                                                            :hasUrl "https://www.alzheimers.org.uk/info/20010/risk_factors_and_prevention#riskfactors"^^rdfs:Literal .
@@ -1669,13 +1647,7 @@ owl:Thing rdfs:label "Every Thing" .
 ###  http://isit990.azurewebsites.net/ontology/dementia-info/Webpage_AlzOrgUk_Traning_And_Consultancy
 :Webpage_AlzOrgUk_Traning_And_Consultancy rdf:type owl:NamedIndividual ,
                                                    :Webpage ;
-<<<<<<< HEAD
-                                          :hasDefinitionOf :CognitiveScreeningTests ,
-                                                           :Dementia ,
-                                                           :PreventionMethod ;
-=======
                                           :hasDefinitionOf :GeneralInformation ;
->>>>>>> b969763ec331bd3b177372a3f95a0493896a5c4e
                                           :hasExcerpt "We develop and deliver high quality training and consultancy services to staff across all sectors to provide them with the skills, knowledge and understanding to confidently care for and support people living with dementia. Prices start from just £595 per day for up to 16 people"^^rdfs:Literal ;
                                           :hasTitle "Training and consultancy"^^rdfs:Literal ;
                                           :hasUrl "https://www.alzheimers.org.uk/info/20050/training_and_consultancy"^^rdfs:Literal .
@@ -1684,16 +1656,7 @@ owl:Thing rdfs:label "Every Thing" .
 ###  http://isit990.azurewebsites.net/ontology/dementia-info/Webpage_AlzOrgUk_Type_Of_Dementia
 :Webpage_AlzOrgUk_Type_Of_Dementia rdf:type owl:NamedIndividual ,
                                             :Webpage ;
-<<<<<<< HEAD
-                                   :hasDefinitionOf :AlzheimersDisease ,
-                                                    :Dementia ,
-                                                    :DementiaWithLewyBodies ,
-                                                    :FrontotemporalDementia ,
-                                                    :TypesOfDementia ,
-                                                    :VascularDementia ;
-=======
                                    :hasDefinitionOf :DementiaTypes ;
->>>>>>> b969763ec331bd3b177372a3f95a0493896a5c4e
                                    :hasExcerpt "Dementia is the term used to describe a set of symptoms that occur when the brain is affected by disease."^^rdfs:Literal ;
                                    :hasTitle "Types of dementia"^^rdfs:Literal ;
                                    :hasUrl """https://www.alzheimers.org.uk/info/20007/types_of_dementia
@@ -1708,50 +1671,6 @@ c"""^^rdfs:Literal .
                                                       :hasExcerpt "Two thirds of the 850,000 people living with dementia in the UK today live independently within the community. We work with a variety of organisations across all industry sectors to equip staff, volunteers and managers with the knowledge and skills to engage effectively with people with dementia. All of our courses will be designed to meet the learning outcomes you require and can be tailored to reflect your organisation's setting."^^rdfs:Literal ;
                                                       :hasTitle "Third and voluntary sector training"^^rdfs:Literal ;
                                                       :hasUrl "https://www.alzheimers.org.uk/info/20133/voluntary_and_third_sector_training"^^rdfs:Literal .
-<<<<<<< HEAD
-
-
-###  http://isit990.azurewebsites.net/ontology/dementia-info/Webpage_AlzOrgUk_resources_For_Gps
-:Webpage_AlzOrgUk_resources_For_Gps rdf:type owl:NamedIndividual ,
-                                             :Webpage ;
-                                    :hasDefinitionOf :Dementia ,
-                                                     :Diagnosis ,
-                                                     :Symptom ,
-                                                     :Treatment ;
-                                    :hasExcerpt "You may want to refer people with dementia and their carers to some of our information and services listed below."^^rdfs:Literal ;
-                                    :hasTitle "Resources for GPs"^^rdfs:Literal ;
-                                    :hasUrl "https://www.alzheimers.org.uk/info/20136/resources_for_gps/515/resources_for_gps"^^rdfs:Literal .
-
-
-###  http://isit990.azurewebsites.net/ontology/dementia-info/Webpage_AlzOrgUk_resources_For_Gps_2
-:Webpage_AlzOrgUk_resources_For_Gps_2 rdf:type owl:NamedIndividual ,
-                                               :Webpage ;
-                                      :hasDefinitionOf :Diagnosis ,
-                                                       :Treatment ;
-                                      :hasExcerpt "DeAR-GP is a simple paper based case-finding tool which has been designed for use by care workers to identify people who are showing signs of dementia."^^rdfs:Literal ;
-                                      :hasTitle "DeAR-GP (Dementia Assessment Referral to GP)"^^rdfs:Literal ;
-                                      :hasUrl "https://www.alzheimers.org.uk/info/20136/resources_for_gps/515/resources_for_gps/2"^^rdfs:Literal .
-
-
-###  http://isit990.azurewebsites.net/ontology/dementia-info/Webpage_AlzOrgUk_resources_For_Gps_3
-:Webpage_AlzOrgUk_resources_For_Gps_3 rdf:type owl:NamedIndividual ,
-                                               :Webpage ;
-                                      :hasDefinitionOf :Diagnosis ;
-                                      :hasExcerpt "DiADeM is a tool to support GPs in diagnosing dementia for people living with advanced dementia in a care home setting. "^^rdfs:Literal ;
-                                      :hasTitle "DiADeM (Diagnosing Advanced Dementia Mandate)"^^rdfs:Literal ;
-                                      :hasUrl "https://www.alzheimers.org.uk/info/20136/resources_for_gps/515/resources_for_gps/3"^^rdfs:Literal .
-
-
-###  http://isit990.azurewebsites.net/ontology/dementia-info/Webpage_AlzOrgUk_resources_For_Gps_4
-:Webpage_AlzOrgUk_resources_For_Gps_4 rdf:type owl:NamedIndividual ,
-                                               :Webpage ;
-                                      :hasDefinitionOf :Diagnosis ,
-                                                       :RiskFactors ;
-                                      :hasExcerpt "People with dementia and their carers should be able to access general practice and receive the best quality care and support. Working with people with dementia and carers, as well as staff in GP practices, we’ve developed guidance on what should be in place to help ensure this. We are currently working with a number of GP practices to pilot using this guidance."^^rdfs:Literal ;
-                                      :hasTitle "Dementia friendly GP practices"^^rdfs:Literal ;
-                                      :hasUrl "https://www.alzheimers.org.uk/info/20136/resources_for_gps/515/resources_for_gps/4"^^rdfs:Literal .
-=======
->>>>>>> b969763ec331bd3b177372a3f95a0493896a5c4e
 
 
 ###  http://isit990.azurewebsites.net/ontology/dementia-info/Webpage_AlzOrgUk_resources_For_Professional_Resources_For_Pharmacist
